@@ -1,0 +1,23 @@
+body, html {
+	background-color: beige; 
+	font-family: Cambria, Georgia, serif;
+	
+}
+
+.uudise-lisamine-wrapper {
+	text-align: center;
+}
+
+#keskmine {
+	overflow: auto;
+	clear: both;
+}
+
+#uudise-vorm {
+	display: inline-block;
+	text-align: left;	
+}
+
+#uudise-vorm * , #uudise-kommentaar *{
+	margin-bottom: 1%;
+}​

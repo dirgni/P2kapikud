@@ -3,7 +3,9 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>Uudisteportaal</title>
+	<link rel="stylesheet" type="text/css" href="CSS\style.css">
+	<link rel="stylesheet" type="text/css" href="CSS\lisa-uudis.css">
 </head>
 
 <body>
@@ -25,8 +27,7 @@
 			<div id="pealmine_vasakpoolne">
 			
 				<div id="logo">
-					<!-- TODO Logo -->
-					Logo pilt
+					<!-- Done -->
 				</div>
 				
 				<div id="navigatsioon">
@@ -47,7 +48,7 @@
 				 <div id="RSS-button">RSS-pilt</div>
 				 <div id="otsing">
 				 	<form>
-				 		<input type="text" value="Sisesta otsisõna">
+				 		<input type="text" placeholder="Sisesta otsisõna">
 				 	</form>
 				 </div> <!-- otsing -->
 			</div> <!-- pealmine_parempoolne -->
@@ -55,9 +56,69 @@
 		</div> <!-- pealmine -->
 		
 		<div id="keskmine">
-			<!-- 
-				Siin toimub kogu maagia
+			<!-- TODO:
+				- Pealkiri
+				- Pildi osa
+				- Keha
+				- Autori osa
+				- Kommentaaride osa
 			 -->
+			 <div class="uudise-lisamine-wrapper">
+			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post">
+			 		<div class="vorm-wrapper">
+			 			<header id="uudise-header">
+			 				<div id="uudise-autor-select">
+			 					<span class="text">
+			 						Sisseloginud kirjutaja nimi
+			 					</span>	<!-- text -->
+			 				</div> <!-- uudise-autor-select -->
+			 			</header> <!-- uudise-header -->
+			 			<div id="uudise-sisu">
+			 				<div class="main-sisu">
+			 					<div class="uudise-sisu">
+			 						<div class="pealkiri-wrapper">
+			 							<input type="text" placeholder="Pealkiri">
+			 						</div> <!-- pealkiri-wrapper -->
+			 						<div class="pildi-wrapper">
+			 							<input type="file" accept="image/jpg,image/gif,image/png">
+			 						</div> <!-- pildi-wrapper -->
+			 						<div class="sisuteksti-wrapper">
+			 							<textarea rows="7" placeholder="Sisu"></textarea>
+			 						</div> <!-- sisuteksti-wrapper -->
+			 					</div> <!-- uudise-sisu -->
+			 					<div class="tagide-valik">
+			 						<input class="uudise-tagid" type="text" autocomplete="on" placeholder="tags">
+			 					</div> <!-- tagide-valik -->
+			 				</div> <!-- main-sisu -->
+			 			</div> <!-- uudise-sisu -->
+			 		</div> <!-- vorm-wrapper -->
+			 		<div class="tegevus-nupud">
+			 			<button type="button" class="tegevus-nupp">Postita uudis</button>
+			 			<button type="button" class="tegevus-nupp">Loobu</button>
+			 		</div> <!-- tegevus-nupud -->
+			 	</form> <!-- uudise-vorm -->
+			 </div> <!-- uudise-lisamine-wrapper -->
+			
+			 <div id="uudise-pilt" title="Click to add photos"></div> <!-- uudise-pilt -->
+			
+			 <div id="uudise-kommentaar">
+			 	<h3>Kommentaarid</h3>
+			 	<div id="uudise-kommentaar-vorm">
+			 		<form id="kommentaar-vorm" onsubmit="return true">
+		 				<div>
+		 					<input class="input-field" name="Nimi" placeholder="Nimi" type="text">
+		 				</div>
+		 				<div>
+		 					<textarea class="input-field" name="content" placeholder="Sisestage oma kommentaar siia." rows="5"></textarea>
+			 			</div>
+			 			<div>
+			 				<input class="submit-button" type="submit" value="Kommenteeri">
+			 				<input class="submit-button" type="reset" value="Tühjenda väljad">
+			 			</div>
+			 		</form> <!-- kommentaar-vorm -->
+			 	</div> <!-- uudise-kommentaar-vorm -->
+			 </div> <!-- uudise-kommentaar -->
+			 
 		</div> <!-- keskmine -->
 		
 		<div id="alumine">
