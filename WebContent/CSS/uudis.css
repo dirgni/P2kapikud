@@ -3,12 +3,17 @@
 }
 
 .uudis-pilt {
+<<<<<<< HEAD
+	float: left;
+=======
 	position:absolute;
 	right:0;
 	width: 30%
+>>>>>>> d9c1221588bed53bc2f631ec93878ea4901ce3a6
 }
 
 .uudis-tekst {
 	float: left;
-	width: 70%;
+	margin-right: 15px;
+	width: 60%;
 }
