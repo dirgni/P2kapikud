@@ -123,6 +123,9 @@ body {
 
 
 #otsing input{
+	background-image: url(../Images/search.png);
+	background-size:30% 100%;
+	background-repeat: no-repeat;
 	width:100%;
 	height: 100%;
 	-moz-border-radius: 1em 3em 1em 3em;
