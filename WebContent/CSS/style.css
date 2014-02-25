@@ -132,7 +132,7 @@ body {
 
 /*Päise osa*/
 #pealmine {
-	margin-top:3%;
+	padding-top:3%;
 	width:70%;
 	height:20%;
 	margin-left:auto;
@@ -144,11 +144,11 @@ body {
 /*Rakenduse osa mida ei muudeta*/
 #keskmine {
 	width:70%;
+	height:60%;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 3%;
 	display:block;
-	
 	position:relative;
 }
 #uudis-wrapper {
@@ -164,7 +164,6 @@ body {
 	margin-left:auto;
 	margin-right:auto;
 	display:block;
-	
 }
 
 
@@ -186,4 +185,61 @@ body {
 	height:100%;
 	background-image: url(../Images/help.png);
 	background-size:100% 100%;
+}
+
+
+#RSS {
+	width:100%;
+	height:100%;
+	background: rgb(54,25,25,0.5);
+	position:absolute;
+	z-index:2;
+}
+
+
+#rss_container {
+	padding-top:3%;
+	margin-top:3%;
+	padding-left:3%;
+	padding-right:3%;
+	margin-left:auto;
+	margin-right:auto;
+	height:70%;
+	width:70%;
+	background-color:white;
+	opacity:2;
+	display:block;
+}
+
+#Meldi {
+	width:100%;
+	height:100%;
+	background: rgb(54,25,25,0.5);
+	position:absolute;
+	z-index:2;
+}
+
+#meldi_container {
+	padding-top:3%;
+	margin-top:3%;
+	padding-left:3%;
+	padding-right:3%;
+	margin-left:auto;
+	margin-right:auto;
+	height:70%;
+	width:70%;
+	background-color:white;
+	opacity:2;
+	display:block;
+}
+
+
+
+.unvisible {
+	display:none;
+}
+
+
+.visible {
+	display:block;
 }
