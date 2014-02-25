@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+#uudiste_tabel{
+	margin-left:0;
+	margin-right:0;
+}
+
+#uudiste_tabel table{
+	width:100%;
+	height:100%;
+}
+
+#uudiste_tabel th{
+	text-align:left;
+}
