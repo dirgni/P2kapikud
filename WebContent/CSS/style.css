@@ -1,0 +1,175 @@
+/*
+	Kasutamiseks et kontrollida div-i
+	border:1px solid black;
+
+*/
+
+
+html {
+	height:100%;
+	padding:0;
+	margin:0;
+}
+
+body {
+	width:100%;
+	height:89%;
+	padding:0;
+	margin:0;
+	background-color:#D0D0D0;
+}
+
+#RSS {
+	display:none;
+}
+
+#Meldi {
+	display:none;
+}
+
+
+#Rakendus {
+	width:100%;
+	height:100%;
+	display:block;
+}
+
+
+
+
+#pealmine_vasakpoolne {
+	width:70%;
+	height:100%;
+	position:absolute;
+	left:0;
+}
+
+
+#logo {
+	width:100%;
+	height:100%;
+	background-image: url(../Images/logo-large.png);
+	background-size:100% 100%;
+	background-repeat: no-repeat;
+	display:block;
+	left:0;
+	position:absolute;
+}
+
+#logo:hover{
+	width:100%;
+	height:100%;
+	background-image: url(../Images/logo-small.png);
+	background-size:20% 100%;
+} 
+
+
+#navigatsioon {
+	width:70%;
+	height:100%;
+	right:0;
+	position:absolute;
+}
+
+
+
+
+#pealmine_parempoolne {
+	width:30%;
+	height:100%;
+	position:absolute;
+	right:0;
+}
+
+
+#buttons {
+	position:relative;
+	width:100%;
+	height:50%;
+}
+
+#RSS-button{
+	width:20%;
+	height:100%;
+	position:absolute;
+	right:0;
+}
+
+#LOGIN-button{
+	width:55%;
+	height:50%;
+	position:absolute;
+	left:0;
+}
+
+#LOGIN-button button{
+	height:100%;
+	width:100%;
+}
+
+
+
+#otsing input{
+	width:100%;
+	height: 100%;
+	padding: 1em;
+	-moz-border-radius: 1em 4em 1em 4em;
+	border-radius: 1em 4em 1em 4em;
+}
+
+/*Päise osa*/
+#pealmine {
+	margin-top:3%;
+	width:70%;
+	height:20%;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	
+	border:1px solid black;
+}
+
+/*Rakenduse osa mida ei muudeta*/
+#keskmine {
+	width:70%;
+	height:60%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 3%;
+	display:block;
+	
+	border:1px solid black;
+	position:relative;
+}
+
+
+/*Jaluse osa*/
+#alumine {
+	margin-top: 3%;
+	width:70%;
+	height:5%;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	border:1px solid black;
+	
+}
+
+
+#valideeringud{
+	float:left;
+	width:30%;
+	height:100%;
+}
+
+#kontakt{
+	float:left;	
+	width:60%;
+	height:100%;
+}
+
+#abinupp{
+	float:right;	
+	width:10%;
+	height:100%;
+}
