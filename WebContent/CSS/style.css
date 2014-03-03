@@ -1,7 +1,6 @@
 /*
 	Kasutamiseks et kontrollida div-i
 	border:1px solid black;
-
 */
 
 
@@ -17,6 +16,8 @@ body {
 	padding:0;
 	margin:0;
 	background-color:#D0D0D0;
+	font-family: Cambria, Georgia, serif;
+	overflow-y: scroll;
 }
 
 #RSS {
@@ -34,16 +35,12 @@ body {
 	display:block;
 }
 
-
-
-
 #pealmine_vasakpoolne {
 	width:70%;
 	height:100%;
 	position:absolute;
 	left:0;
 }
-
 
 #logo {
 	width:100%;
@@ -74,16 +71,12 @@ body {
 	position:absolute;
 }
 
-
-
-
 #pealmine_parempoolne {
 	width:30%;
 	height:100%;
 	position:absolute;
 	right:0;
 }
-
 
 #buttons {
 	position:relative;
@@ -116,18 +109,14 @@ body {
 	width:100%;
 }
 
-
 #otsing{
 	width:100%;
 	height:50%;
-
 }
 
 #otsing form{
 	height:70%;
-	
 }
-
 
 #otsing input{
 	background-image: url(../Images/search.png);
@@ -140,7 +129,7 @@ body {
 	text-align:center;
 }
 
-/*PÃ¤ise osa*/
+/*Päise osa*/
 #pealmine {
 	padding-top:3%;
 	width:70%;
@@ -161,8 +150,6 @@ body {
 	position:relative;
 }
 
-
-
 /*Jaluse osa*/
 #alumine {
 	margin-top: 3%;
@@ -173,15 +160,12 @@ body {
 	display:block;
 }
 
-
 #valideeringud{
-
 	width:30%;
 	height:100%;
 }
 
 #kontakt{
-
 	width:60%;
 	height:100%;
 }
@@ -206,7 +190,6 @@ body {
 	position:absolute;
 	z-index:2;
 }
-
 
 #rss_container {
 	padding-top:3%;
@@ -244,13 +227,51 @@ body {
 	display:block;
 }
 
-
-
 .invisible {
 	display:none;
 }
 
-
 .visible {
 	display:block;
 }
+
+/* Navigation bar'i style */
+#top-navi {
+	background: #453823;
+	color: #B0A378;
+	text-align: center;
+	padding: 10px 0 10px 0;
+	height: 14px;
+	overflow: hidden;
+	-webkit-transition: height 0.5s linear;
+	-moz-transition: height 0.5s linear;
+	-o-transition: height 0.5s linear;
+	transition: height 0.5s linear;
+}
+ 
+#top-navi-hidden {
+	display: block;
+	width: 100%;
+	background: #453823;
+	color: #B0A378;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 8px 0; 	
+}
+
+#top-navi:hover { 
+	height: 50px; 
+}
+
+#top-navi-hidden a {
+	 color: white;
+	 font-size: 1.0em;
+	 text-decoration: none;
+	 opacity: 0.5;
+}
+
+#top-navi-hidden a:hover { 
+	opacity: 1; 
+}
+/* Navigation bar'i style - end */

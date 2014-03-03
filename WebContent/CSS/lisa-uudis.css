@@ -1,7 +1,6 @@
 body, html {
 	background-color: beige; 
 	font-family: Cambria, Georgia, serif;
-	
 }
 
 .uudise-lisamine-wrapper {
@@ -31,6 +30,8 @@ body, html {
 	margin-bottom: 1%;
 }
 
+/* Asendatud top-nav'iga..
+
 #navi {
 	list-style-type: none;
 	margin: 50px;
@@ -55,4 +56,5 @@ body, html {
 
 #navi li a:hover { 
 	background-color: black; 
-}
+} */
+
