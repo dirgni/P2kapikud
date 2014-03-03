@@ -15,9 +15,44 @@ body, html {
 
 #uudise-vorm {
 	display: inline-block;
+	width: 90%;
 	text-align: left;	
 }
 
-#uudise-vorm * , #uudise-kommentaar *{
+#uudise-vorm input {
+	width: 60%;
+}
+
+#uudise-vorm textarea {
+	width: 100%;
+}
+
+#uudise-vorm * {
 	margin-bottom: 1%;
-}​
+}
+
+#navi {
+	list-style-type: none;
+	margin: 50px;
+	display: block;
+}
+
+#navi ul li a {
+    background: transparent;
+    width: 150px;
+}
+
+#navi li { 
+	float: left; 
+}
+
+#navi li a {
+    color: blue;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px;
+}
+
+#navi li a:hover { 
+	background-color: black; 
+}

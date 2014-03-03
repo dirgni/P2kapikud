@@ -1,5 +1,6 @@
 #keskmine {
-	
+	position: relative;
+	clear: both;
 }
 
 .uudis-pilt {
@@ -13,4 +14,20 @@
 	float: left;
 	margin-right: 15px;
 	width: 60%;
+}
+
+#uudise-kommentaar *{
+	margin-bottom: 1%;
+}
+
+#uudis-wrapper {
+	clear: both;
+	background-color: brown;
+	height: 100%;
+}
+
+#uudise-kommentaar form{
+	display: inline-block;
+	width: 90%;
+	text-align: left;	
 }
