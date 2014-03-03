@@ -1,11 +1,6 @@
-#keskmine {
-	position: relative;
-	clear: both;
-}
-
 .uudis-pilt {
 	float: left;
-	position:absolute;
+	position:relative;
 	right:0;
 	width: 30%
 }
@@ -16,18 +11,19 @@
 	width: 60%;
 }
 
-#uudise-kommentaar *{
-	margin-bottom: 1%;
+#uudise-kommentaar {
+	position: relative;
+	width: 30%;	
 }
 
-#uudis-wrapper {
-	clear: both;
-	background-color: brown;
-	height: 100%;
+#uudise-kommentaar textarea {
+	width: 100%;
 }
 
-#uudise-kommentaar form{
-	display: inline-block;
-	width: 90%;
-	text-align: left;	
+#box-2 {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 10px;
+	border: 5px solid red;
 }

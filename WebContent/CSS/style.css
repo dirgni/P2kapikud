@@ -147,16 +147,13 @@ body {
 /*Rakenduse osa mida ei muudeta*/
 #keskmine {
 	width:70%;
-	height:60%;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 3%;
 	display:block;
 	position:relative;
 }
-#uudis-wrapper {
-	height: 60%;
-}
+
 
 
 /*Jaluse osa*/
