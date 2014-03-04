@@ -4,18 +4,33 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Uudisteportaal</title>
-	<link rel="stylesheet" type="text/css" href="CSS\style.css">
-	<link rel="stylesheet" type="text/css" href="CSS\uudis.css">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<link rel="stylesheet" type="text/css" href="CSS/uudis.css">
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="JavaScript/scripture.js"></script>
+	
+	<link rel="icon" type="image/png" href="Images\logo-small.png">
 </head>
 
 <body>
+	<div id="top-navi">
+		Navigeeri
+	  	<div id="top-navi-hidden">
+			<a href="index.html">Avaleht</a> | 
+			<a href="lisa-uudis.html">Lisa uudis</a> | 
+			<a href="tabel.html">Uudised</a>
+		</div>
+	</div>
 	<div id="RSS" class="invisible">
 		<!-- 
 			TODO Overlayer
 			TODO RSS lisamine
 		 -->
 		 <div id="rss_container">
-		 		.
+		 		<div>Email: <input></div>
+		 		<div>Nimi: <input></div>
+		 		<button onclick="makeHidden('RSS');">Cancel</button>
 		 </div>
 	</div> <!-- RSS -->
 	
@@ -37,10 +52,12 @@
 					<!-- Done -->
 				</div>
 				
+			<!-- 	Asendatud top-navi'ga
+			
 				<div id="navigatsioon">
-					<!-- TODO Navigatsioon -->
+					TODO Navigatsioon
 					Navigatsioon
-				</div> 
+				</div>  -->
 				
 			</div> <!-- pealmine_vasakpoolne -->
 			
@@ -55,11 +72,11 @@
 				 	<div id="LOGIN-button">
 				 		<button id="login">Meldi</button>
 				 	</div>
-				 	<div id="RSS-button"></div>
+				 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
 				 </div>
 				 
 				 <div id="otsing">
-				 	<form>
+				 	<form action="tabel.html">
 				 		<input type="text" placeholder="Sisesta otsisõna">
 				 	</form>
 				 </div> <!-- otsing -->
@@ -84,14 +101,25 @@
 					arcu mauris et massa. Praesent metus est, ultricies id tincidunt id,
 					venenatis nec leo. Aenean eget arcu eget dolor congue commodo et in
 					turpis.
+					<br><br>
+					Lorem ipsum dolor sit amet,
+					consectetur adipiscing elit. Fusce nec metus nec odio pharetra
+					ultrices et eget ante. Vivamus adipiscing ante erat, ut molestie sem
+					vulputate eu. Aliquam ipsum urna, facilisis quis sodales eget,
+					fringilla a ipsum. Praesent sapien nulla, mattis vitae scelerisque
+					et, porttitor at nulla. Vestibulum vel turpis congue arcu ornare
+					fermentum sed nec elit. Mauris quis convallis elit. Proin aliquet,
+					sapien non congue pretium, ante libero tristique nulla, id porttitor
+					arcu mauris et massa. Praesent metus est, ultricies id tincidunt id,
+					venenatis nec leo. Aenean eget arcu eget dolor congue commodo et in
+					turpis.
 				</div> <!-- uudis-tekst -->
 				<div class="uudis-pilt">
-					<img alt="olümpiavõtitja legkov" src="Images\legkov.jpg" width="100%"
-						height="100%">
+					<img class="main-pilt" alt="olümpiavõtitja legkov" src="Images\legkov.jpg">
 				</div> <!-- uudis-pilt -->
 			</div> <!-- uudis-wrapper -->
 			
-			<div class="box-2"></div>
+			<div class="clear"></div>
 			
 			<div id="uudise-kommentaar">
 			 	<h3>Kommentaarid</h3>
@@ -104,13 +132,15 @@
 			 </div> <!-- uudise-kommentaar -->
 			
 		</div> <!-- keskmine -->
-
+		
 		<div id="alumine">
 			<div id="valideeringud">Valideeringud (HTML, CSS)</div>
 			<div id="kontakt">Kontakt</div>
 			<div id="abinupp"></div>
 		</div><!-- jalus -->
+
 	</div><!-- Rakendus -->
+		
 </body>
 
 </html>

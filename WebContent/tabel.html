@@ -4,20 +4,33 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Uudisteportaal</title>
-	<link rel="stylesheet" type="text/css" href="CSS\style.css">
-	<link rel="stylesheet" type="text/css" href="CSS\tabel.css">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<link rel="stylesheet" type="text/css" href="CSS/tabel.css">
 	
-
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="JavaScript/scripture.js"></script>
+	
+	<link rel="icon" type="image/png" href="Images\logo-small.png">
 </head>
 
 <body>
+	<div id="top-navi">
+		Navigeeri
+	  	<div id="top-navi-hidden">
+			<a href="index.html">Avaleht</a> | 
+			<a href="lisa-uudis.html">Lisa uudis</a> | 
+			<a href="tabel.html">Uudised</a>
+		</div>
+	</div>
 	<div id="RSS" class="invisible">
 		<!-- 
 			TODO Overlayer
 			TODO RSS lisamine
 		 -->
 		 <div id="rss_container">
-		 		.
+		 		<div>Email: <input></div>
+		 		<div>Nimi: <input></div>
+		 		<button onclick="makeHidden('RSS');">Cancel</button>
 		 </div>
 	</div> <!-- RSS -->
 	
@@ -40,10 +53,11 @@
 					<!-- Done -->
 				</div>
 				
+				<!-- Asendatud top-navi'ga
 				<div id="navigatsioon">
-					<!-- TODO Navigatsioon -->
+					TODO Navigatsioon
 					Navigatsioon
-				</div> 
+				</div>  -->
 				
 			</div> <!-- pealmine_vasakpoolne -->
 			
@@ -58,11 +72,11 @@
 				 	<div id="LOGIN-button">
 				 		<button id="login">Meldi</button>
 				 	</div>
-				 	<div id="RSS-button"></div>
+				 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
 				 </div>
 				 
 				 <div id="otsing">
-				 	<form>
+				 	<form action="tabel.html">
 				 		<input type="text" placeholder="Sisesta otsisõna">
 				 	</form>
 				 </div> <!-- otsing -->
@@ -88,7 +102,7 @@
 			 		<tr>
 			 			<td>14.02.2014</td>
 			 			<td>14:45</td>
-			 			<td>Maasikad on magusad</td>
+			 			<td><a class="temp_link" href="uudis.html">Maasikad on magusad</a></td>
 			 			<td>100</td>
 			 			<td>10</td>
 			 			<td>X</td>
@@ -97,7 +111,7 @@
 			 		<tr>
 			 			<td>14.02.2014</td>
 			 			<td>14:59</td>
-			 			<td>Lumesõda hoovis</td>
+			 			<td><a class="temp_link" href="uudis.html">Lumesõda hoovis</a></td>
 			 			<td>59</td>
 			 			<td>3</td>
 			 			<td>X</td>
@@ -106,7 +120,7 @@
 			 		<tr>
 			 			<td>14.02.2014</td>
 			 			<td>15:10</td>
-			 			<td>Uudiste uudis</td>
+			 			<td><a class="temp_link" href="uudis.html">Uudiste uudis</a></td>
 			 			<td>10</td>
 			 			<td>1</td>
 			 			<td>X</td>

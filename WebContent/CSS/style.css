@@ -1,12 +1,10 @@
 /*
 	Kasutamiseks et kontrollida div-i
 	border:1px solid black;
-
 */
 
 
 html {
-	height:100%;
 	padding:0;
 	margin:0;
 }
@@ -17,6 +15,8 @@ body {
 	padding:0;
 	margin:0;
 	background-color:#D0D0D0;
+	font-family: Cambria, Georgia, serif;
+	overflow-y: scroll;
 }
 
 #RSS {
@@ -30,12 +30,9 @@ body {
 
 #Rakendus {
 	width:100%;
-	height:100%;
+	/* height:100%; */
 	display:block;
 }
-
-
-
 
 #pealmine_vasakpoolne {
 	width:70%;
@@ -44,10 +41,9 @@ body {
 	left:0;
 }
 
-
 #logo {
 	width:100%;
-	height:70%;
+	height:80%;
 	background-image: url(../Images/logo-large.png);
 	background-size:100% 100%;
 	background-repeat: no-repeat;
@@ -65,17 +61,14 @@ body {
 	background-size:20% 100%;
 } 
 */
-
+/* 
 #navigatsioon {
 	width:100%;
 	height:30%;
 	bottom:0;
 	left:0;
 	position:absolute;
-}
-
-
-
+} */
 
 #pealmine_parempoolne {
 	width:30%;
@@ -83,7 +76,6 @@ body {
 	position:absolute;
 	right:0;
 }
-
 
 #buttons {
 	position:relative;
@@ -116,18 +108,14 @@ body {
 	width:100%;
 }
 
-
 #otsing{
 	width:100%;
 	height:50%;
-
 }
 
 #otsing form{
 	height:70%;
-	
 }
-
 
 #otsing input{
 	background-image: url(../Images/search.png);
@@ -140,11 +128,13 @@ body {
 	text-align:center;
 }
 
-/*PÃ¤ise osa*/
+/*Päise osa*/
 #pealmine {
-	padding-top:3%;
+/* 	padding-top:3%; */
+	padding: 2%;
 	width:70%;
-	height:20%;
+/* 	height:20%; */
+	height: 100px;
 	margin-left:auto;
 	margin-right:auto;
 	position:relative;
@@ -159,37 +149,36 @@ body {
 	margin-top: 3%;
 	display:block;
 	position:relative;
+	height: inherit;
 }
-
 
 
 /*Jaluse osa*/
 #alumine {
 	margin-top: 3%;
 	width:70%;
-	height:5%;
 	margin-left:auto;
 	margin-right:auto;
 	display:block;
 }
 
-
 #valideeringud{
-
 	width:30%;
 	height:100%;
 }
 
 #kontakt{
-
 	width:60%;
 	height:100%;
+	top:0;
 }
 
 #abinupp{
-	float:right;	
+	position:absolute;
+	top:0;
+	right:0;
 	width:2em;
-	height:100%;
+	height:2em;
 	background-image: url(../Images/help.png);
 	background-size:100% 100%;
 }
@@ -202,11 +191,10 @@ body {
 #RSS {
 	width:100%;
 	height:100%;
-	background: rgb(54,25,25,0.5);
+	background: #D3D3D3;
 	position:absolute;
 	z-index:2;
 }
-
 
 #rss_container {
 	padding-top:3%;
@@ -225,7 +213,7 @@ body {
 #Meldi {
 	width:100%;
 	height:100%;
-	background: rgb(54,25,25,0.5);
+	background: #D3D3D3;
 	position:absolute;
 	z-index:2;
 }
@@ -244,13 +232,58 @@ body {
 	display:block;
 }
 
-
-
 .invisible {
 	display:none;
 }
 
 
-.visible {
-	display:block;
+.main-pilt{
+	width: 100%;
+	height: 100%;
+}
+
+/* Navigation bar'i style */
+#top-navi {
+	background: #453823;
+	color: #B0A378;
+	text-align: center;
+	padding: 10px 0 10px 0;
+	height: 14px;
+	overflow: hidden;
+	-webkit-transition: height 0.5s linear;
+	-moz-transition: height 0.5s linear;
+	-o-transition: height 0.5s linear;
+	transition: height 0.5s linear;
+}
+ 
+#top-navi-hidden {
+	display: block;
+	width: 100%;
+	background: #453823;
+	color: #B0A378;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding: 8px 0; 	
+}
+
+#top-navi:hover { 
+	height: 50px; 
+}
+
+#top-navi-hidden a {
+	 color: white;
+	 font-size: 1.0em;
+	 text-decoration: none;
+	 opacity: 0.5;
+}
+
+#top-navi-hidden a:hover { 
+	opacity: 1; 
+}
+/* Navigation bar'i style - end */
+
+.temp_link {
+	text-decoration: none;
+	color: black;
 }

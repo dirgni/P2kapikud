@@ -4,18 +4,33 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Uudisteportaal</title>
-	<link rel="stylesheet" type="text/css" href="CSS\style.css">
-	<link rel="stylesheet" type="text/css" href="CSS\lisa-uudis.css">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<link rel="stylesheet" type="text/css" href="CSS/lisa-uudis.css">
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="JavaScript/scripture.js"></script>
+	
+	<link rel="icon" type="image/png" href="Images\logo-small.png">
 </head>
 
 <body>
+	<div id="top-navi">
+		Navigeeri
+	  	<div id="top-navi-hidden">
+			<a href="index.html">Avaleht</a> | 
+			<a href="lisa-uudis.html">Lisa uudis</a> | 
+			<a href="tabel.html">Uudised</a>
+		</div>
+	</div>
 	<div id="RSS" class="invisible">
 		<!-- 
 			TODO Overlayer
 			TODO RSS lisamine
 		 -->
 		 <div id="rss_container">
-		 		.
+		 		<div>Email: <input></div>
+		 		<div>Nimi: <input></div>
+		 		<button onclick="makeHidden('RSS');">Cancel</button>
 		 </div>
 	</div> <!-- RSS -->
 	
@@ -37,14 +52,16 @@
 					<!-- Done -->
 				</div>
 				
+<!-- 			Asendatud, top-navi'ga. Hetkel jätab veel alles juhul kui ümber otsustab :P
+
 				<div id="navigatsioon">
-					<!-- TODO Navigatsioon -->
+					TODO Navigatsioon
 					<ul id="navi">
 					    <li><a href="index.html">Avaleht</a></li>
-					    <li><a href="uudis.html">Lisa uudis</a></li>
+					    <li><a href="lisa-uudis.html">Lisa uudis</a></li>
 					    <li><a href="tabel.html">Uudised</a></li>
 					</ul>
-				</div> 
+				</div>  -->
 				
 			</div> <!-- pealmine_vasakpoolne -->
 			
@@ -59,11 +76,11 @@
 				 	<div id="LOGIN-button">
 				 		<button id="login">Meldi</button>
 				 	</div>
-				 	<div id="RSS-button"></div>
+				 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
 				 </div>
 				 
 				 <div id="otsing">
-				 	<form>
+				 	<form action="tabel.html">
 				 		<input type="text" placeholder="Sisesta otsisõna">
 				 	</form>
 				 </div> <!-- otsing -->
@@ -83,25 +100,26 @@
 			 -->
 			 <div class="uudise-lisamine-wrapper">
 			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post">
+			 	
 	 				<div id="uudise-autor-select">
  						Sisseloginud kirjutaja nimi
 	 				</div> <!-- uudise-autor-select -->
-					<div class="pealkiri-wrapper">
+	 				
+					<div id="uudise-andmed">
 						<input type="text" placeholder="Pealkiri">
-					</div> <!-- pealkiri-wrapper -->
-					<div class="pildi-wrapper">
 						<input type="file" accept="image/jpg,image/gif,image/png">
-					</div> <!-- pildi-wrapper -->
-					<div class="sisuteksti-wrapper">
 						<textarea rows="7" placeholder="Sisu"></textarea>
-					</div> <!-- sisuteksti-wrapper -->
+					</div> <!-- uudise-andmed -->
+					
  					<div class="tagide-valik">
  						<input class="uudise-tagid" type="text" autocomplete="on" placeholder="tags">
  					</div> <!-- tagide-valik -->
+ 					
 			 		<div class="tegevus-nupud">
 			 			<button type="button" class="tegevus-nupp">Postita uudis</button>
 			 			<button type="button" class="tegevus-nupp">Loobu</button>
 			 		</div> <!-- tegevus-nupud -->
+			 		
 			 	</form> <!-- uudise-vorm -->
 			 </div> <!-- uudise-lisamine-wrapper -->
 			
@@ -113,9 +131,9 @@
 				TODO Valideeringud
 				TODO Abinupp
 			 -->
-			 <div id="valideeringud">Valideeringud (HTML, CSS)</div>
+			<!--  <div id="valideeringud">Valideeringud (HTML, CSS)</div>
 			 <div id="kontakt">Kontakt</div>
-			 <div id="abinupp"></div>
+			 <div id="abinupp"></div> -->
 		</div> <!-- alumine -->
 	</div> <!-- Rakendus -->
 </body>

@@ -11,6 +11,19 @@
 	width: 60%;
 }
 
+input, textarea{
+	font-family: Cambria, Georgia, serif;
+}
+
+#kommentaar-vorm * {
+	margin-bottom: 2%;
+}
+
+#uudis-wrapper{
+	height: 100%;
+	display: inline-block;
+}
+
 #uudise-kommentaar {
 	position: relative;
 	width: 30%;	
@@ -18,12 +31,10 @@
 
 #uudise-kommentaar textarea {
 	width: 100%;
+	overflow: auto;
+	resize: none;
 }
 
-#box-2 {
-	position: relative;
-	float: left;
-	width: 100%;
-	height: 10px;
-	border: 5px solid red;
+.clear{
+	clear:both;
 }
