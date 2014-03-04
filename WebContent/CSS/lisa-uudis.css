@@ -7,6 +7,10 @@ body, html {
 	text-align: center;
 }
 
+input {
+	font-family: Cambria, Georgia, serif;
+}
+
 #keskmine {
 	overflow: auto;
 	clear: both;
@@ -24,6 +28,9 @@ body, html {
 
 #uudise-vorm textarea {
 	width: 100%;
+	resize: none;
+/*  outline-color: yellow; */
+	overflow: auto;
 }
 
 #uudise-vorm * {
