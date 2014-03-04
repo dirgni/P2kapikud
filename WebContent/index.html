@@ -7,6 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="CSS\style.css">
 	<link rel="stylesheet" type="text/css" href="CSS\uudis.css">
 	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="JavaScript/scripture.js"></script>
+	
 	<link rel="icon" type="image/png" href="Images\logo-small.png">
 </head>
 
@@ -25,7 +28,9 @@
 			TODO RSS lisamine
 		 -->
 		 <div id="rss_container">
-		 		.
+		 		<div>Email: <input></div>
+		 		<div>Nimi: <input></div>
+		 		<button onclick="makeHidden('RSS');">Cancel</button>
 		 </div>
 	</div> <!-- RSS -->
 	
@@ -68,7 +73,7 @@
 				 	<div id="LOGIN-button">
 				 		<button id="login">Meldi</button>
 				 	</div>
-				 	<div id="RSS-button"></div>
+				 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
 				 </div>
 				 
 				 <div id="otsing">
