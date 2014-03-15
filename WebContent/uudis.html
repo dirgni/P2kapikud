@@ -122,13 +122,57 @@
 			<div class="clear"></div>
 			
 			<div id="uudise-kommentaar">
+				
 			 	<h3>Kommentaarid</h3>
-		 		<form id="kommentaar-vorm" onsubmit="return true">
- 					<input class="input-field" name="Nimi" placeholder="Nimi" type="text">
- 					<textarea class="input-field" name="content" placeholder="Sisestage oma kommentaar siia." rows="5"></textarea>
-	 				<input class="submit-button" type="submit" value="Kommenteeri">
-	 				<input class="submit-button" type="reset" value="Tühjenda väljad">
-		 		</form> <!-- kommentaar-vorm -->
+			 	<div id="uudise-kommentaar-vorm">
+			 		<form id="kommentaar-vorm" onsubmit="return true">
+	 					<input class="input-field" name="Nimi" placeholder="Nimi" type="text">
+	 					<textarea class="input-field" name="content" placeholder="Sisestage oma kommentaar siia." rows="5"></textarea>
+		 				<input class="submit-button" type="submit" value="Kommenteeri">
+		 				<input class="submit-button" type="reset" value="Tühjenda väljad">
+			 		</form> <!-- kommentaar-vorm -->
+		 		</div> <!-- uudise-kommentaar-vorm -->
+		 		<div id="uudise-kommentaar-list">
+		 			<blockquote>
+		 			<div class="kommentaar" id="kommentaar-001">
+		 				<span class="kommentaar-aeg"> 5 minutit tagasi - </span>
+		 				<span class="kommentaar-autor"> maia </span>
+		 				<blockquote class="kommentaar-sisu"> esimene! :D </blockquote>
+		 			</div> <!-- kommentaar-001 -->
+		 			
+		 			<div class="kommentaar" id="kommentaar-002">
+		 				<span class="kommentaar-aeg">59 minutit tagasi - </span>
+		 				<span class="kommentaar-autor"> suusk </span>
+		 				<blockquote class="kommentaar-sisu">
+	 						Kus see lumi on? 
+							Eestis tuleb lõpetada suusasport. 
+							Eesti suustajad Lapimaale elama ja treenima.
+						</blockquote>
+		 			</div> <!-- kommentaar-002 -->
+		 			
+		 			<div class="kommentaar" id="kommentaar-003">
+		 				<span class="kommentaar-aeg"> 1 tund tagasi - </span>
+		 				<span class="kommentaar-autor"> nojah </span>
+		 				<blockquote class="kommentaar-sisu"> vaat siis kui tore.  </blockquote>
+		 			</div> <!-- kommentaar-003 -->
+		 			
+		 			<div class="kommentaar" id="kommentaar-004">
+		 				<span class="kommentaar-aeg"> 6 tundi tagasi - </span>
+		 				<span class="kommentaar-autor"> Martin Mardikass</span>
+		 				<blockquote class="kommentaar-sisu">
+		 					Siin pole enam midagi teha. 
+		 					Ise läheb suusatama. Ehk õnnestub paremini hakkama saada kui meie noorukid siin.
+		 					Minu ajal oli ikka kõik teisiti. Ega midagi muud polegi öelda kui: Noorus on hukas.
+		 				</blockquote>
+		 			</div> <!-- kommentaar-004 -->
+		 			
+		 			<div class="kommentaar" id="kommentaar-005">
+		 				<span class="kommentaar-aeg"> 2 päeva tagasi - </span>
+		 				<span class="kommentaar-autor"> </span>
+		 				<blockquote class="kommentaar-sisu"> tore lugu siis </blockquote>
+		 			</div> <!-- kommentaar-005 -->
+		 			</blockquote>
+		 		</div> <!-- uudise-kommentaar-list -->
 			 </div> <!-- uudise-kommentaar -->
 			
 		</div> <!-- keskmine -->

@@ -23,10 +23,20 @@ input, textarea{
 	height: 100%;
 	display: inline-block;
 }
+	
+.kommentaar {
+	margin-bottom: 30px;
+	border-bottom: thin;
+	border-bottom-style: outset;
+}
+
+.kommentaar-autor {
+	font-style: italic;
+	font-weight: bold;
+}
 
 #uudise-kommentaar {
 	position: relative;
-	width: 30%;	
 }
 
 #uudise-kommentaar textarea {
