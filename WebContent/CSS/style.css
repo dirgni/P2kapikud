@@ -3,8 +3,9 @@
 	border:1px solid black;
 */
 
-
 html {
+	min-width: 600px;
+	min-height: 750px;
 	padding:0;
 	margin:0;
 }
@@ -17,20 +18,27 @@ body {
 	background-color: #B0AB78;
 	font-family: Cambria, Georgia, serif;
 	overflow-y: scroll;
-	background: url("../Images/bjoon.png") no-repeat top center fixed;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+	background: url("../Images/bjoon.png") no-repeat top center;
+	-webkit-background-size: 100% auto;
+	-moz-background-size: 100% auto;
+	-o-background-size: 100% auto;
+	 background-size: 100% auto;
 }
 
-#RSS {
-	display:none;
+@media only screen and (max-width: 400px) and (max-height: 700px), 
+	handheld and (orientation: landscape){
+		body {
+			background: #B0AB78;
+		}
 }
 
-#Meldi {
-	display:none;
-}
+/* #RSS { */
+/* 	display:none; */
+/* } */
+
+/* #Meldi { */
+/* 	display:none; */
+/* } */
 
 
 #Rakendus {
@@ -89,6 +97,7 @@ body {
 }
 
 #RSS-button{
+	margin-right: 4%;
 	width:15%;
 	height:50%;
 	position:absolute;
@@ -148,8 +157,7 @@ body {
 
 /*Päise osa*/
 #pealmine {
-/* 	padding-top:3%; */
-	padding: 2%;
+	padding: 55px 2% 2% 2%;
 	width:70%;
 /* 	height:20%; */
 	height: 100px;
@@ -172,7 +180,7 @@ body {
 	padding: 1%;
 	border: 2px solid #453823;
 	border-radius: 15px;
-	box-shadow: 10px 10px 5px #888888;
+	box-shadow: 7px 7px 12px #453823;
 }
 
 
@@ -190,6 +198,16 @@ body {
 	height:100%;
 }
 
+#html-valid {
+	height:31px;
+	box-shadow: 1px 1px 1px #453823;
+}
+
+#css-valid {
+	height: 31px;
+	width: 88px;
+}
+
 #kontakt{
 	width:60%;
 	height:100%;
@@ -197,13 +215,15 @@ body {
 }
 
 #abinupp{
-	position:absolute;
-	top:0;
-	right:0;
-	width:2em;
-	height:2em;
+	position: fixed;
+	top: 0;
+	right: 0;
+	margin: 5px;
+	width: 31px;
+	height: 31px;
 	background-image: url(../Images/help.png);
 	background-size:100% 100%;
+	z-index: 2;
 }
 
 #abinupp:hover{
@@ -229,9 +249,9 @@ body {
 	z-index:2;
 }
 
-#rss_container {
+#rss_container, #meldi_container{
 	padding-top:3%;
-	margin-top:3%;
+	margin-top:55px;
 	padding-left:3%;
 	padding-right:3%;
 	margin-left:auto;
@@ -241,6 +261,7 @@ body {
 	background-color:white;
 	opacity:2;
 	display:block;
+	overflow-y: scroll;
 }
 
 #Meldi {
@@ -252,22 +273,12 @@ body {
 	z-index:2;
 }
 
-#meldi_container {
-	padding-top:3%;
-	margin-top:3%;
-	padding-left:3%;
-	padding-right:3%;
-	margin-left:auto;
-	margin-right:auto;
-	height:70%;
-	width:70%;
-	background-color:white;
-	opacity:2;
-	display:block;
+.invisible {
+	display: none;
 }
 
-.invisible {
-	display:none;
+.visible{
+	display: block;
 }
 
 
@@ -278,43 +289,27 @@ body {
 
 /* Navigation bar'i style */
 #top-navi {
-	background: #453823;
-	color: #B0A378;
-	text-align: center;
-	padding: 10px 0 10px 0;
-	height: 14px;
-	overflow: hidden;
-	-webkit-transition: height 0.5s linear;
-	-moz-transition: height 0.5s linear;
-	-o-transition: height 0.5s linear;
-	transition: height 0.5s linear;
-}
- 
-#top-navi-hidden {
-	display: block;
+	position: fixed;
 	width: 100%;
 	background: #453823;
 	color: #B0A378;
 	text-align: center;
+	text-decoration: none;
+	padding: 10px 0 10px 0;
 	font-size: 1.2em;
 	font-weight: bold;
-	padding: 8px 0; 	
+	z-index: 2;
 }
 
-#top-navi:hover { 
-	height: 50px; 
-}
-
-#top-navi-hidden a {
-	 color: white;
-	 font-size: 1.0em;
+#top-navi a {
+	 color: #B0A378;
 	 text-decoration: none;
-	 opacity: 0.5;
 }
 
-#top-navi-hidden a:hover { 
-	opacity: 1; 
+#top-navi a:hover { 
+	color: white; 
 }
+
 /* Navigation bar'i style - end */
 
 .temp_link {
