@@ -22,15 +22,22 @@
 			<a href="tabel.html">Uudised</a>
 		</div>
 	</div>
+	
 	<div id="RSS" class="invisible">
 		<!-- 
 			TODO Overlayer
 			TODO RSS lisamine
 		 -->
 		 <div id="rss_container">
-		 		<div>Email: <input></div>
-		 		<div>Nimi: <input></div>
-		 		<button onclick="makeHidden('RSS');">Cancel</button>
+		 		<h3> Uudiskirjale registreerimine </h3>
+		 		<form id="rss-registreeri-vorm" class="hidden-vorm">
+			 		Nimi: <input class="input-field" name="nimi" placeholder="Eesnimi Perekonnanimi" type="text">
+			 		E-mail: <input class="input-field" name="e-mail" placeholder="mailiaadress@kuskil.com" type="email">
+			 		<span id="rss-vorm-nupud" class="hidden-nupud">
+				 		<button onclick="makeHidden('RSS');"> Registreeri </button>
+				 		<button onclick="makeHidden('RSS');"> Katkesta </button>
+			 		</span>
+		 		</form>
 		 </div>
 	</div> <!-- RSS -->
 	
@@ -40,9 +47,18 @@
 			TODO Meldi lisamine
 		 -->
 		 <div id="meldi_container">
-		 		.
+		 		<h3> Meldi </h3>
+		 		<form id="meldi-vorm" class="hidden-vorm">
+			 		Kasutajanimi: <input class="input-field" name="k-nimi" placeholder="Kasutajanimi" type="text">
+			 		Parool: <input class="input-field" name="pwd" placeholder="******" type="password">
+			 		<span id="meldi-vorm-nupud" class="hidden-nupud">
+				 		<button onclick="makeHidden('RSS');"> Meldi </button>
+				 		<button onclick="makeHidden('RSS');"> Katkesta </button>
+			 		</span>
+		 		</form>
 		 </div>
 	</div> <!-- Meldi -->
+	
 	<div id="Rakendus">
 		<div id="pealmine">
 
@@ -74,7 +90,7 @@
 				 
 				 <div id="buttons">
 				 	<div id="LOGIN-button">
-				 		<button id="login">Meldi</button>
+				 		<button id="login" onclick="makeVisible('Meldi')">Meldi</button>
 				 	</div>
 				 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
 				 </div>
@@ -107,7 +123,7 @@
 	 				
 					<div id="uudise-andmed">
 						<input type="text" placeholder="Pealkiri">
-						<input type="file" accept="image/jpg,image/gif,image/png">
+						<input type="file" accept="image/jpg,image/png">
 						<textarea rows="7" placeholder="Sisu"></textarea>
 					</div> <!-- uudise-andmed -->
 					

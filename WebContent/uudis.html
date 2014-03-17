@@ -28,9 +28,15 @@
 			TODO RSS lisamine
 		 -->
 		 <div id="rss_container">
-		 		<div>Email: <input></div>
-		 		<div>Nimi: <input></div>
-		 		<button onclick="makeHidden('RSS');">Cancel</button>
+		 		<h3> Uudiskirjale registreerimine </h3>
+		 		<form id="rss-registreeri-vorm" class="hidden-vorm">
+			 		Nimi: <input class="input-field" name="nimi" placeholder="Eesnimi Perekonnanimi" type="text">
+			 		E-mail: <input class="input-field" name="e-mail" placeholder="mailiaadress@kuskil.com" type="email">
+			 		<span id="rss-vorm-nupud" class="hidden-nupud">
+				 		<button onclick="makeHidden('RSS');"> Registreeri </button>
+				 		<button onclick="makeHidden('RSS');"> Katkesta </button>
+			 		</span>
+		 		</form>
 		 </div>
 	</div> <!-- RSS -->
 	
@@ -40,7 +46,15 @@
 			TODO Meldi lisamine
 		 -->
 		 <div id="meldi_container">
-		 		.
+		 		<h3> Meldi </h3>
+		 		<form id="meldi-vorm" class="hidden-vorm">
+			 		Kasutajanimi: <input class="input-field" name="k-nimi" placeholder="Kasutajanimi" type="text">
+			 		Parool: <input class="input-field" name="pwd" placeholder="******" type="password">
+			 		<span id="meldi-vorm-nupud" class="hidden-nupud">
+				 		<button onclick="makeHidden('RSS');"> Meldi </button>
+				 		<button onclick="makeHidden('RSS');"> Katkesta </button>
+			 		</span>
+		 		</form>
 		 </div>
 	</div> <!-- Meldi -->
 	<div id="Rakendus">
@@ -70,7 +84,7 @@
 				 
 				 <div id="buttons">
 				 	<div id="LOGIN-button">
-				 		<button id="login">Meldi</button>
+				 		<button id="login" onclick="makeVisible('Meldi')">Meldi</button>
 				 	</div>
 				 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
 				 </div>
@@ -85,45 +99,49 @@
 		</div><!-- päis -->
 
 		<div id="keskmine">
-			<div id="uudis-wrapper">
+			<div id="uudis-wrapper" class="uudis-wrapper-less">
 				<div class="uudis-pealkiri">
 					<h1>Pealkiri</h1>
 				</div> <!-- uudis-pealkiri -->
 				<div class="uudis-tekst">
-					Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit. Fusce nec metus nec odio pharetra
-					ultrices et eget ante. Vivamus adipiscing ante erat, ut molestie sem
-					vulputate eu. Aliquam ipsum urna, facilisis quis sodales eget,
-					fringilla a ipsum. Praesent sapien nulla, mattis vitae scelerisque
-					et, porttitor at nulla. Vestibulum vel turpis congue arcu ornare
-					fermentum sed nec elit. Mauris quis convallis elit. Proin aliquet,
-					sapien non congue pretium, ante libero tristique nulla, id porttitor
-					arcu mauris et massa. Praesent metus est, ultricies id tincidunt id,
-					venenatis nec leo. Aenean eget arcu eget dolor congue commodo et in
-					turpis.
-					<br><br>
-					Lorem ipsum dolor sit amet,
-					consectetur adipiscing elit. Fusce nec metus nec odio pharetra
-					ultrices et eget ante. Vivamus adipiscing ante erat, ut molestie sem
-					vulputate eu. Aliquam ipsum urna, facilisis quis sodales eget,
-					fringilla a ipsum. Praesent sapien nulla, mattis vitae scelerisque
-					et, porttitor at nulla. Vestibulum vel turpis congue arcu ornare
-					fermentum sed nec elit. Mauris quis convallis elit. Proin aliquet,
-					sapien non congue pretium, ante libero tristique nulla, id porttitor
-					arcu mauris et massa. Praesent metus est, ultricies id tincidunt id,
-					venenatis nec leo. Aenean eget arcu eget dolor congue commodo et in
-					turpis.
+					<div class="uudis-pilt">
+						<img class="main-pilt" alt="olümpiavõtitja legkov" src="Images\legkov.png">
+					</div> <!-- uudis-pilt -->
+					
+					<p>
+						Lorem ipsum dolor sit amet,
+						consectetur adipiscing elit. Fusce nec metus nec odio pharetra
+						ultrices et eget ante. Vivamus adipiscing ante erat, ut molestie sem
+						vulputate eu. Aliquam ipsum urna, facilisis quis sodales eget,
+						fringilla a ipsum. Praesent sapien nulla, mattis vitae scelerisque
+						et, porttitor at nulla. Vestibulum vel turpis congue arcu ornare
+						fermentum sed nec elit. Mauris quis convallis elit. Proin aliquet,
+						sapien non congue pretium, ante libero tristique nulla, id porttitor
+						arcu mauris et massa. Praesent metus est, ultricies id tincidunt id,
+						venenatis nec leo. Aenean eget arcu eget dolor congue commodo et in
+						turpis.
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet,
+						consectetur adipiscing elit. Fusce nec metus nec odio pharetra
+						ultrices et eget ante. Vivamus adipiscing ante erat, ut molestie sem
+						vulputate eu. Aliquam ipsum urna, facilisis quis sodales eget,
+						fringilla a ipsum. Praesent sapien nulla, mattis vitae scelerisque
+						et, porttitor at nulla. Vestibulum vel turpis congue arcu ornare
+						fermentum sed nec elit. Mauris quis convallis elit. Proin aliquet,
+						sapien non congue pretium, ante libero tristique nulla, id porttitor
+						arcu mauris et massa. Praesent metus est, ultricies id tincidunt id,
+						venenatis nec leo. Aenean eget arcu eget dolor congue commodo et in
+						turpis.
+					</p>
 				</div> <!-- uudis-tekst -->
-				<div class="uudis-pilt">
-					<img class="main-pilt" alt="olümpiavõtitja legkov" src="Images\legkov.jpg">
-				</div> <!-- uudis-pilt -->
 			</div> <!-- uudis-wrapper -->
 			
 			<div class="clear"></div>
 			
 			<div id="uudise-kommentaar">
 				
-			 	<h3>Kommentaarid</h3>
+			 	<h3 id="uudise-kommentaar-title">Kommentaarid</h3>
 			 	<div id="uudise-kommentaar-vorm">
 			 		<form id="kommentaar-vorm" onsubmit="return true">
 	 					<input class="input-field" name="Nimi" placeholder="Nimi" type="text">

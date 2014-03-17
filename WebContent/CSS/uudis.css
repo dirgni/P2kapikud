@@ -1,14 +1,17 @@
 .uudis-pilt {
-	float: left;
+	float: right;
 	position:relative;
 	right:0;
 	width: 30%
 }
 
+.main-pilt{
+	margin: 10px;
+}
+
 .uudis-tekst {
 	float: left;
 	margin-right: 15px;
-	width: 60%;
 }
 
 input, textarea{
@@ -19,11 +22,28 @@ input, textarea{
 	margin-bottom: 2%;
 }
 
-#uudis-wrapper{
+#esi-uudis-wrapper {
+	
+	background: url("../Images/legkov.png") no-repeat center center;
+	background-size: cover;
+}
+
+.uudis-wrapper-less{
 	height: 100%;
 	display: inline-block;
+	border-bottom: thin;
+	border-bottom-style: outset;
+	border-top: thin;
+	border-top-style: inset;
 }
-	
+
+#uudis-tekst {
+	background: rgba(255, 255, 255, 0.6);
+	float: left;
+	padding: 15px;
+	max-width: 25%;
+}
+
 .kommentaar {
 	margin-bottom: 30px;
 	border-bottom: thin;
@@ -33,6 +53,10 @@ input, textarea{
 .kommentaar-autor {
 	font-style: italic;
 	font-weight: bold;
+}
+
+.kommentaar-aeg {
+	float: right;
 }
 
 #uudise-kommentaar {
