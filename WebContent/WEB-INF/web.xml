@@ -8,9 +8,25 @@
          <servlet-name>HelloServlet</servlet-name>
          <servlet-class>Uudis</servlet-class>
      </servlet>
+     
+     <servlet>
+		<servlet-name>TestServlet</servlet-name>
+    	<jsp-file>/WEB-INF/jsp/index.jsp</jsp-file>
+	</servlet>
  
      <servlet-mapping>
          <servlet-name>Uudis</servlet-name>
          <url-pattern>/HelloServlet</url-pattern>
      </servlet-mapping>
+     
+     <!--mapping-->
+	<servlet-mapping>
+    	<servlet-name>TestServlet</servlet-name>
+    	<url-pattern>/test/*</url-pattern>   
+	</servlet-mapping>
+     
+     
+	
  </web-app>
+ 
+ 
