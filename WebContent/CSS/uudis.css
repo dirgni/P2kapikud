@@ -23,9 +23,9 @@ input, textarea{
 }
 
 #esi-uudis-wrapper {
-	
 	background: url("../Images/legkov.png") no-repeat center center;
 	background-size: cover;
+	max-height: 600px;
 }
 
 .uudis-wrapper-less{
@@ -38,10 +38,14 @@ input, textarea{
 }
 
 #uudis-tekst {
+	direction: rtl;
+	text-align: left;
+	padding: 15px 30px 15px 15px;
 	background: rgba(255, 255, 255, 0.6);
 	float: left;
-	padding: 15px;
-	max-width: 25%;
+	max-width: 30%;
+	overflow-y: scroll;
+	max-height: 550px;
 }
 
 .kommentaar {
