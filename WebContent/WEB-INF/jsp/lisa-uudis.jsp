@@ -24,88 +24,11 @@
 			<div id="abinupp"></div>
 	</div>
 	
-	<div id="RSS" class="invisible">
-		<!-- 
-			TODO Overlayer
-			TODO RSS lisamine
-		 -->
-		 <div id="rss_container">
-		 		<h3> Uudiskirjale registreerimine </h3>
-		 		<form id="rss-registreeri-vorm" class="hidden-vorm">
-			 		Nimi: <input class="input-field" name="nimi" placeholder="Eesnimi Perekonnanimi" type="text">
-			 		E-mail: <input class="input-field" name="e-mail" placeholder="mailiaadress@kuskil.com" type="email">
-			 		<span id="rss-vorm-nupud" class="hidden-nupud">
-				 		<button onclick="makeHidden('RSS');"> Registreeri </button>
-				 		<button onclick="makeHidden('RSS');"> Katkesta </button>
-			 		</span>
-		 		</form>
-		 </div>
-	</div> <!-- RSS -->
-	
-	<div id="Meldi" class="invisible">
-		<!-- 
-			TODO Overlayer
-			TODO Meldi lisamine
-		 -->
-		 <div id="meldi_container">
-		 		<h3> Meldi </h3>
-		 		<form id="meldi-vorm" class="hidden-vorm">
-			 		Kasutajanimi: <input class="input-field" name="k-nimi" placeholder="Kasutajanimi" type="text">
-			 		Parool: <input class="input-field" name="pwd" placeholder="******" type="password">
-			 		<span id="meldi-vorm-nupud" class="hidden-nupud">
-				 		<button onclick="makeHidden('RSS');"> Meldi </button>
-				 		<button onclick="makeHidden('RSS');"> Katkesta </button>
-			 		</span>
-		 		</form>
-		 </div>
-	</div> <!-- Meldi -->
+	<%@include file="jupid/RSS.jsp" %>
+	<%@include file="jupid/meldi.jsp" %>
 	
 	<div id="Rakendus">
-		<div id="pealmine">
-
-			<div id="pealmine_vasakpoolne">
-			
-				<div id="logo">
-					<!-- Done -->
-				</div>
-				
-<!-- 			Asendatud, top-navi'ga. Hetkel jätab veel alles juhul kui ümber otsustab :P
-
-				<div id="navigatsioon">
-					TODO Navigatsioon
-					<ul id="navi">
-					    <li><a href="index.html">Avaleht</a></li>
-					    <li><a href="lisa-uudis.html">Lisa uudis</a></li>
-					    <li><a href="tabel.html">Uudised</a></li>
-					</ul>
-				</div>  -->
-				
-			</div> <!-- pealmine_vasakpoolne -->
-			
-			<div id="pealmine_parempoolne">
-				<!-- 
-					TODO Meldi
-					TODO RSS
-					TODO Otsing
-				 -->
-				 
-				 <div id="buttons">
-				 	<div id="LOGIN-button">
-				 		<button id="login" onclick="makeVisible('Meldi')">Meldi</button>
-				 	</div>
-				 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
-				 </div>
-				 
-				 <div id="otsing">
-				 	<form action="tabel.html">
-				 		<input type="text" placeholder="Sisesta otsisõna">
-				 	</form>
-				 </div> <!-- otsing -->
-			</div> <!-- pealmine_parempoolne -->
-
-		</div><!-- päis -->
-
-		
+		<%@include file="jupid/päis.jsp" %>
 		
 		<div id="keskmine">
 			<!-- TODO:
@@ -142,7 +65,7 @@
 			
 		</div> <!-- keskmine -->
 		
-		<%@include file="jalus.jsp" %>
+		<%@include file="jupid/jalus.jsp" %>
 		
 	</div> <!-- Rakendus -->
 </body>
