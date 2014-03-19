@@ -16,13 +16,7 @@
 </head>
 
 <body>
-	<div id="top-navi">
-			<a href="index.html">Avaleht</a> | 
-			<a href="lisa-uudis.html">Lisa uudis</a> | 
-			<a href="tabel.html">Uudised</a>
-			
-			<div id="abinupp"></div>
-	</div>
+	<%@include file="jupid/navi-bar.jsp" %>
 	
 	<%@include file="jupid/RSS.jsp" %>
 	<%@include file="jupid/meldi.jsp" %>
@@ -44,14 +38,19 @@
 	 				<div id="uudise-autor-select">
  						Sisseloginud kirjutaja nimi
 	 				</div> <!-- uudise-autor-select -->
-	 				
+
 					<div id="uudise-andmed">
 						<input type="text" placeholder="Pealkiri">
-						<input type="file" accept="image/jpg,image/png">
+						<div id="input-image-wrap">
+							<input class="def-hide" type="file" accept="image/jpg,image/png">
+							<div id="input-image-wrap-cover">
+								<span>Lisa pilt</span>
+							</div> <!-- input-image-wrap-cover -->
+						</div> <!-- input-image-wrap -->
 						<textarea rows="7" placeholder="Sisu"></textarea>
 					</div> <!-- uudise-andmed -->
-					
- 					<div class="tagide-valik">
+
+					<div class="tagide-valik">
  						<input class="uudise-tagid" type="text" autocomplete="on" placeholder="tags">
  					</div> <!-- tagide-valik -->
  					

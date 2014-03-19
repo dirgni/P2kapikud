@@ -23,7 +23,7 @@
 			
 			<div id="abinupp"></div>
 	</div>
-	
+	<%@include file="jupid/navi-bar.jsp" %>
 	<%@include file="jupid/RSS.jsp" %>
 	<%@include file="jupid/meldi.jsp" %>
 	<div id="Rakendus">
@@ -37,7 +37,7 @@
 				</div> <!-- uudis-pealkiri -->
 				<div class="uudis-tekst">
 					<div class="uudis-pilt">
-						<img class="main-pilt" alt="olümpiavõtitja legkov" src="Images\legkov.png">
+						<img class="main-pilt" alt="olümpiavõitja legkov" src="Images/legkov.png">
 					</div> <!-- uudis-pilt -->
 					
 					<p>

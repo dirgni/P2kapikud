@@ -16,14 +16,8 @@
 </head>
 
 <body>
-	<div id="top-navi">
-			<a href="index.html">Avaleht</a> | 
-			<a href="lisa-uudis.html">Lisa uudis</a> | 
-			<a href="tabel.html">Uudised</a>
-			
-			<div id="abinupp"></div>
-		</div>
-	
+	<%@include file="jupid/navi-bar.jsp" %>
+		
 	<%@include file="jupid/RSS.jsp" %>
 	
 	<%@include file="jupid/meldi.jsp" %>
@@ -35,7 +29,7 @@
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
 					<div id="uudis-tekst">
 	  					<h1><a class="temp_link" href="uudis.html">Pealkiri</a></h1>
-	  					
+	  					<h2>Tere maailm</h2>
 						<p>
 							Lorem ipsum dolor sit amet,
 							consectetur adipiscing elit. Fusce nec metus nec odio pharetra
