@@ -16,13 +16,7 @@
 </head>
 
 <body>
-	<div id="top-navi">
-			<a href="index.html">Avaleht</a> | 
-			<a href="lisa-uudis.html">Lisa uudis</a> | 
-			<a href="tabel.html">Uudised</a>
-			
-			<div id="abinupp"></div>
-	</div>
+	<%@include file="jupid/navi-bar.jsp" %>
 	
 	<%@include file="jupid/RSS.jsp" %>
 	<%@include file="jupid/meldi.jsp" %>

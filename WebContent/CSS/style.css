@@ -15,7 +15,7 @@ body {
 	height:89%;
 	padding:0;
 	margin:0;
-	background-color: #B0AB78;
+	background-color: #FFFFFF;
 	font-family: Cambria, Georgia, serif;
 	overflow-y: scroll;
 	background: url("../Images/bjoon.png") no-repeat top center;
@@ -28,8 +28,12 @@ body {
 @media only screen and (max-width: 400px) and (max-height: 700px), 
 	handheld and (orientation: landscape){
 		body {
-			background: #B0AB78;
+			background: beige;
 		}
+}
+
+input, textarea {
+	font-family: Cambria, Georgia, serif;
 }
 
 /* #RSS { */
@@ -149,9 +153,9 @@ body {
 	background-repeat: no-repeat;
 	width:95%;
 	height: 50%;
-	border-color: #453823;
-	-moz-border-radius: 1em 3em 1em 3em;
+	border: 2px solid #453823;
 	border-radius: 1em 3em 1em 3em;
+	-moz-border-radius: 1em 3em 1em 3em;
 	text-align:center;
 }
 
@@ -176,7 +180,7 @@ body {
 	display:block;
 	position:relative;
 	height: inherit;
-	background: beige;
+	background: white;
 	padding: 1%;
 	border: 2px solid #453823;
 	border-radius: 15px;
