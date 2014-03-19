@@ -29,7 +29,7 @@
 	<%@include file="jupid/meldi.jsp" %>
 	
 	<div id="Rakendus">
-		<%@include file="jupid/päis.jsp" %>
+		<jsp:include page="jupid/päis.jsp" />
 
 		<div id="keskmine">		
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
