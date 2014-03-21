@@ -42,10 +42,9 @@
 					<div id="uudise-andmed">
 						<input type="text" placeholder="Pealkiri">
 						<div id="input-image-wrap">
-							<input class="def-hide" type="file" accept="image/jpg,image/png">
-							<div id="input-image-wrap-cover">
-								<span>Lisa pilt</span>
-							</div> <!-- input-image-wrap-cover -->
+							<label for="def-hide">
+								<input id="def-hide" type="file" accept="image/jpg,image/png">
+							</label>
 						</div> <!-- input-image-wrap -->
 						<textarea rows="7" placeholder="Sisu"></textarea>
 					</div> <!-- uudise-andmed -->
