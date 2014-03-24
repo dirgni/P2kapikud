@@ -1,0 +1,63 @@
+@CHARSET "UTF-8";
+
+#user_window {
+	width:70%;
+	height:70%;
+	position:absolute;
+	top:0;
+	right:2em;
+	padding:1em;
+	background: #D3D3D3;
+	display:none;
+}
+
+#user_Upper{
+	top:0;
+	position:relative;
+	height:85%;
+}
+
+#user_Bottom{
+	bottom:0;
+	height:15%;
+	padding-top:0.5em;
+}
+
+#user_PhotoBox {
+	width:30%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background-image: url(../Images/ajakirjanik.jpg);
+	background-size:100% 100%;
+}
+
+#user_DataBox{
+	width:70%;
+	height:100%;
+	position:absolute;
+	right:0;
+	top:0;
+}
+
+
+
+#user_Prof{
+	padding-left:1em;
+
+}
+
+#user_FullName{
+	padding-left:1em;
+}
+
+
+#user_ArtCounter{
+	padding-left:1em;
+}
+
+
+/*
+border:1px solid black;
+*/
