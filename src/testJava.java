@@ -6,93 +6,8 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class testJava {
-	private static final String lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
-			+ "Fusce nec metus nec odio pharetra ultrices et eget ante. Vivamus adipiscing ante erat, "
-			+ "ut molestie sem vulputate eu. Aliquam ipsum urna, facilisis quis sodales eget, fringilla "
-			+ "a ipsum. Praesent sapien nulla, mattis vitae scelerisque et, porttitor at nulla. Vestibulum "
-			+ "vel turpis congue arcu ornare fermentum sed nec elit. Mauris quis convallis elit. Proin "
-			+ "aliquet, sapien non congue pretium, ante libero tristique nulla, id porttitor arcu mauris "
-			+ "et massa. Praesent metus est, ultricies id tincidunt id, venenatis nec leo. Aenean eget "
-			+ "arcu eget dolor congue commodo et in turpis. Lorem ipsum dolor sit amet, consectetur "
-			+ "adipiscing elit. Fusce nec metus nec odio pharetra ultrices et eget ante. Vivamus adipiscing "
-			+ "ante erat, ut molestie sem vulputate eu. Aliquam ipsum urna, facilisis quis sodales eget, "
-			+ "fringilla a ipsum. Praesent sapien nulla, mattis vitae scelerisque et, porttitor at nulla. "
-			+ "Vestibulum vel turpis congue arcu ornare fermentum sed nec elit. Mauris quis convallis elit. "
-			+ "Proin aliquet, sapien non congue pretium, ante libero tristique nulla, id porttitor arcu "
-			+ "mauris et massa. Praesent metus est, ultricies id tincidunt id, venenatis nec leo. Aenean "
-			+ "eget arcu eget dolor congue commodo et in turpis.";
-
 	public static void main(String[] argv) {
-		Connection con = null;
-		try {
-			con = con();
-		} catch (ClassNotFoundException e) {
-			System.out.println("PostgreSQL JDBC Driver not found!");
-			e.printStackTrace();
-		} catch (SQLException e) {
-			System.out.println("Connection Failed! Check output console");
-			e.printStackTrace();
-		}
-
-		if (con != null) {
-			System.out.println("Connection established!");
-
-			System.out.println("Trying out a SQL statement");
-			
-			
-			
-			try {
-				System.out.println("Setting default");
-				PreparedStatement update = con.prepareStatement(
-						"ALTER TABLE kommentaar ALTER COLUMN aeg SET DEFAULT now()");
-				update.execute();
-				
-				System.out.println("starting insertion");
-				PreparedStatement ps = con.prepareStatement("INSERT INTO uudis "
-						+ "(pealkiri, tekst, pilt, ajakirjanikID) "
-						+ "VALUES (?, ?, ?, ?)");
-				
-				System.out.println("1");
-				ps.setString(1, "Maasikad on magusad");
-				ps.setString(2, "pikk tekst");
-				ps.setString(3, "Images\\legkov.jpg");
-				ps.setString(4, "1");
-				ps.addBatch();
-				
-				System.out.println("2");
-				ps.setString(1, "Lumesõda hoovis");
-				ps.setString(2, "pikk tekst");
-				ps.setString(3, "Images\\legkov.jpg");
-				ps.setString(4, "2");
-				ps.addBatch();
-				
-				System.out.println("3");
-				ps.setString(1, "Uudiste uudis");
-				ps.setString(2, "pikk tekst");
-				ps.setString(3, "Images\\legkov.jpg");
-				ps.setString(4, "3");
-				ps.addBatch();
-				
-				ps.executeBatch();
-
-				// printAjakirjanik(con);
-
-			} catch (SQLException e) {
-				System.out.println("SQL statement failed:");
-				e.printStackTrace();
-			}
-			// System.out.println("SQL statement worked");
-		} else {
-			System.out.println("Failed to make connection!");
-		}
-
-		try {
-			System.out.println("Closing connection...");
-			con.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		System.out.println("Connection closed. Bye!");
+		getUudisById(1);
 	}
 
 	private static void printAjakirjanik(Connection con) throws SQLException {
@@ -130,6 +45,51 @@ public class testJava {
 		connection = DriverManager.getConnection(url, props);
 
 		return connection;
+	}
+	
+	public static String[] getUudisById(int id) {
+		Connection con = null;
+		try {
+			con = con();
+		} catch (ClassNotFoundException e) {
+			System.out.println("PostgreSQL JDBC Driver not found!");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("Connection Failed! Check output console");
+			e.printStackTrace();
+		}
+		
+		if (con != null) {
+			System.out.println("Connection established!");
+
+			try {
+				PreparedStatement ps = con.prepareStatement(
+						"SELECT pealkiri, tekst, pilt FROM uudis"
+						+ "WHERE id = ?");
+				ps.setInt(1, id);
+				ResultSet rs = ps.executeQuery();
+				
+				rs.next();
+				String pealkiri = rs.getString(1);
+				String tekst = rs.getString(2);
+ 				String pilt = rs.getString(3);
+ 				String[] vastus = {pealkiri, tekst, pilt};
+
+				if (con != null) {
+					con.close();
+				}
+				
+				return vastus;
+			} catch (SQLException e) {
+				System.out.println("SQL statement failed:");
+				e.printStackTrace();
+			}
+			// System.out.println("SQL statement worked");
+		} else {
+			System.err.println("Failed to make connection!");
+		}
+		
+		return null;
 	}
 
 }
