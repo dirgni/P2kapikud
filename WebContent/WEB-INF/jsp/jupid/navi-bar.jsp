@@ -1,7 +1,7 @@
 <div id="top-navi">
-	<a href="index.html">Avaleht</a> | 
-	<a href="lisa-uudis.html">Lisa uudis</a> | 
-	<a href="tabel.html">Uudised</a>
+	<a href="/P2kapikud/">Avaleht</a> | 
+	<a href="/P2kapikud/lisauudis">Lisa uudis</a> | 
+	<a href="/P2kapikud/tabel">Uudised</a>
 	
 	<div id="abinupp"></div>
 </div>

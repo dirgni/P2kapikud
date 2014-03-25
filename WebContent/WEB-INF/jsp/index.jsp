@@ -25,7 +25,7 @@
 	<div id="Rakendus">
 		<jsp:include page="jupid/päis.jsp" />
 
-		<div id="keskmine">		
+		<div id="keskmine">
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
 					<div id="uudis-tekst">
 	  					<h1><a class="temp_link" href="uudis.html">Pealkiri</a></h1>

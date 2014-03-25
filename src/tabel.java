@@ -1,8 +1,6 @@
-
-
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,29 +8,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Uudis
+ * Servlet implementation class tabel
  */
-@WebServlet("/Uudis")
-public class Uudis extends HttpServlet {
+@WebServlet("/tabel")
+public class tabel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String msg;
-
-    public void init() {
-    	msg = "Hello World init";
-    }
-	
-    public Uudis() {
-        msg = "Hello World uudis";
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public tabel() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+		String url = "/WEB-INF/jsp/tabel.jsp";
 		
-		out.println(msg);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
 
 	/**
