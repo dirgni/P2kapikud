@@ -1,9 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 
+<%
+int uudisId = 1;
+// Andmebaasist andmete võtmine
 
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+Class.forName("org.postgresql.Driver").newInstance();
+
+Connection con = null;
+
+String url = "jdbc:postgresql://ec2-54-228-224-40.eu-west-1.compute.amazonaws.com:5432/d7vu5vmrh6826v";
+Properties props = new Properties();
+props.setProperty("user", "gkqowcfxsywapr");
+props.setProperty("password", "uTMYU-2zrRPd3ro5LthO0hXc4C");
+props.setProperty("ssl", "true");
+// Järgmine rida võtab pmst SSL turva maha. Tuleks luua mingi
+// SSLSocketFactory objekt, mis sertifikaate toodaks nagu ma aru saan...
+props.setProperty("sslfactory",
+		"org.postgresql.ssl.NonValidatingFactory");
+con = DriverManager.getConnection(url, props);
+
+PreparedStatement ps = con.prepareStatement(
+		"SELECT pealkiri, tekst, pilt FROM uudis "
+		+ "WHERE id = ?");
+ps.setInt(1, uudisId);
+ResultSet uudis = ps.executeQuery();
+uudis.next();
+
+ps = con.prepareStatement("SELECT id, nimi, tekst, aeg, uudisId FROM "
+		+ "kommentaar WHERE id = ?");
+ps.setInt(1, uudisId);
+
+ResultSet kommentaarid = ps.executeQuery();
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -30,39 +63,13 @@
 		<div id="keskmine">
 			<div id="uudis-wrapper" class="uudis-wrapper-less">
 				<div class="uudis-pealkiri">
-					<h1>Pealkiri</h1>
+					<h1><%= uudis.getString("pealkiri") %></h1>
 				</div> <!-- uudis-pealkiri -->
 				<div class="uudis-tekst">
 					<div class="uudis-pilt">
 						<img class="main-pilt" alt="olümpiavõitja legkov" src="Images/legkov.png">
 					</div> <!-- uudis-pilt -->
-					
-					<p>
-						Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Fusce nec metus nec odio pharetra
-						ultrices et eget ante. Vivamus adipiscing ante erat, ut molestie sem
-						vulputate eu. Aliquam ipsum urna, facilisis quis sodales eget,
-						fringilla a ipsum. Praesent sapien nulla, mattis vitae scelerisque
-						et, porttitor at nulla. Vestibulum vel turpis congue arcu ornare
-						fermentum sed nec elit. Mauris quis convallis elit. Proin aliquet,
-						sapien non congue pretium, ante libero tristique nulla, id porttitor
-						arcu mauris et massa. Praesent metus est, ultricies id tincidunt id,
-						venenatis nec leo. Aenean eget arcu eget dolor congue commodo et in
-						turpis.
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet,
-						consectetur adipiscing elit. Fusce nec metus nec odio pharetra
-						ultrices et eget ante. Vivamus adipiscing ante erat, ut molestie sem
-						vulputate eu. Aliquam ipsum urna, facilisis quis sodales eget,
-						fringilla a ipsum. Praesent sapien nulla, mattis vitae scelerisque
-						et, porttitor at nulla. Vestibulum vel turpis congue arcu ornare
-						fermentum sed nec elit. Mauris quis convallis elit. Proin aliquet,
-						sapien non congue pretium, ante libero tristique nulla, id porttitor
-						arcu mauris et massa. Praesent metus est, ultricies id tincidunt id,
-						venenatis nec leo. Aenean eget arcu eget dolor congue commodo et in
-						turpis.
-					</p>
+					<%= uudis.getString("tekst") %>
 				</div> <!-- uudis-tekst -->
 			</div> <!-- uudis-wrapper -->
 			
@@ -79,47 +86,20 @@
 		 				<input class="submit-button" type="reset" value="Tühjenda väljad">
 			 		</form> <!-- kommentaar-vorm -->
 		 		</div> <!-- uudise-kommentaar-vorm -->
+<% if (kommentaarid.isBeforeFirst()) { %>
 		 		<div id="uudise-kommentaar-list">
+<% 	while (kommentaarid.next()) {  %>
 		 			<blockquote>
-		 			<div class="kommentaar" id="kommentaar-001">
-		 				<span class="kommentaar-aeg"> 5 minutit tagasi - </span>
-		 				<span class="kommentaar-autor"> maia </span>
-		 				<blockquote class="kommentaar-sisu"> esimene! :D </blockquote>
-		 			</div> <!-- kommentaar-001 -->
+		 			<div class="kommentaar" id="kommentaar-<%= kommentaarid.getString("id") %>">
+		 				<span class="kommentaar-aeg"> <%= kommentaarid.getString("aeg") %> </span>
+		 				<span class="kommentaar-autor"> <%= kommentaarid.getString("nimi") %> </span>
+		 				<blockquote class="kommentaar-sisu"> <%= kommentaarid.getString("tekst") %> </blockquote>
+		 			</div> <!-- kommentaar-<%= kommentaarid.getString("id") %> -->
 		 			
-		 			<div class="kommentaar" id="kommentaar-002">
-		 				<span class="kommentaar-aeg">59 minutit tagasi - </span>
-		 				<span class="kommentaar-autor"> suusk </span>
-		 				<blockquote class="kommentaar-sisu">
-	 						Kus see lumi on? 
-							Eestis tuleb lõpetada suusasport. 
-							Eesti suustajad Lapimaale elama ja treenima.
-						</blockquote>
-		 			</div> <!-- kommentaar-002 -->
-		 			
-		 			<div class="kommentaar" id="kommentaar-003">
-		 				<span class="kommentaar-aeg"> 1 tund tagasi - </span>
-		 				<span class="kommentaar-autor"> nojah </span>
-		 				<blockquote class="kommentaar-sisu"> vaat siis kui tore.  </blockquote>
-		 			</div> <!-- kommentaar-003 -->
-		 			
-		 			<div class="kommentaar" id="kommentaar-004">
-		 				<span class="kommentaar-aeg"> 6 tundi tagasi - </span>
-		 				<span class="kommentaar-autor"> Martin Mardikass</span>
-		 				<blockquote class="kommentaar-sisu">
-		 					Siin pole enam midagi teha. 
-		 					Ise läheb suusatama. Ehk õnnestub paremini hakkama saada kui meie noorukid siin.
-		 					Minu ajal oli ikka kõik teisiti. Ega midagi muud polegi öelda kui: Noorus on hukas.
-		 				</blockquote>
-		 			</div> <!-- kommentaar-004 -->
-		 			
-		 			<div class="kommentaar" id="kommentaar-005">
-		 				<span class="kommentaar-aeg"> 2 päeva tagasi - </span>
-		 				<span class="kommentaar-autor"> </span>
-		 				<blockquote class="kommentaar-sisu"> tore lugu siis </blockquote>
-		 			</div> <!-- kommentaar-005 -->
+<% 	} %>	
 		 			</blockquote>
 		 		</div> <!-- uudise-kommentaar-list -->
+<% } %>
 			 </div> <!-- uudise-kommentaar -->
 			
 		</div> <!-- keskmine -->
