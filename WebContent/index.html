@@ -7,9 +7,11 @@
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<link rel="stylesheet" type="text/css" href="CSS/uudis.css">
 	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
+	<link rel="stylesheet" type="text/css" href="CSS/validation.css">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
+	<script type="text/javascript" src="JavaScript/validation.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
@@ -32,8 +34,8 @@
 		 <div id="rss_container">
 		 		<h3> Uudiskirjale registreerimine </h3>
 		 		<form id="rss-registreeri-vorm" class="hidden-vorm">
-			 		Nimi: <input class="input-field" name="nimi" placeholder="Eesnimi Perekonnanimi" type="text">
-			 		E-mail: <input class="input-field" name="e-mail" placeholder="mailiaadress@kuskil.com" type="email">
+			 		Nimi: <input id="rss_name" class="input-field" name="nimi" placeholder="Eesnimi Perekonnanimi" type="text">
+			 		E-mail: <input id="rss_email" class="input-field" name="e-mail" placeholder="mailiaadress@kuskil.com" type="email">
 			 		<span id="rss-vorm-nupud" class="hidden-nupud">
 				 		<button onclick="makeHidden('RSS');"> Registreeri </button>
 				 		<button onclick="makeHidden('RSS');"> Katkesta </button>
@@ -50,8 +52,8 @@
 		 <div id="meldi_container">
 		 		<h3> Meldi </h3>
 		 		<form id="meldi-vorm" class="hidden-vorm">
-			 		Kasutajanimi: <input class="input-field" name="k-nimi" placeholder="Kasutajanimi" type="text">
-			 		Parool: <input class="input-field" name="pwd" placeholder="******" type="password">
+			 		Kasutajanimi: <input id="meldi_user" class="input-field" name="k-nimi" placeholder="Kasutajanimi" type="text">
+			 		Parool: <input id="meldi_password" class="input-field" name="pwd" placeholder="******" type="password">
 			 		<span id="meldi-vorm-nupud" class="hidden-nupud">
 				 		<button onclick="makeHidden('RSS');"> Meldi </button>
 				 		<button onclick="makeHidden('RSS');"> Katkesta </button>
