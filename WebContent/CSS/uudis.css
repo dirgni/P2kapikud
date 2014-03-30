@@ -25,6 +25,7 @@ input, textarea{
 #esi-uudis-wrapper {
 	background: url("../Images/legkov.png") no-repeat center center;
 	background-size: cover;
+	width: 100%;
 	max-height: 600px;
 }
 
@@ -43,7 +44,8 @@ input, textarea{
 	padding: 15px 30px 15px 15px;
 	background: rgba(255, 255, 255, 0.6);
 	float: left;
-	max-width: 30%;
+	width: 30%;
+	min-height: 400px;
 	overflow-y: scroll;
 	max-height: 550px;
 }
