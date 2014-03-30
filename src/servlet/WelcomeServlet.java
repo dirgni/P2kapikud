@@ -27,23 +27,15 @@ public class WelcomeServlet extends HttpServlet {
 		
 		//Võta random uudis
 		UudisService us = new UudisService();
-//		Uudis uudis = us.getRandomUudis();
-		Uudis uudis;
-		
-		uudis = us.getUudisById(1);
-		System.out.println("us pealkiri: " + uudis.getPealkiri());
+//		Uudis uudis = us.getRandomUudis(); <- pole veel implementeeritud
+		Uudis uudis = us.getUudisById(1);
+
+		// Teeme uudise beani kättesaadavaks
 		request.setAttribute("uudis", uudis);
-		Uudis rUudis = (Uudis) request.getAttribute("uudis");
 		
-		System.out.println("request uudis pk: " + rUudis.getPealkiri());
+		//Suuname kliendi index.jsp lehele
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);
-		
-
-		
-		
-		//Suuna vaataja lehele
-		
 	}
 
 }
