@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.samaxes.com/taglib/secure" prefix="secure" %>
 
 <!DOCTYPE html>
 <html>
@@ -31,14 +32,15 @@
 		<div id="keskmine">
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
 				<div id="uudis-tekst">
+					<secure:one roles="role1toevaluate, role2toevaluate">
+   							<h2>tereteret</h2>
+					</secure:one>
   					<h1>
   						<a class="temp_link" href="uudis?uudisId=${uudis.id}">
   							${uudis.pealkiri }
   						</a>
   					</h1>
-					<c:forEach items="${uudis.tekst}" var="lõik">
-						<p><c:out value="${lõik}" /></p>
-					</c:forEach>
+					<p><c:out value="${uudis.tekst[0]}" /></p>
 				</div> <!-- uudis-tekst -->
 			</div> <!-- esi-uudis-wrapper -->
 		</div> <!-- keskmine -->
