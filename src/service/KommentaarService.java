@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import object.Kommentaar;
 import connection.DatabaseConnectionFactory;
@@ -12,6 +16,8 @@ import connection.DatabaseConnectionFactory;
 public class KommentaarService {
 
 	public ArrayList<Kommentaar> getKommentaaridByUudisId(int uudisId) {
+		System.out.println("getKommentaarByUudisId");
+		ArrayList<Kommentaar> kommentaarid = new ArrayList<Kommentaar>();
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		Connection con;
 		try {
@@ -21,24 +27,31 @@ public class KommentaarService {
 			ps.setInt(1, uudisId);
 			ResultSet rsKommentaarid = ps.executeQuery();
 
-			ArrayList<Kommentaar> kommentaarid = new ArrayList<Kommentaar>();
-
+			Kommentaar k;
+			Date date;
+			DateFormat kell = new SimpleDateFormat("HH:mm:ss");
+			DateFormat kuupäev = new SimpleDateFormat("dd-MM-yyyy");
 			while (rsKommentaarid.next()) {
-				Kommentaar k = new Kommentaar();
+				k = new Kommentaar();
 				k.setId(Integer.parseInt(rsKommentaarid.getString("id")));
 				k.setNimi(rsKommentaarid.getString("nimi"));
 				k.setTekst(rsKommentaarid.getString("tekst"));
-				k.setAeg(rsKommentaarid.getString("aeg"));
+				
+				date = extractDate(rsKommentaarid.getString("aeg"));
+				k.setKell(kell.format(date));
+				k.setKuupäev(kuupäev.format(date));
+				
 				kommentaarid.add(k);
 			}
-
-			return kommentaarid;
+			
 		} catch (SQLException e) {
 			System.out.println("getKommentaaridById SQL error");
 			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
 		}
 		
-		return null;
+		return kommentaarid;
 	}
 
 	public void postitaKommentaar(String nimi, String tekst, int uudisId) {
@@ -51,12 +64,30 @@ public class KommentaarService {
 			ps.setString(1, nimi);
 			ps.setString(2, tekst);
 			ps.setInt(3, uudisId);
+			
+			System.out.println("Tekst: " + tekst);
+			System.out.println("charset: " + java.nio.charset.Charset.defaultCharset().name());
 			ps.executeUpdate();
-
+			
 		} catch (SQLException e) {
 			System.out.println("Kommentaari postitamine ebaõnnestus!");
 			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
 		}
 		
+	}
+	
+	private Date extractDate(String aeg) {
+		Date date = new Date();
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");
+		try {
+			date = df.parse(aeg);
+		} catch (ParseException e) {
+			System.out.println("Kuupäeva parsimise error!");
+			e.printStackTrace();
+		}
+		
+		return date;
 	}
 }

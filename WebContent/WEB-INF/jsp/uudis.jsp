@@ -29,11 +29,11 @@
 		<div id="keskmine">
 			<div id="uudis-wrapper" class="uudis-wrapper-less">
 				<div class="uudis-pealkiri">
-					<h1>${uudis.pealkiri }</h1>
+					<h1>${uudis.pealkiri}</h1>
 				</div> <!-- uudis-pealkiri -->
 				<div class="uudis-tekst">
 					<div class="uudis-pilt">
-						<img class="main-pilt" alt="olümpiavõitja legkov" src="${uudis.pilt }">
+						<img class="main-pilt" alt="olümpiavõitja legkov" src="${uudis.pilt}">
 					</div> <!-- uudis-pilt -->
 					<c:forEach items="${uudis.tekst}" var="lõik">
 						<p><c:out value="${lõik}" /></p>
@@ -62,7 +62,7 @@
 						<c:forEach items="${kommentaarid}" var="kommentaar">
 							<blockquote>
 								<div class="kommentaar" id="kommentaar-${kommentaar.id}">
-									<span class="kommentaar-aeg"> ${kommentaar.aeg} </span>
+									<span class="kommentaar-aeg"> ${kommentaar.kell} ${kommentaar.kuupäev} </span>
 									<span class="kommentaar-autor"> ${kommentaar.nimi} </span>
 									<blockquote class="kommentaar-sisu">${kommentaar.tekst}</blockquote>
 								</div> <!-- kommentaar-${kommentaar.id} -->

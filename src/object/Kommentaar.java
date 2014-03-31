@@ -4,18 +4,20 @@ public class Kommentaar {
 	private int id;
 	private String nimi;
 	private String tekst;
-	private String aeg;
+	private String kell;
+	private String kuupäev;
 	
 	public Kommentaar() {
 		super();
 	}
 
-	public Kommentaar(int id, String nimi, String tekst, String aeg) {
+	public Kommentaar(int id, String nimi, String tekst, String kell, String kuupäev) {
 		super();
 		this.id = id;
 		this.nimi = nimi;
 		this.tekst = tekst;
-		this.aeg = aeg;
+		this.kell = kell;
+		this.kuupäev = kuupäev;
 	}
 
 	public int getId() {
@@ -36,10 +38,16 @@ public class Kommentaar {
 	public void setTekst(String tekst) {
 		this.tekst = tekst;
 	}
-	public String getAeg() {
-		return aeg;
+	public String getKell() {
+		return kell;
 	}
-	public void setAeg(String aeg) {
-		this.aeg = aeg;
+	public void setKell(String kell) {
+		this.kell = kell;
+	}
+	public String getKuupäev() {
+		return kuupäev;
+	}
+	public void setKuupäev(String kuupäev) {
+		this.kuupäev = kuupäev;
 	}
 }

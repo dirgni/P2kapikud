@@ -2,6 +2,11 @@
 // Täidab objektid andmetega ja tagastab.
 package service;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.FileAlreadyExistsException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +17,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.servlet.http.Part;
+
 import object.Uudis;
+import sun.nio.cs.ext.ISCII91;
 import connection.DatabaseConnectionFactory;
 
 public class UudisService {
@@ -24,6 +32,8 @@ public class UudisService {
 	}
 	
 	public ArrayList<Uudis> getKõikUudised() {
+		System.out.println("getKõikUudised");
+		ArrayList<Uudis> uudised = new ArrayList<Uudis>();
 		Uudis uudis;
 		Date date;
 		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
@@ -35,11 +45,9 @@ public class UudisService {
 					"SELECT id, pealkiri, tekst, pilt, aeg FROM uudis");
 			ResultSet rsUudis = ps.executeQuery();
 			
-			ArrayList<Uudis> uudised = new ArrayList<Uudis>();
 			while (rsUudis.next()) {
 				uudis = new Uudis();
-				
-				
+
 				uudis.setId(rsUudis.getInt("id"));
 				uudis.setPealkiri(rsUudis.getString("pealkiri"));
 				uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
@@ -51,17 +59,18 @@ public class UudisService {
 				
 				uudised.add(uudis);
 			}
-
-			return uudised;
 		} catch (SQLException e) {
 			System.out.println("getAllUudised  SQLException:");
 			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
 		}
 		
-		return null;
+		return uudised;
 	}
 	
 	public Uudis getUudisById(int id) {
+		System.out.println("getUudisById");
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		Uudis uudis;
 		try {
@@ -85,13 +94,18 @@ public class UudisService {
 		} catch (SQLException e) {
 			System.out.println("getUudisById SQLExcpetion:");
 			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
 		}
 		
 		return null;
 	}
 	
 	public void publishUudis(int ajakirjanikId, 
-			String pealkiri, String tekst, String pilt) {
+			String pealkiri, String tekst, Part pilt) {
+		String piltAsukoht = "";
+		piltAsukoht = uploadPicture(pilt);
+		
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		Connection con;
 		try {
@@ -101,13 +115,14 @@ public class UudisService {
 			ps.setInt(1, ajakirjanikId);
 			ps.setString(2, pealkiri);
 			ps.setString(3, tekst);
-			ps.setString(4, pilt);
+			ps.setString(4, piltAsukoht);
 			
 			ps.executeUpdate();
-
 		} catch (SQLException e) {
-			System.out.println("Uudise postitamine ebaõnnestus!");
+			System.out.println("Uudise postitamine ebaõnnestus! SQLException:");
 			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
 		}
 		
 	}
@@ -116,10 +131,30 @@ public class UudisService {
 	 * 
 	 * @return Pildi asukoht
 	 */
-	public String uploadPicture() {
-		//TODO
+	public String uploadPicture(Part imgPart) {
+		String fileName = getPiltFileName(imgPart);
+		File file = new File("git/P2kapikud/WebContent/Images/uudiste_pildid/" + fileName);
+		FileOutputStream fos;
+		InputStream is;
 		
-		return null;
+		try {
+			is = imgPart.getInputStream();
+			fos = new FileOutputStream(file);
+			file.createNewFile();
+			byte[] buffer = new byte[1024*10];
+			int len;
+			while ((len = is.read(buffer)) != -1) {
+				fos.write(buffer, 0, len);
+			}
+			fos.close();
+		} catch (IOException e) {
+			System.out.println("Pildi salvestamine ebaõnnestus!");
+			e.printStackTrace();
+		} finally {
+			
+		}
+
+		return fileName;
 	}
 	
 	public Uudis[] search(String pattern) {
@@ -147,6 +182,17 @@ public class UudisService {
 		} catch (ParseException e) {
 			System.out.println("Kuupäeva parsimise error!");
 			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	private String getPiltFileName(Part part) {
+		for (String cd : part.getHeader("content-disposition").split(";")) {
+			if (cd.trim().startsWith("filename")) {
+	            String filename = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+	            return filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
+	        }
 		}
 		
 		return null;
