@@ -39,9 +39,8 @@
 				 			<th>Kuupäev</th>
 				 			<th>Kellaaeg</th>
 				 			<th>Pealkiri</th>
-				 			<th>Loetud</th>
+<!-- 				 			<th>Loetud</th> -->
 				 			<th>Kommentaare</th>
-				 			<th>Pilt</th>
 				 		</tr>
 			 		</thead>
 					<c:if test="${!empty (uudised)}">
@@ -51,9 +50,8 @@
 									<td>${uudis.kuupäev}</td>
 									<td>${uudis.kell}</td>
 									<td><a class="temp_link" href="uudis?uudisId=${uudis.id}">${uudis.pealkiri}</a></td>
-									<td>100</td>
+<!-- 								<td>100</td> -->
 									<td>10</td>
-									<td>X</td>
 								</tr>
 							</c:forEach>
 						</tbody>

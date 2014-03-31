@@ -10,13 +10,14 @@ public class Uudis {
 	private int ajakirjanikId;
 	private String kell;
 	private String kuupäev;
+	private int kommentaare;
 	
 	public Uudis() {
 		super();
 	}
 
 	public Uudis(int id, String pealkiri, ArrayList<String> tekst, String pilt,
-			int ajakirjanikId, String kell, String kuupäev) {
+			int ajakirjanikId, String kell, String kuupäev, int kommentaare) {
 		super();
 		this.id = id;
 		this.pealkiri = pealkiri;
@@ -25,8 +26,17 @@ public class Uudis {
 		this.ajakirjanikId = ajakirjanikId;
 		this.kell = kell;
 		this.kuupäev = kuupäev;
+		this.kommentaare = kommentaare;
 	}
 
+	public int getKommentaare() {
+		return kommentaare;
+	}
+
+	public void setKommentaare(int kommentaare) {
+		this.kommentaare = kommentaare;
+	}
+	
 	public String getKell() {
 		return kell;
 	}

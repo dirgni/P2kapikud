@@ -2,7 +2,6 @@
     pageEncoding="UTF-8" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.samaxes.com/taglib/secure" prefix="secure" %>
 
 <!DOCTYPE html>
 <html>
@@ -24,17 +23,23 @@
 <body>
 	<%@include file="jupid/navi-bar.jsp" %>
 	<%@include file="jupid/RSS.jsp" %>
-	<%@include file="jupid/meldi.jsp" %>
+	<c:if test="${klient.roll != 'ajakirjanik'}">
+		<%@include file="jupid/meldi.jsp" %>
+	</c:if>
 	
 	<div id="Rakendus">
-		<jsp:include page="jupid/päis.jsp" />
+		<c:choose>
+			<c:when test="${klient.roll == 'ajakirjanik'}">
+				<jsp:include page="jupid/päis-melditud.jsp"/>
+			</c:when>
+			<c:otherwise>
+				<jsp:include page="jupid/päis.jsp"/>
+			</c:otherwise>
+		</c:choose>
 
 		<div id="keskmine">
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
 				<div id="uudis-tekst">
-					<secure:one roles="role1toevaluate, role2toevaluate">
-   							<h2>tereteret</h2>
-					</secure:one>
   					<h1>
   						<a class="temp_link" href="uudis?uudisId=${uudis.id}">
   							${uudis.pealkiri }
