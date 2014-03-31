@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import object.Ajakirjanik;
 import service.UudisService;
 
 @WebServlet("/postita-uudis")
@@ -22,7 +21,14 @@ public class PostitaUudisServlet extends HttpServlet {
     public PostitaUudisServlet() {
         super();
     }
-
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String destination = "/WEB-INF/jsp/lisa-uudis.jsp";
+		
+		RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
+		rd.forward(request,  response);
+	}
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("PostitaUudisServlet doPost");
 		
