@@ -2,28 +2,44 @@ package object;
 
 public class Ajakirjanik {
 	private int id;
-	private String nimi;
+	private String eesnimi;
+	private String perenimi;
+	private String roll;
 	
 	public Ajakirjanik() {
 		super();
 	}
-
-	public Ajakirjanik(int id, String nimi) {
+	
+	public Ajakirjanik(int id, String eesnimi, String perenimi, String roll) {
 		super();
 		this.id = id;
-		this.nimi = nimi;
+		this.eesnimi = eesnimi;
+		this.perenimi = perenimi;
+		this.roll = roll;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNimi() {
-		return nimi;
+	public String getEesnimi() {
+		return eesnimi;
 	}
-	public void setNimi(String nimi) {
-		this.nimi = nimi;
+	public void setEesnimi(String eesnimi) {
+		this.eesnimi = eesnimi;
+	}
+	public String getPerenimi() {
+		return perenimi;
+	}
+	public void setPerenimi(String perenimi) {
+		this.perenimi = perenimi;
+	}
+	public String getRoll() {
+		return roll;
+	}
+	public void setRoll(String roll) {
+		this.roll = roll;
 	}
 }
