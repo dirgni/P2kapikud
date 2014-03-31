@@ -6,23 +6,37 @@ public class Uudis {
 	private String[] tekst;
 	private String pilt;
 	private int ajakirjanikId;
-	private String aeg;
+	private String kell;
+	private String kuupäev;
 	
 	public Uudis() {
 		super();
 	}
-	
+
 	public Uudis(int id, String pealkiri, String[] tekst, String pilt,
-			int ajakirjanikId, String aeg) {
+			int ajakirjanikId, String kell, String kuupäev) {
 		super();
 		this.id = id;
 		this.pealkiri = pealkiri;
 		this.tekst = tekst;
 		this.pilt = pilt;
 		this.ajakirjanikId = ajakirjanikId;
-		this.aeg = aeg;
+		this.kell = kell;
+		this.kuupäev = kuupäev;
 	}
 
+	public String getKell() {
+		return kell;
+	}
+	public void setKell(String kell) {
+		this.kell = kell;
+	}
+	public String getKuupäev() {
+		return kuupäev;
+	}
+	public void setKuupäev(String kuupäev) {
+		this.kuupäev = kuupäev;
+	}
 	public int getId() {
 		return id;
 	}
@@ -52,11 +66,5 @@ public class Uudis {
 	}
 	public void setAjakirjanikId(int ajakirjanikId) {
 		this.ajakirjanikId = ajakirjanikId;
-	}
-	public String getAeg() {
-		return aeg;
-	}
-	public void setAeg(String aeg) {
-		this.aeg = aeg;
 	}
 }

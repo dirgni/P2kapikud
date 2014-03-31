@@ -18,7 +18,7 @@ import service.UudisService;
 @WebServlet("/uudis")
 public class UudisServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//private static final String url = "/WEB-INF/jsp/uudis.jsp";
+	private static final String url = "/WEB-INF/jsp/uudis.jsp";
 
     public UudisServlet() {
         super();
@@ -37,12 +37,24 @@ public class UudisServlet extends HttpServlet {
 		request.setAttribute("kommentaarid", kommentaarid);
 		
 
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/uudis.jsp");
+		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("uudis doPost says hi!");
+		
+		String nimi = request.getParameter("Nimi");
+		String tekst = request.getParameter("content");
+
+		int uudisId = Integer.parseInt(request.getParameter("uudisId"));
+		System.out.println("uudisId: " + uudisId);
+		
+		KommentaarService ks = new KommentaarService();
+		ks.postitaKommentaar(nimi, tekst, uudisId);
+		
+		doGet(request, response);
+		
 	}
 
 }

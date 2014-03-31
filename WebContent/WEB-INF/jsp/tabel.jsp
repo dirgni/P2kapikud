@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="UTF-8">
-	<title>Uudisteportaal</title>
+	<title>Uudisteportaal | Tabel</title>
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<link rel="stylesheet" type="text/css" href="CSS/tabel.css">
 	<link rel="stylesheet" type="text/css" href="CSS/tablesorter.css">
@@ -28,9 +31,7 @@
 		<%@include file="jupid/päis.jsp" %>
 		
 		<div id="keskmine">
-			<!-- 
-				Siin toimub kogu maagia
-			 -->
+
 			 <div id="uudiste_tabel">
 			 	<table id="uudised_tabelis" class="tablesorter">
 			 		<thead>
@@ -43,34 +44,37 @@
 				 			<th>Pilt</th>
 				 		</tr>
 			 		</thead>
+			 		<c:if test="${!empty (uudised)}">
 			 		<tbody>
+			 		<c:forEach items="${uudised}" var="uudis">
 				 		<tr>
-				 			<td>14.02.2014</td>
-				 			<td>14:45</td>
-				 			<td><a class="temp_link" href="uudis.html">Maasikad on magusad</a></td>
+				 			<td>${uudis.kuupäev}</td>
+				 			<td>${uudis.kell}</td>
+				 			<td><a class="temp_link" href="uudis?uudisId=${uudis.id}">${uudis.pealkiri}</a></td>
 				 			<td>100</td>
 				 			<td>10</td>
 				 			<td>X</td>
 				 		</tr>
+				 	</c:forEach>
+<!-- 				 		<tr> -->
+<!-- 				 			<td>14.02.2014</td> -->
+<!-- 				 			<td>14:59</td> -->
+<!-- 				 			<td><a class="temp_link" href="uudis.html">Lumesõda hoovis</a></td> -->
+<!-- 				 			<td>59</td> -->
+<!-- 				 			<td>3</td> -->
+<!-- 				 			<td>X</td> -->
+<!-- 				 		</tr> -->
 				 		
-				 		<tr>
-				 			<td>14.02.2014</td>
-				 			<td>14:59</td>
-				 			<td><a class="temp_link" href="uudis.html">Lumesõda hoovis</a></td>
-				 			<td>59</td>
-				 			<td>3</td>
-				 			<td>X</td>
-				 		</tr>
-				 		
-				 		<tr>
-				 			<td>14.02.2014</td>
-				 			<td>15:10</td>
-				 			<td><a class="temp_link" href="uudis.html">Uudiste uudis</a></td>
-				 			<td>10</td>
-				 			<td>1</td>
-				 			<td>X</td>
-				 		</tr>
+<!-- 				 		<tr> -->
+<!-- 				 			<td>14.02.2014</td> -->
+<!-- 				 			<td>15:10</td> -->
+<!-- 				 			<td><a class="temp_link" href="uudis.html">Uudiste uudis</a></td> -->
+<!-- 				 			<td>10</td> -->
+<!-- 				 			<td>1</td> -->
+<!-- 				 			<td>X</td> -->
+<!-- 				 		</tr> -->
 			 		</tbody>
+				 	</c:if>
 			 	</table> <!-- uudised-tabelis -->
 <!-- 			 	<div id="pager" class="pager"> -->
 <!-- 					<form> -->

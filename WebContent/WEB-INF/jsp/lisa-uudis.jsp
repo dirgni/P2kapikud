@@ -33,7 +33,7 @@
 				- Kommentaaride osa
 			 -->
 			 <div class="uudise-lisamine-wrapper">
-			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post">
+			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post" action="PostitaUudisServlet">
 			 	
 	 				<div id="uudise-autor-select">
  						Sisseloginud kirjutaja nimi

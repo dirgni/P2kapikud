@@ -1,4 +1,6 @@
+package servlet;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -7,36 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class tabel
- */
+import object.Uudis;
+import service.UudisService;
+
 @WebServlet("/tabel")
-public class tabel extends HttpServlet {
+public class TabelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public tabel() {
+	private static final String url = "/WEB-INF/jsp/tabel.jsp";
+
+    public TabelServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/WEB-INF/jsp/tabel.jsp";
+		UudisService us = new UudisService();
+		
+		ArrayList<Uudis> uudised = new ArrayList<Uudis>();
+		uudised = us.getKõikUudised();
+		
+		request.setAttribute("uudised", uudised);
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	}
-
 }

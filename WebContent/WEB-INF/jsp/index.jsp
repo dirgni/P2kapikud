@@ -32,7 +32,7 @@
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
 					<div id="uudis-tekst">
 	  					<h1>
-	  						<a class="temp_link" href="uudis.html">
+	  						<a class="temp_link" href="uudis?uudisId=${uudis.id}">
 	  							${uudis.pealkiri }
 	  						</a>
 	  					</h1>

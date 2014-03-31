@@ -17,7 +17,7 @@ public class KommentaarService {
 		try {
 			con = dcf.getConnection();
 			PreparedStatement ps = con.prepareStatement("SELECT id, nimi, tekst, aeg, uudisId "
-					+ "FROM kommentaar WHERE id = ?");
+					+ "FROM kommentaar WHERE uudisId = ? ORDER BY aeg DESC");
 			ps.setInt(1, uudisId);
 			ResultSet rsKommentaarid = ps.executeQuery();
 
@@ -34,14 +34,29 @@ public class KommentaarService {
 
 			return kommentaarid;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("getKommentaaridById SQL error");
 			e.printStackTrace();
 		}
 		
 		return null;
 	}
 
-	public void postitaKommentaar(String nimi, String tekst) {
-		//TODO
+	public void postitaKommentaar(String nimi, String tekst, int uudisId) {
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("INSERT INTO kommentaar (nimi, tekst, uudisid) "
+					+ "VALUES (?, ?, ?)");
+			ps.setString(1, nimi);
+			ps.setString(2, tekst);
+			ps.setInt(3, uudisId);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("Kommentaari postitamine ebaõnnestus!");
+			e.printStackTrace();
+		}
+		
 	}
 }

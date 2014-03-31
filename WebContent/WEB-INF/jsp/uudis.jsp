@@ -47,12 +47,14 @@
 				
 			 	<h3 id="uudise-kommentaar-title">Kommentaarid</h3>
 			 	<div id="uudise-kommentaar-vorm">
-			 		<form id="kommentaar-vorm" onsubmit="return true">
+			 		<form id="kommentaar-vorm" onsubmit="return true" action="uudis" method="post">
 	 					<input class="input-field" name="Nimi" placeholder="Nimi" type="text">
 	 					<textarea class="input-field" name="content" placeholder="Sisestage oma kommentaar siia." rows="5"></textarea>
+		 				<input type="hidden" name="uudisId" value="${uudis.id}">
 		 				<input class="submit-button" type="submit" value="Kommenteeri">
 		 				<input class="submit-button" type="reset" value="Tühjenda väljad">
 			 		</form> <!-- kommentaar-vorm -->
+
 		 		</div> <!-- uudise-kommentaar-vorm -->
 
 				<c:if test="${!empty(kommentaarid)}">
