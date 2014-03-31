@@ -40,13 +40,13 @@
 	 				</div> <!-- uudise-autor-select -->
 
 					<div id="uudise-andmed">
-						<input type="text" placeholder="Pealkiri">
+						<input type="text" name="pealkiri" placeholder="Pealkiri">
 						<div id="input-image-wrap">
 							<label for="def-hide">
-								<input id="def-hide" type="file" accept="image/jpg,image/png">
+								<input id="def-hide" type="file" name="pilt" accept="image/jpg,image/png">
 							</label>
 						</div> <!-- input-image-wrap -->
-						<textarea rows="7" placeholder="Sisu"></textarea>
+						<textarea rows="7" nimi="tekst" placeholder="Sisu"></textarea>
 					</div> <!-- uudise-andmed -->
 
 					<div class="tagide-valik">
@@ -54,8 +54,8 @@
  					</div> <!-- tagide-valik -->
  					
 			 		<div class="tegevus-nupud">
-			 			<button type="button" class="tegevus-nupp">Postita uudis</button>
-			 			<button type="button" class="tegevus-nupp">Loobu</button>
+			 			<button type="submit" class="tegevus-nupp">Postita uudis</button>
+			 			<button type="reset" class="tegevus-nupp">Loobu</button>
 			 		</div> <!-- tegevus-nupud -->
 			 		
 			 	</form> <!-- uudise-vorm -->

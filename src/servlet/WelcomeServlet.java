@@ -25,6 +25,8 @@ public class WelcomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("WelcomeServlet accessed");
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		//Võta random uudis
 		UudisService us = new UudisService();
 //		Uudis uudis = us.getRandomUudis(); <- pole veel implementeeritud

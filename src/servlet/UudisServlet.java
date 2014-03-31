@@ -25,7 +25,7 @@ public class UudisServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("UudisServlet doGet method");
+		System.out.println("UudisServlet doGet");
 		int uudisId = Integer.parseInt(request.getParameter("uudisId"));
 
 		UudisService us = new UudisService();
@@ -36,20 +36,19 @@ public class UudisServlet extends HttpServlet {
 		ArrayList<Kommentaar> kommentaarid = ks.getKommentaaridByUudisId(uudisId);
 		request.setAttribute("kommentaarid", kommentaarid);
 		
-
+		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("uudis doPost says hi!");
+		System.out.println("UudisServlet doPost");
 		
+		request.setCharacterEncoding("UTF-8");
 		String nimi = request.getParameter("Nimi");
 		String tekst = request.getParameter("content");
-
 		int uudisId = Integer.parseInt(request.getParameter("uudisId"));
-		System.out.println("uudisId: " + uudisId);
-		
+
 		KommentaarService ks = new KommentaarService();
 		ks.postitaKommentaar(nimi, tekst, uudisId);
 		

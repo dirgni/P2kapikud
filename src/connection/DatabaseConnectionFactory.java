@@ -33,13 +33,18 @@ public class DatabaseConnectionFactory {
 	
 	public Connection getConnection() throws SQLException {
 		connection = DriverManager.getConnection(url, props);
-
+		System.out.println("Ühendus loodi.");
 		return connection;
 	}
 	
-	public void closeConnection() throws SQLException {
+	public void closeConnection() {
 		try {
-			connection.close();
+			if (connection != null) {
+				connection.close();
+				System.out.println("Ühendus suleti.");
+			} else {
+				System.out.println("Üritati sulgeda null väärtusega ühendust");
+			}
 		} catch(SQLException e) {
 			System.out.println("Viga ühenduse sulgemisel!");
 			System.err.println(e);

@@ -44,38 +44,21 @@
 				 			<th>Pilt</th>
 				 		</tr>
 			 		</thead>
-			 		<c:if test="${!empty (uudised)}">
-			 		<tbody>
-			 		<c:forEach items="${uudised}" var="uudis">
-				 		<tr>
-				 			<td>${uudis.kuupäev}</td>
-				 			<td>${uudis.kell}</td>
-				 			<td><a class="temp_link" href="uudis?uudisId=${uudis.id}">${uudis.pealkiri}</a></td>
-				 			<td>100</td>
-				 			<td>10</td>
-				 			<td>X</td>
-				 		</tr>
-				 	</c:forEach>
-<!-- 				 		<tr> -->
-<!-- 				 			<td>14.02.2014</td> -->
-<!-- 				 			<td>14:59</td> -->
-<!-- 				 			<td><a class="temp_link" href="uudis.html">Lumesõda hoovis</a></td> -->
-<!-- 				 			<td>59</td> -->
-<!-- 				 			<td>3</td> -->
-<!-- 				 			<td>X</td> -->
-<!-- 				 		</tr> -->
-				 		
-<!-- 				 		<tr> -->
-<!-- 				 			<td>14.02.2014</td> -->
-<!-- 				 			<td>15:10</td> -->
-<!-- 				 			<td><a class="temp_link" href="uudis.html">Uudiste uudis</a></td> -->
-<!-- 				 			<td>10</td> -->
-<!-- 				 			<td>1</td> -->
-<!-- 				 			<td>X</td> -->
-<!-- 				 		</tr> -->
-			 		</tbody>
-				 	</c:if>
-			 	</table> <!-- uudised-tabelis -->
+					<c:if test="${!empty (uudised)}">
+						<tbody>
+							<c:forEach items="${uudised}" var="uudis">
+								<tr>
+									<td>${uudis.kuupäev}</td>
+									<td>${uudis.kell}</td>
+									<td><a class="temp_link" href="uudis?uudisId=${uudis.id}">${uudis.pealkiri}</a></td>
+									<td>100</td>
+									<td>10</td>
+									<td>X</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</c:if>
+				</table> <!-- uudised-tabelis -->
 <!-- 			 	<div id="pager" class="pager"> -->
 <!-- 					<form> -->
 <!-- 						<img src="Images/tablesorter/first.png" class="first"> -->
