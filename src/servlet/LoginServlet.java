@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("login failure!");
 		}
 		
-		response.sendRedirect("avaleht");
+		response.sendRedirect("");
 	}
 
 }

@@ -14,7 +14,7 @@ import javax.servlet.http.Part;
 import object.Ajakirjanik;
 import service.UudisService;
 
-@WebServlet("/PostitaUudisServlet")
+@WebServlet("/postita-uudis")
 @MultipartConfig	
 public class PostitaUudisServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +38,6 @@ public class PostitaUudisServlet extends HttpServlet {
 		us.publishUudis(ajakirjanikId, pealkiri, tekst, imgPart);
 		
 		//Suuna kasutaja uudise lehele
-		response.sendRedirect("/uudis?uudisId=1");
+		response.sendRedirect("uudis?uudisId=1");
 	}
 }

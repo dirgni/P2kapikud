@@ -65,10 +65,7 @@ public class KommentaarService {
 			ps.setString(2, tekst);
 			ps.setInt(3, uudisId);
 			
-			System.out.println("Tekst: " + tekst);
-			System.out.println("charset: " + java.nio.charset.Charset.defaultCharset().name());
 			ps.executeUpdate();
-			
 		} catch (SQLException e) {
 			System.out.println("Kommentaari postitamine ebaõnnestus!");
 			e.printStackTrace();

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import object.Uudis;
 import service.UudisService;
 
-@WebServlet("/avaleht")
+@WebServlet("")
 public class WelcomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

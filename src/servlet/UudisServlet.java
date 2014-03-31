@@ -40,20 +40,4 @@ public class UudisServlet extends HttpServlet {
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("UudisServlet doPost");
-		
-		request.setCharacterEncoding("UTF-8");
-		String nimi = request.getParameter("Nimi");
-		String tekst = request.getParameter("content");
-		int uudisId = Integer.parseInt(request.getParameter("uudisId"));
-
-		KommentaarService ks = new KommentaarService();
-		ks.postitaKommentaar(nimi, tekst, uudisId);
-		
-		doGet(request, response);
-		
-	}
-
 }
