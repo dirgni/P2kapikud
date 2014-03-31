@@ -20,8 +20,7 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO
-		
+		request.setCharacterEncoding("UTF-8");
 		String userName = request.getParameter("k-nimi");
 		String password = request.getParameter("pwd");
 		
@@ -29,14 +28,16 @@ public class LoginServlet extends HttpServlet {
 		boolean login = ls.authenticate(userName, password);
 		
 		if (login) {
+			System.out.println("login success!");
 			Ajakirjanik klient = ls.getAjakirjanikByUsername(userName);
 			request.getSession().setAttribute("klient", klient);
-			// Peaks teoreetiliselt samale lehele uuesti suunama, kust tuldi
-			response.sendRedirect(request.getRequestURI());
+			
 		} else {
 			// Sisselogimine ebaõnnestus
 			System.out.println("login failure!");
 		}
+		
+		response.sendRedirect("");
 	}
 
 }

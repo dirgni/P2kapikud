@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.FileAlreadyExistsException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +19,6 @@ import java.util.Date;
 import javax.servlet.http.Part;
 
 import object.Uudis;
-import sun.nio.cs.ext.ISCII91;
 import connection.DatabaseConnectionFactory;
 
 public class UudisService {
@@ -163,11 +161,14 @@ public class UudisService {
 		return null;
 	}
 	
-	private String[] extractParagraphs(String tekst) {
-		String[] lõigud = tekst.trim().split("\n");
+	private ArrayList<String> extractParagraphs(String tekst) {
+		ArrayList<String> lõigud = new ArrayList<String>();
+		String[] l = tekst.trim().split("\n");
 		
-		for (String lõik : lõigud) {
-			lõik.trim();
+		for (String lõik : l) {
+			if (lõik != "") {
+				lõigud.add(lõik.trim());
+			}
 		}
 		
 		return lõigud;

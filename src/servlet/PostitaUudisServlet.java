@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import object.Ajakirjanik;
 import service.UudisService;
 
-@WebServlet("/PostitaUudisServlet")
+@WebServlet("/postita-uudis")
 @MultipartConfig	
 public class PostitaUudisServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,7 +21,14 @@ public class PostitaUudisServlet extends HttpServlet {
     public PostitaUudisServlet() {
         super();
     }
-
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String destination = "/WEB-INF/jsp/lisa-uudis.jsp";
+		
+		RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
+		rd.forward(request,  response);
+	}
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("PostitaUudisServlet doPost");
 		
@@ -38,6 +44,6 @@ public class PostitaUudisServlet extends HttpServlet {
 		us.publishUudis(ajakirjanikId, pealkiri, tekst, imgPart);
 		
 		//Suuna kasutaja uudise lehele
-		response.sendRedirect("/uudis?uudisId=1");
+		response.sendRedirect("uudis?uudisId=1");
 	}
 }
