@@ -50,6 +50,20 @@ input, textarea{
 	max-height: 550px;
 }
 
+.uudis-autor{
+	font-style: italic;
+	margin-bottom: 2%;
+	margin-top: -2%;
+}
+
+#uudis-tag{
+	float: left;
+	font-style: italic;
+	color: #B1A9A9;
+	/* width: 100%; */
+	/* border-top: 1px dotted #B1A9A9; */
+}
+
 .kommentaar {
 	margin-bottom: 30px;
 	border-bottom: thin;
@@ -77,4 +91,11 @@ input, textarea{
 
 .clear{
 	clear:both;
+}
+
+@media only screen and (max-width: 925px), 
+	handheld and (orientation: landscape){		
+		#uudis-tekst{
+			width: initial;
+		}
 }

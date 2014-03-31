@@ -27,7 +27,7 @@ public class UudisService {
 		Uudis uudis;
 		Date date;
 		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
-		DateFormat kuupäev = new SimpleDateFormat("dd-MM-yyyy");
+		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		try {
 			Connection con = dcf.getConnection();

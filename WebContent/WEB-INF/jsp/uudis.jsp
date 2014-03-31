@@ -30,7 +30,11 @@
 			<div id="uudis-wrapper" class="uudis-wrapper-less">
 				<div class="uudis-pealkiri">
 					<h1>${uudis.pealkiri }</h1>
+					<div class="uudis-autor">
+						- mememee
+					</div>
 				</div> <!-- uudis-pealkiri -->
+
 				<div class="uudis-tekst">
 					<div class="uudis-pilt">
 						<img class="main-pilt" alt="olümpiavõitja legkov" src="${uudis.pilt }">
@@ -39,6 +43,9 @@
 						<p><c:out value="${lõik}" /></p>
 					</c:forEach>
 				</div> <!-- uudis-tekst -->
+				<div id="uudis-tag">
+					#meter
+				</div>
 			</div> <!-- uudis-wrapper -->
 			
 			<div class="clear"></div>
