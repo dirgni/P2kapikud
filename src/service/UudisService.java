@@ -163,11 +163,14 @@ public class UudisService {
 		return null;
 	}
 	
-	private String[] extractParagraphs(String tekst) {
-		String[] lõigud = tekst.trim().split("\n");
+	private ArrayList<String> extractParagraphs(String tekst) {
+		ArrayList<String> lõigud = new ArrayList<String>();
+		String[] l = tekst.trim().split("\n");
 		
-		for (String lõik : lõigud) {
-			lõik.trim();
+		for (String lõik : l) {
+			if (lõik != "") {
+				lõigud.add(lõik.trim());
+			}
 		}
 		
 		return lõigud;

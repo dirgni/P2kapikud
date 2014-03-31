@@ -1,9 +1,11 @@
 package object;
 
+import java.util.ArrayList;
+
 public class Uudis {
 	private int id;
 	private String pealkiri;
-	private String[] tekst;
+	private ArrayList<String> tekst;
 	private String pilt;
 	private int ajakirjanikId;
 	private String kell;
@@ -13,7 +15,7 @@ public class Uudis {
 		super();
 	}
 
-	public Uudis(int id, String pealkiri, String[] tekst, String pilt,
+	public Uudis(int id, String pealkiri, ArrayList<String> tekst, String pilt,
 			int ajakirjanikId, String kell, String kuupäev) {
 		super();
 		this.id = id;
@@ -49,10 +51,10 @@ public class Uudis {
 	public void setPealkiri(String pealkiri) {
 		this.pealkiri = pealkiri;
 	}
-	public String[] getTekst() {
+	public ArrayList<String> getTekst() {
 		return tekst;
 	}
-	public void setTekst(String[] tekst) {
+	public void setTekst(ArrayList<String> tekst) {
 		this.tekst = tekst;
 	}
 	public String getPilt() {
