@@ -30,15 +30,15 @@
 
 		<div id="keskmine">
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
-					<div id="uudis-tekst">
-	  					<h1>
-	  						<a class="temp_link" href="uudis?uudisId=${uudis.id}">
-	  							${uudis.pealkiri }
-	  						</a>
-	  					</h1>
-						<c:forEach items="${uudis.tekst}" var="lõik">
-							<p><c:out value="${lõik}" /></p>
-						</c:forEach>
+				<div id="uudis-tekst">
+  					<h1>
+  						<a class="temp_link" href="uudis?uudisId=${uudis.id}">
+  							${uudis.pealkiri }
+  						</a>
+  					</h1>
+					<c:forEach items="${uudis.tekst}" var="lõik">
+						<p><c:out value="${lõik}" /></p>
+					</c:forEach>
 				</div> <!-- uudis-tekst -->
 			</div> <!-- esi-uudis-wrapper -->
 		</div> <!-- keskmine -->

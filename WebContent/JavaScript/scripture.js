@@ -1,11 +1,12 @@
 $(document).ready(function(){
      $('#uudised_tabelis')
      		.tablesorter({
-		    	 sortList: [[0,1],[1,1]],
-			     headers: {
-			    	 5: { sorter: false }
-			     },
-			     sortMultiSortKey: 'ctrlKey' 
+		    	sortList: [[0,1],[1,1]],
+		    	dateFormat : 'uk',
+			    headers: {
+			    	5: { sorter: false }
+			    },
+			    sortMultiSortKey: 'ctrlKey' 
 		     })
 //		     .tablesorter().tablesorterPager({container: $("#pager")});
 });
