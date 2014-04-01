@@ -1,6 +1,6 @@
 <div id="pealmine">
 	<div id="pealmine_vasakpoolne">
-		<div id="logo"></div>
+		<div id="logo" class="logo-meld"></div>
 		<!-- Asendatud top-navi'ga
 		<div id="navigatsioon">
 			TODO Navigatsioon
@@ -15,14 +15,14 @@
 				
 				<div id="user_DataBox">
 					<div id="user_Prof">
-						Ajakirjanik
+						Tere, ${klient.roll}
 					</div>
 					<div id="user_FullName">
-						Riho Ajastik
+						${klient.eesnimi} ${klient.perenimi}
 					</div>
-					<div id="user_ArtCounter">
-						48 artiklit
-					</div>
+<!-- 					<div id="user_ArtCounter"> -->
+<!-- 						48 artiklit -->
+<!-- 					</div> -->
 				</div>
 			</div>	
 <!-- 			<div id="user_Bottom"> -->

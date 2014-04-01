@@ -1,13 +1,14 @@
 
 #user_window {
-	width:70%;
-	height:70%;
-	position:absolute;
-	top:0;
-	right:2em;
-	padding:1em;
-	background: #D3D3D3;
-	display:none;
+	width: 40%;
+	height: 100%;
+	padding: 3%;
+	margin-right: 15px;
+	float: right;
+	background: #FFFFFF;
+	border: 2px solid #453823;
+	border-radius: 15px;
+	box-shadow: 7px 7px 12px #453823;
 }
 
 #user_Upper{
@@ -32,16 +33,6 @@
 	background-size:100% 100%;
 }
 
-#user_DataBox{
-	width:70%;
-	height:100%;
-	position:absolute;
-	right:0;
-	top:0;
-}
-
-
-
 #user_Prof{
 	padding-left:1em;
 
@@ -55,7 +46,6 @@
 #user_ArtCounter{
 	padding-left:1em;
 }
-
 
 /*
 border:1px solid black;

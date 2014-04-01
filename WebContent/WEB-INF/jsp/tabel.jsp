@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<link rel="stylesheet" type="text/css" href="CSS/tabel.css">
 	<link rel="stylesheet" type="text/css" href="CSS/tablesorter.css">
+	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
@@ -20,7 +21,7 @@
 	<script type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
 	<script type="text/javascript" src="JavaScript/jquery.tablesorter.pager.js"></script>
 	
-	<link rel="icon" type="image/png" href="Images\logo-small.png">
+	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
 
 <body>
