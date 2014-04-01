@@ -11,13 +11,15 @@ public class Uudis {
 	private String kell;
 	private String kuupäev;
 	private int kommentaare;
+	private ArrayList<String> tagid;
 	
 	public Uudis() {
 		super();
 	}
 
 	public Uudis(int id, String pealkiri, ArrayList<String> tekst, String pilt,
-			int ajakirjanikId, String kell, String kuupäev, int kommentaare) {
+			int ajakirjanikId, String kell, String kuupäev, int kommentaare,
+			ArrayList<String> tagid) {
 		super();
 		this.id = id;
 		this.pealkiri = pealkiri;
@@ -27,6 +29,7 @@ public class Uudis {
 		this.kell = kell;
 		this.kuupäev = kuupäev;
 		this.kommentaare = kommentaare;
+		this.tagid = tagid;
 	}
 
 	public int getKommentaare() {
@@ -78,5 +81,11 @@ public class Uudis {
 	}
 	public void setAjakirjanikId(int ajakirjanikId) {
 		this.ajakirjanikId = ajakirjanikId;
+	}
+	public ArrayList<String> getTagid() {
+		return tagid;
+	}
+	public void setTagid(ArrayList<String> tagid) {
+		this.tagid = tagid;
 	}
 }

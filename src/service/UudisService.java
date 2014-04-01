@@ -59,11 +59,14 @@ public class UudisService {
 				date = extractDate(rsUudis.getString("aeg"));
 				uudis.setKell(kell.format(date));
 				uudis.setKuupäev(kuupäev.format(date));
+				uudis.setKommentaare(0);
 				
 				ps.setInt(1, id);
 				rsKommentaare = ps.executeQuery();
-				rsKommentaare.next();
-				uudis.setKommentaare(rsKommentaare.getInt("count"));
+				if (rsKommentaare.isBeforeFirst()) {
+					rsKommentaare.next();
+					uudis.setKommentaare(rsKommentaare.getInt("count"));
+				}
 				
 				uudised.add(uudis);
 			}
@@ -85,7 +88,7 @@ public class UudisService {
 			Connection con = dcf.getConnection();
 			
 			PreparedStatement ps = con.prepareStatement(
-					"SELECT id, pealkiri, tekst, pilt FROM uudis "
+					"SELECT id, pealkiri, tekst, pilt, ajakirjanikId FROM uudis "
 					+ "WHERE id = ?");
 			ps.setInt(1, id);
 			ResultSet rsUudis = ps.executeQuery();
@@ -97,6 +100,8 @@ public class UudisService {
 			uudis.setPealkiri(rsUudis.getString("pealkiri"));
 			uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
 			uudis.setPilt(rsUudis.getString("pilt"));
+			uudis.setAjakirjanikId(rsUudis.getInt("ajakirjanikId"));
+			uudis.setTagid(getUudisTagid(id));
 			
 			return uudis;
 		} catch (SQLException e) {
@@ -207,5 +212,34 @@ public class UudisService {
 		}
 		
 		return null;
+	}
+	
+	private ArrayList<String> getUudisTagid(int uudisId) {
+		System.out.println("getUudisTagid");
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		ArrayList<String> tagid = new ArrayList<String>();
+		try {
+			Connection con = dcf.getConnection();
+			
+			PreparedStatement ps = con.prepareStatement(
+					"SELECT tag.nimi FROM tag, uudis, uudis_tag "
+					+ "WHERE uudis.id = ? "
+					+ "AND uudis.id = uudis_tag.uudisId "
+					+ "AND tag.id = uudis_tag.tagId");
+			ps.setInt(1, uudisId);
+			ResultSet rsTagid = ps.executeQuery();
+			
+			while (rsTagid.next()) {
+				tagid.add(rsTagid.getString("nimi"));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("getUudisTagid SQLExcpetion:");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+		return tagid;
 	}
 }
