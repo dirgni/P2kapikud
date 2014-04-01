@@ -24,7 +24,7 @@
 					Perenimi: <input class="input-field" name="p-nimi" placeholder="Perenimi" type="text">
 					Kasutajanimi: <input class="input-field" name="k-nimi" placeholder="Kasutajanimi" type="text">
 			 		Parool: <input class="input-field" name="pwd" placeholder="******" type="password">
-			 		Parool uuesti: <input class="input-field" name="pwd" placeholder="******" type="password">
+			 		Parool uuesti: <input class="input-field" name="pwd2" placeholder="******" type="password">
 			 		<span id="meldi-vorm-nupud" class="hidden-nupud">
 						<button onclick="makeHidden('RSS');"> Registreeru </button>
 						<button onclick="makeHidden('RSS');"> Katkesta </button>
