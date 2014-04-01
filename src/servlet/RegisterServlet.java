@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.UserService;
 
-@WebServlet("/registreerimine")
+@WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -21,15 +21,15 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("RegisterServlet doPost");
 		
-		String eesnimi = request.getParameter("eesnimi");
-		String perenimi = request.getParameter("perenimi");
-		String kasutajanimi = request.getParameter("kasutaja");
-		String parool = request.getParameter("parool");
+		String eesnimi = request.getParameter("e-nimi");
+		String perenimi = request.getParameter("p-nimi");
+		String kasutajanimi = request.getParameter("k-nimi");
+		String parool = request.getParameter("pwd");
 		
 		UserService us = new UserService();
 		us.registerUser(eesnimi, perenimi, kasutajanimi, parool);
 		
-		response.sendRedirect("");
+		response.sendRedirect(request.getHeader("Referer"));
 	}
 
 }

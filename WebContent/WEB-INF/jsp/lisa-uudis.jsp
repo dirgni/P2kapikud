@@ -31,7 +31,7 @@
 				- Kommentaaride osa
 			 -->
 			 <div class="uudise-lisamine-wrapper">
-			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post" action="PostitaUudisServlet">
+			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post" action="postita-uudis">
 			 	
 	 				<div id="uudise-autor-select">
  						Sisseloginud kirjutaja nimi
@@ -44,7 +44,7 @@
 								<input id="def-hide" type="file" name="pilt" accept="image/jpg,image/png">
 							</label>
 						</div> <!-- input-image-wrap -->
-						<textarea rows="7" nimi="tekst" placeholder="Sisu"></textarea>
+						<textarea rows="7" name="tekst" placeholder="Sisu"></textarea>
 					</div> <!-- uudise-andmed -->
 
 					<div class="tagide-valik">

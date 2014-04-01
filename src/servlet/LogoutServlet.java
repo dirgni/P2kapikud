@@ -19,6 +19,6 @@ public class LogoutServlet extends HttpServlet {
 		System.out.println("Logging out");
 		request.getSession().removeAttribute("klient");
 		
-		response.sendRedirect("");
+		response.sendRedirect(request.getHeader("Referer"));
 	}
 }

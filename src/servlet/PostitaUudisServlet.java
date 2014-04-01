@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import object.Ajakirjanik;
 import service.UudisService;
 
 @WebServlet("/postita-uudis")
@@ -36,15 +37,18 @@ public class PostitaUudisServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String pealkiri = request.getParameter("pealkiri");
 		String tekst = request.getParameter("tekst");
-//		Ajakirjanik a = (Ajakirjanik) request.getSession().getAttribute("ajakirjanik");
-//		int ajakirjanikId = a.getId();
-		int ajakirjanikId = 1;
-		Part imgPart = request.getPart("pilt");
-		
+		Ajakirjanik a = (Ajakirjanik) request.getSession().getAttribute("klient");
+		int ajakirjanikId = a.getId();
+//		Part imgPart = request.getPart("pilt");
+//		String path = request.getContextPath();
+//		System.out.println("request path: " + path);
 		UudisService us = new UudisService();
-		us.publishUudis(ajakirjanikId, pealkiri, tekst, imgPart);
+		System.out.println("pealkiri: " + pealkiri);
+		System.out.println("tekst: " + tekst);
+		System.out.println("ajakirjanikId: " + ajakirjanikId);
+		int uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, null, null);
 		
 		//Suuna kasutaja uudise lehele
-		response.sendRedirect("uudis?uudisId=1");
+		response.sendRedirect("uudis?uudisId=" + uudisId);
 	}
 }

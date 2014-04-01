@@ -1,5 +1,7 @@
 package service;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,23 +22,20 @@ public class UserService {
 		Connection con;
 		try {
 			con = dcf.getConnection();
-			PreparedStatement ps = con.prepareStatement("SELECT kasutajanimi, parool "
+			PreparedStatement ps = con.prepareStatement("SELECT räsi, sool "
 					+ "FROM ajakirjanik WHERE kasutajanimi = ?");
 			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
 			
-			String räsi = null;
 			if (rs.isBeforeFirst()) {
 				rs.next();
-				räsi = rs.getString("parool");
+				String räsi = rs.getString("räsi");
+				String sool = rs.getString("sool");
+				
+				loginSuccess = verify(sool, räsi, password);
 			} else {
 				System.out.println("Kasutajanime ei leitud!");
 			}
-			
-			if (password.equals(räsi)) {
-				loginSuccess = true;
-			}
-			
 		} catch (SQLException e) {
 			System.out.println("authenticate SQL exception");
 			e.printStackTrace();
@@ -45,6 +44,27 @@ public class UserService {
 		}
 		
 		return loginSuccess;
+	}
+	
+	private boolean verify(String salt, String hash, String parool) {
+		if (hash == null) {
+			return false;
+		}
+		MessageDigest sha256;
+		try {
+			sha256 = MessageDigest.getInstance("SHA-256");
+			byte[] passBytes = (salt+parool).getBytes();
+			byte[] passHash = sha256.digest(passBytes);
+			String genHash = Base64.encodeBase64String(passHash);
+			
+			if (hash.equals(genHash)) {
+				return true;
+			}
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
 	}
 	
 	public Ajakirjanik getAjakirjanikByUsername(String username) {
@@ -67,7 +87,7 @@ public class UserService {
 			a.setRoll(rs.getString("roll"));
 			
 		} catch (SQLException e) {
-			System.out.println("authenticate SQL exception");
+			System.out.println("getAjakirjanikById SQL exception");
 			e.printStackTrace();
 		} finally {
 			dcf.closeConnection();
@@ -109,7 +129,49 @@ public class UserService {
 	}
 	
 	public void registerUser(String eesnimi, String perenimi, String kasutajanimi, String parool) {
-		randomSalt();
+		System.out.println("Registering user...");
+		String sool = randomSalt();
+		String räsi = hash(sool, parool);
+		String roll = "ajakirjanik";
+		
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement(""
+					+ "INSERT INTO ajakirjanik (eesnimi, perenimi, "
+					+ "kasutajanimi, roll, sool, räsi) "
+					+ "VALUES (?, ?, ?, ?, ?, ?)");
+			ps.setString(1, eesnimi);
+			ps.setString(2, perenimi);
+			ps.setString(3, kasutajanimi);
+			ps.setString(4, roll);
+			ps.setString(5, sool);
+			ps.setString(6, räsi);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Registreerimine ebaõnnestus:");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+	}
+	
+	private String hash(String salt, String parool) {
+		MessageDigest sha256;
+		try {
+			sha256 = MessageDigest.getInstance("SHA-256");
+			byte[] passBytes = (salt+parool).getBytes();
+			byte[] passHash = sha256.digest(passBytes);
+			String hash = Base64.encodeBase64String(passHash);
+			
+			return hash;
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 	public void registerRSS(String nimi, String email) {
@@ -136,7 +198,7 @@ public class UserService {
 	
 	private String randomSalt() {
 		Random r = new SecureRandom();
-		byte[] salt = new byte[32];
+		byte[] salt = new byte[16];
 		r.nextBytes(salt);
 
 		String encodedSalt = Base64.encodeBase64String(salt);

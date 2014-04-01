@@ -114,23 +114,24 @@ public class UudisService {
 		return null;
 	}
 	
-	public void publishUudis(int ajakirjanikId, 
-			String pealkiri, String tekst, Part pilt) {
-		String piltAsukoht = "";
-		piltAsukoht = uploadPicture(pilt);
-		
+	public int publishUudis(int ajakirjanikId, 
+			String pealkiri, String tekst, Part pilt, String path) {
+		System.out.println("Publishing uudis...");
+		int uudisId = -1;
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		Connection con;
 		try {
+//			String piltAsukoht = uploadPicture(pilt, path);
 			con = dcf.getConnection();
 			PreparedStatement ps = con.prepareStatement("INSERT INTO uudis (ajakirjanikId, pealkiri, tekst, pilt) "
 					+ "VALUES (?, ?, ?, ?)");
 			ps.setInt(1, ajakirjanikId);
 			ps.setString(2, pealkiri);
 			ps.setString(3, tekst);
-			ps.setString(4, piltAsukoht);
+			ps.setString(4, "Images/legkov.png");
+//			ps.setString(4, piltAsukoht);
 			
-			ps.executeUpdate();
+			uudisId = ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Uudise postitamine ebaõnnestus! SQLException:");
 			e.printStackTrace();
@@ -138,34 +139,25 @@ public class UudisService {
 			dcf.closeConnection();
 		}
 		
+		return uudisId;
 	}
 	
-	/**
-	 * 
-	 * @return Pildi asukoht
-	 */
-	public String uploadPicture(Part imgPart) {
+	public String uploadPicture(Part imgPart, String path) throws IOException {
+		System.out.println("Laen pilti üles...");
 		String fileName = getPiltFileName(imgPart);
-		File file = new File("git/P2kapikud/WebContent/Images/uudiste_pildid/" + fileName);
+		File file = new File(path + "/WebContent/Images/uudiste_pildid/" + fileName);
 		FileOutputStream fos;
 		InputStream is;
-		
-		try {
-			is = imgPart.getInputStream();
-			fos = new FileOutputStream(file);
-			file.createNewFile();
-			byte[] buffer = new byte[1024*10];
-			int len;
-			while ((len = is.read(buffer)) != -1) {
-				fos.write(buffer, 0, len);
-			}
-			fos.close();
-		} catch (IOException e) {
-			System.out.println("Pildi salvestamine ebaõnnestus!");
-			e.printStackTrace();
-		} finally {
-			
+
+		is = imgPart.getInputStream();
+		fos = new FileOutputStream(file);
+		file.createNewFile();
+		byte[] buffer = new byte[1024*10];
+		int len;
+		while ((len = is.read(buffer)) != -1) {
+			fos.write(buffer, 0, len);
 		}
+		fos.close();
 
 		return fileName;
 	}

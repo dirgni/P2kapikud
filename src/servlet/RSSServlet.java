@@ -27,7 +27,7 @@ public class RSSServlet extends HttpServlet {
 		UserService us = new UserService();
 		us.registerRSS(nimi, email);
 		
-		response.sendRedirect("");
+		response.sendRedirect(request.getHeader("Referer"));
 	}
 
 }

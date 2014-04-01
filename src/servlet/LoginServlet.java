@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +38,10 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("login failure!");
 		}
 		
-		response.sendRedirect("");
+		System.out.println("uri: " + request.getRequestURI());
+		System.out.println("referer: " + request.getHeader("Referer"));
+		
+		response.sendRedirect(request.getHeader("Referer"));
 	}
 
 }
