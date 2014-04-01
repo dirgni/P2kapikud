@@ -11,6 +11,7 @@
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
+	<script type="text/javascript" src="JavaScript/validation.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images\logo-small.png">
 </head>
