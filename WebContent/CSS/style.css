@@ -67,7 +67,7 @@ input, textarea {
 
 #logo {
 	background-size: contain;
-	background-position-y: center;
+	background-position:center;
 	background-repeat: no-repeat;
 	display:block;
 	top:0;
@@ -115,7 +115,7 @@ input, textarea {
 	right:0;
 	background-image: url(../Images/RSS.png);
 	background-size: contain;
-	background-position-y: center;
+	background-position: center;
 	background-repeat: no-repeat;
 }
 
