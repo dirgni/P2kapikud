@@ -285,7 +285,7 @@ input, textarea {
 	height:70%;
 	width:70%;
 	background-color:white;
-	opacity:2;
+	opacity:1;
 	display:block;
 	overflow-y: scroll;
 }
