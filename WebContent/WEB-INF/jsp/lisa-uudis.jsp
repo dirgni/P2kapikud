@@ -17,12 +17,10 @@
 
 <body>
 	<%@include file="jupid/navi-bar.jsp" %>
-	
 	<%@include file="jupid/RSS.jsp" %>
-	<%@include file="jupid/meldi.jsp" %>
 	
 	<div id="Rakendus">
-		<%@include file="jupid/päis.jsp" %>
+		<jsp:include page="jupid/päis-melditud.jsp"/>
 		
 		<div id="keskmine">
 			<!-- TODO:

@@ -122,9 +122,15 @@ input, textarea {
 	opacity:0.9;
 }
 
+#LOGIN-button form{
+	width: 100%;
+	height: 100%;
+}
+
 #LOGIN-button button{
 	height:100%;
 	width:100%;
+	cursor: pointer;
 	font-weight: bolder;
 	letter-spacing: 2px;
 	background-color: #B0AB78;
@@ -231,9 +237,16 @@ input, textarea {
 	opacity:0.5;
 }
 
+#register{
+	display: none;
+}
+
+#meld{
+	display: table-caption;
+}
 
 .hidden-vorm *{
-	display: block;
+	display:none;
 	margin-bottom: 2%;
 }
 

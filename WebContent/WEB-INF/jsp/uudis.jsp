@@ -21,10 +21,19 @@
 <body>
 	<%@include file="jupid/navi-bar.jsp" %>
 	<%@include file="jupid/RSS.jsp" %>
-	<%@include file="jupid/meldi.jsp" %>
-	<div id="Rakendus">
+	<c:if test="${klient.roll != 'ajakirjanik'}">
+		<%@include file="jupid/meldi.jsp" %>
+	</c:if>
 	
-		<%@include file="jupid/päis.jsp" %>
+	<div id="Rakendus">
+		<c:choose>
+			<c:when test="${klient.roll == 'ajakirjanik'}">
+				<jsp:include page="jupid/päis-melditud.jsp"/>
+			</c:when>
+			<c:otherwise>
+				<jsp:include page="jupid/päis.jsp"/>
+			</c:otherwise>
+		</c:choose>
 
 		<div id="keskmine">
 			<div id="uudis-wrapper" class="uudis-wrapper-less">

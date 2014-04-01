@@ -35,7 +35,9 @@
 	<div id="pealmine_parempoolne">
 		<div id="buttons">
 			<div id="LOGIN-button">
-		 		<button id="logout" onclick="">Välju</button>
+				<form action="logout">
+				    <button id="logout" type="submit" value="Välju">Välju</button>
+				</form>
 		 	</div>
 		 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
 		</div>
