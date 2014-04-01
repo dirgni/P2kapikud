@@ -43,10 +43,15 @@ public class UudisService {
 					"SELECT id, pealkiri, tekst, pilt, aeg FROM uudis");
 			ResultSet rsUudis = ps.executeQuery();
 			
+			ps = con.prepareStatement("SELECT COUNT(*) FROM kommentaar WHERE uudisId = ? GROUP BY uudisId");
+			
+			int id;
+			ResultSet rsKommentaare;
 			while (rsUudis.next()) {
 				uudis = new Uudis();
 
-				uudis.setId(rsUudis.getInt("id"));
+				id = rsUudis.getInt("id");
+				uudis.setId(id);
 				uudis.setPealkiri(rsUudis.getString("pealkiri"));
 				uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
 				uudis.setPilt(rsUudis.getString("pilt"));
@@ -54,6 +59,11 @@ public class UudisService {
 				date = extractDate(rsUudis.getString("aeg"));
 				uudis.setKell(kell.format(date));
 				uudis.setKuupäev(kuupäev.format(date));
+				
+				ps.setInt(1, id);
+				rsKommentaare = ps.executeQuery();
+				rsKommentaare.next();
+				uudis.setKommentaare(rsKommentaare.getInt("count"));
 				
 				uudised.add(uudis);
 			}
