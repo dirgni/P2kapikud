@@ -60,7 +60,7 @@ input, textarea {
 .logo-meld {
 	width: 50%;
 	height: 100%;
-	background-position-x: center;
+	background-position: center;
 	background-image: url(../Images/logo-small.png);
 }
 
@@ -174,7 +174,7 @@ input, textarea {
 	text-align:center;
 }
 
-/*Päise osa*/
+/*Pï¿½ise osa*/
 #pealmine {
 	padding: 55px 2% 2% 2%;
 	width:70%;
