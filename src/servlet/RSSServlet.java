@@ -10,24 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.UserService;
 
-@WebServlet("/registreerimine")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/rss")
+public class RSSServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public RegisterServlet() {
+    public RSSServlet() {
         super();
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("RegisterServlet doPost");
+		System.out.println("RSSServlet doPost");
 		
-		String eesnimi = request.getParameter("eesnimi");
-		String perenimi = request.getParameter("perenimi");
-		String kasutajanimi = request.getParameter("kasutaja");
-		String parool = request.getParameter("parool");
+		String nimi = request.getParameter("nimi");
+		String email = request.getParameter("e-mail");
 		
 		UserService us = new UserService();
-		us.registerUser(eesnimi, perenimi, kasutajanimi, parool);
+		us.registerRSS(nimi, email);
 		
 		response.sendRedirect("");
 	}

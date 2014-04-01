@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+
 import object.Ajakirjanik;
 import connection.DatabaseConnectionFactory;
 
@@ -106,17 +108,39 @@ public class UserService {
 		return a;
 	}
 	
-	public void register(String eesnimi, String perenimi, String kasutajanimi, String parool) {
+	public void registerUser(String eesnimi, String perenimi, String kasutajanimi, String parool) {
 		randomSalt();
 	}
 	
-	private byte[] randomSalt() {
+	public void registerRSS(String nimi, String email) {
+		System.out.println("Registering " + nimi + " for RSS feed...");
+		
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement(""
+					+ "INSERT INTO rss_tellitud (nimi, email) "
+					+ "VALUES (?, ?)");
+			ps.setString(1, nimi);
+			ps.setString(2, email);
+			ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("SQL exception while registering user to RSS");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+	}
+	
+	private String randomSalt() {
 		Random r = new SecureRandom();
 		byte[] salt = new byte[32];
 		r.nextBytes(salt);
 
-		String encoded;
+		String encodedSalt = Base64.encodeBase64String(salt);
 		
-		return salt;
+		return encodedSalt;
 	}
 }
