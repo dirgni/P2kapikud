@@ -245,8 +245,8 @@ input, textarea {
 	display: table-caption;
 }
 
-.hidden-vorm *{
-	display:none;
+.hidden-vorm {
+	display:table-caption;
 	margin-bottom: 2%;
 }
 
