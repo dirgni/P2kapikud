@@ -15,34 +15,20 @@ import javax.servlet.http.HttpServletResponse;
 @WebFilter(urlPatterns = { "/LoggedInFilter" }, servletNames = { "servlet.PostitaUudisServlet" })
 public class LoggedInFilter implements Filter {
 
-    public LoggedInFilter() {
-        System.out.println("LoggedInFilter default constructor");
-    }
-
-	public void destroy() {
-		System.out.println("LoggedInFilter destroy");
-	}
+    public LoggedInFilter() {}
+	public void destroy() {}
+	public void init(FilterConfig fConfig) throws ServletException {}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		System.out.println("LoggedInFilter doFilter");
 		HttpServletRequest req = (HttpServletRequest) request;
-		HttpServletResponse res = (HttpServletResponse) response;
 		if (req.getSession().getAttribute("klient") != null) {
 			System.out.println("You are indeed logged in.");
 			chain.doFilter(request, response);
 		} else {
 			System.out.println("Hey, you're not logged in!");
+			HttpServletResponse res = (HttpServletResponse) response;
 			res.sendRedirect("");
 		}
-		
 	}
-
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
-	public void init(FilterConfig fConfig) throws ServletException {
-		System.out.println("LoggedInFilter init(FilterConfig fconfig)");
-		System.out.println("fconfig: " + fConfig.toString());
-	}
-
 }

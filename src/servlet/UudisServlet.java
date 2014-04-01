@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import object.Ajakirjanik;
 import object.Kommentaar;
 import object.Uudis;
 import service.KommentaarService;
+import service.UserService;
 import service.UudisService;
 
 @WebServlet("/uudis")
@@ -35,6 +37,10 @@ public class UudisServlet extends HttpServlet {
 		KommentaarService ks = new KommentaarService();
 		ArrayList<Kommentaar> kommentaarid = ks.getKommentaaridByUudisId(uudisId);
 		request.setAttribute("kommentaarid", kommentaarid);
+		
+		UserService uss = new UserService();
+		Ajakirjanik ajakirjanik = uss.getAjakirjanikById(uudis.getAjakirjanikId());
+		request.setAttribute("autor", ajakirjanik);
 		
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);

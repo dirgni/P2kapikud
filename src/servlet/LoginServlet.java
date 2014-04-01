@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import object.Ajakirjanik;
-import service.LoginService;
+import service.UserService;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("k-nimi");
 		String password = request.getParameter("pwd");
 		
-		LoginService ls = new LoginService();
+		UserService ls = new UserService();
 		boolean login = ls.authenticate(userName, password);
 		
 		if (login) {

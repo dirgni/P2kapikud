@@ -40,7 +40,7 @@
 				<div class="uudis-pealkiri">
 					<h1>${uudis.pealkiri }</h1>
 					<div class="uudis-autor">
-						- mememee
+						${autor.eesnimi} ${autor.perenimi}
 					</div>
 				</div> <!-- uudis-pealkiri -->
 
@@ -53,7 +53,9 @@
 					</c:forEach>
 				</div> <!-- uudis-tekst -->
 				<div id="uudis-tag">
-					#meter
+					<c:forEach items="${uudis.tagid}" var="tag">
+						#<c:out value="${tag}" /><br />
+					</c:forEach>
 				</div>
 			</div> <!-- uudis-wrapper -->
 			

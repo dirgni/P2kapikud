@@ -59,7 +59,7 @@
 									<td>${uudis.kell}</td>
 									<td><a class="temp_link" href="uudis?uudisId=${uudis.id}">${uudis.pealkiri}</a></td>
 <!-- 								<td>100</td> -->
-									<td>10</td>
+									<td>${uudis.kommentaare}</td>
 								</tr>
 							</c:forEach>
 						</tbody>
