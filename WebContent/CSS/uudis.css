@@ -2,7 +2,8 @@
 	float: right;
 	position:relative;
 	right:0;
-	width: 30%
+	width: 30%;
+	display: flex;
 }
 
 .main-pilt{
@@ -11,7 +12,7 @@
 
 .uudis-tekst {
 	float: left;
-	margin-right: 15px;
+	width: 100%;
 }
 
 input, textarea{
@@ -31,6 +32,7 @@ input, textarea{
 
 .uudis-wrapper-less{
 	height: 100%;
+	width: 100%;
 	display: inline-block;
 	border-bottom: thin;
 	border-bottom-style: outset;
