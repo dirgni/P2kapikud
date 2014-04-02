@@ -120,20 +120,27 @@ public class UudisService {
 		int uudisId = -1;
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		Connection con;
+		String imgPath = "";
 		try {
-//			String piltAsukoht = uploadPicture(pilt, path);
+			if (pilt != null) {
+				imgPath = uploadPicture(pilt, path);
+				
+			}
 			con = dcf.getConnection();
 			PreparedStatement ps = con.prepareStatement("INSERT INTO uudis (ajakirjanikId, pealkiri, tekst, pilt) "
 					+ "VALUES (?, ?, ?, ?)");
 			ps.setInt(1, ajakirjanikId);
 			ps.setString(2, pealkiri);
 			ps.setString(3, tekst);
-			ps.setString(4, "Images/legkov.png");
-//			ps.setString(4, piltAsukoht);
+//			ps.setString(4, "Images/legkov.png");
+			ps.setString(4, imgPath);
 			
 			uudisId = ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Uudise postitamine ebaõnnestus! SQLException:");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Uudise postitamine ebaõnnestus! Pilti ei saanud üles laadida!");
 			e.printStackTrace();
 		} finally {
 			dcf.closeConnection();
@@ -144,8 +151,14 @@ public class UudisService {
 	
 	public String uploadPicture(Part imgPart, String path) throws IOException {
 		System.out.println("Laen pilti üles...");
-		String fileName = getPiltFileName(imgPart);
-		File file = new File(path + "/WebContent/Images/uudiste_pildid/" + fileName);
+		String fileName = "Images/uudiste_pildid/" + getPiltFileName(imgPart);
+		File file = new File("git/" + path + "/WebContent/" + fileName);
+		
+		if (file.exists()) {
+			System.out.println("Selle nimega fail oli juba olemas. Kasutan vana faili.");
+			return fileName;
+		}
+		
 		FileOutputStream fos;
 		InputStream is;
 
@@ -157,6 +170,7 @@ public class UudisService {
 		while ((len = is.read(buffer)) != -1) {
 			fos.write(buffer, 0, len);
 		}
+		is.close();
 		fos.close();
 
 		return fileName;
@@ -199,7 +213,9 @@ public class UudisService {
 		for (String cd : part.getHeader("content-disposition").split(";")) {
 			if (cd.trim().startsWith("filename")) {
 	            String filename = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-	            return filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
+	            filename = filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
+//	            filename.replaceAll("õ|ü|ö|ä", "gg");
+	            return filename;
 	        }
 		}
 		

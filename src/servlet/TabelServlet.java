@@ -23,6 +23,7 @@ public class TabelServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("TabelServlet doGet");
+		
 		UudisService us = new UudisService();
 		
 		ArrayList<Uudis> uudised = new ArrayList<Uudis>();

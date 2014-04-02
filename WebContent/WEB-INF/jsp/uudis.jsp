@@ -48,7 +48,7 @@
 
 				<div class="uudis-tekst">
 					<div class="uudis-pilt">
-						<img class="main-pilt" alt="olümpiavõitja legkov" src="${uudis.pilt}">
+						<img class="main-pilt" alt="" src="${uudis.pilt}">
 					</div> <!-- uudis-pilt -->
 					<c:forEach items="${uudis.tekst}" var="lõik" varStatus = "status">
 						<p><c:out value="${lõik}" /></p>

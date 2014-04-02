@@ -39,14 +39,16 @@ public class PostitaUudisServlet extends HttpServlet {
 		String tekst = request.getParameter("tekst");
 		Ajakirjanik a = (Ajakirjanik) request.getSession().getAttribute("klient");
 		int ajakirjanikId = a.getId();
-//		Part imgPart = request.getPart("pilt");
-//		String path = request.getContextPath();
-//		System.out.println("request path: " + path);
-		UudisService us = new UudisService();
+		Part imgPart = request.getPart("pilt");
+		String path = request.getContextPath();
+		
+		System.out.println("request path: " + path);
 		System.out.println("pealkiri: " + pealkiri);
 		System.out.println("tekst: " + tekst);
 		System.out.println("ajakirjanikId: " + ajakirjanikId);
-		int uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, null, null);
+		
+		UudisService us = new UudisService();
+		int uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, imgPart, path);
 		
 		//Suuna kasutaja uudise lehele
 		response.sendRedirect("uudis?uudisId=" + uudisId);
