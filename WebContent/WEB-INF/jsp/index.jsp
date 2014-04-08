@@ -42,17 +42,58 @@
 		</c:choose>
 
 		<div id="keskmine">
-			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
-				<div id="uudis-tekst">
+			<!-- 
+			
+				
   					<h1>
-  						<a class="temp_link" href="uudis?uudisId=${uudis.id}">
-  							${uudis.pealkiri }
-  						</a>
+  						
   					</h1>
 					<p><c:out value="${uudis.tekst[0]}" /></p>
-				</div> <!-- uudis-tekst -->
+				 <!-- uudis-tekst -->
+			
+			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
+			<div id="karusell_container">
+				<div id="karusell">
+					<c:if test="${!empty (uudised)}">
+						<ul>
+							<c:forEach items="${uudised}" begin="0" end="0" var="uudis">
+									<li class="active">
+										<div id="uudis-tekst">
+											<h1>
+												<a class="temp_link" href="uudis?uudisId=${uudis.id}">
+	  												${uudis.pealkiri }
+	  											</a>
+											</h1>
+											
+											<p><c:out value="${uudis.tekst[0]}" /></p>
+										</div>
+									</li>
+							</c:forEach>
+							<c:forEach items="${uudised}" begin="1" var="uudis">
+									<li class="inactive">
+										<div id="uudis-tekst">
+											<h1>
+												<a class="temp_link" href="uudis?uudisId=${uudis.id}">
+	  												${uudis.pealkiri }
+	  											</a>
+											</h1>
+											
+											<p><c:out value="${uudis.tekst[0]}" /></p>
+										</div>
+									</li>
+							</c:forEach>
+						</ul>
+					</c:if>
+				 
+				</div>
+		
+				<a href="#" class="karusell_button_left">&lsaquo;</a>
+				<a href="#" class="karusell_button_right">&rsaquo;</a>
+			</div>
 			</div> <!-- esi-uudis-wrapper -->
-		</div> <!-- keskmine -->
+	</div>
+			 
+	</div> <!-- keskmine -->
 
 		<%@include file="jupid/jalus.jsp" %>
 		

@@ -360,3 +360,11 @@ input, textarea {
 		}
 }
 
+<!--Lisatud esilehe karuselli jaoks-->
+li.active{
+	display:block;
+}
+
+li.inactive{
+	display:none;
+}

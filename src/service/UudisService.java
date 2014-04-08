@@ -124,7 +124,6 @@ public class UudisService {
 		try {
 			if (pilt != null) {
 				imgPath = uploadPicture(pilt, path);
-				
 			}
 			con = dcf.getConnection();
 			PreparedStatement ps = con.prepareStatement("INSERT INTO uudis (ajakirjanikId, pealkiri, tekst, pilt) "
@@ -151,8 +150,8 @@ public class UudisService {
 	
 	public String uploadPicture(Part imgPart, String path) throws IOException {
 		System.out.println("Laen pilti üles...");
-		String fileName = "Images/uudiste_pildid/" + getPiltFileName(imgPart);
-		File file = new File("git/" + path + "/WebContent/" + fileName);
+		String fileName = "/tmp/" + getPiltFileName(imgPart);
+		File file = new File(fileName);
 		
 		if (file.exists()) {
 			System.out.println("Selle nimega fail oli juba olemas. Kasutan vana faili.");
@@ -164,7 +163,7 @@ public class UudisService {
 
 		is = imgPart.getInputStream();
 		fos = new FileOutputStream(file);
-		file.createNewFile();
+		//file.createNewFile();
 		byte[] buffer = new byte[1024*10];
 		int len;
 		while ((len = is.read(buffer)) != -1) {

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import object.Uudis;
 import service.UudisService;
+
+
 
 @WebServlet("")
 public class WelcomeServlet extends HttpServlet {
@@ -30,7 +33,7 @@ public class WelcomeServlet extends HttpServlet {
 		System.out.println("getContextPath(): " + this.getServletContext().getContextPath());
 		
 		request.setCharacterEncoding("UTF-8");
-		
+		/*
 		//Võta random uudis
 		UudisService us = new UudisService();
 //		Uudis uudis = us.getRandomUudis(); <- pole veel implementeeritud
@@ -38,8 +41,15 @@ public class WelcomeServlet extends HttpServlet {
 
 		// Teeme uudise beani kättesaadavaks
 		request.setAttribute("uudis", uudis);
+		*/
+		UudisService us = new UudisService();
 		
-		//Suuname kliendi index.jsp lehele
+		ArrayList<Uudis> uudised = new ArrayList<Uudis>();
+		uudised = us.getKõikUudised();
+		
+		request.setAttribute("uudised", uudised);
+		
+		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);
 	}
