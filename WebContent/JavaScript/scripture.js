@@ -4,7 +4,7 @@
 	    	sortList: [[0,1],[1,1]],
 	    	dateFormat : 'uk',
 		    headers: {
-		    	5: { sorter: false }
+		    	4: { sorter: false }
 		    },
 		    sortMultiSortKey: 'ctrlKey' 
 	     });

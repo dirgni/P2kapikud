@@ -124,6 +124,7 @@ public class UudisService {
 		try {
 			if (pilt != null) {
 				imgPath = uploadPicture(pilt, path);
+				
 			}
 			con = dcf.getConnection();
 			PreparedStatement ps = con.prepareStatement("INSERT INTO uudis (ajakirjanikId, pealkiri, tekst, pilt) "
@@ -150,28 +151,41 @@ public class UudisService {
 	
 	public String uploadPicture(Part imgPart, String path) throws IOException {
 		System.out.println("Laen pilti üles...");
-		String fileName = "/tmp/" + getPiltFileName(imgPart);
-		File file = new File(fileName);
-		
+		String fileName = "Images/uudiste_pildid/" + getPiltFileName(imgPart);
+		System.out.println("1");
+		File file = new File("git/" + path + "/WebContent/" + fileName);
+		System.out.println("2");
 		if (file.exists()) {
 			System.out.println("Selle nimega fail oli juba olemas. Kasutan vana faili.");
 			return fileName;
 		}
 		
+		System.out.println("3");
 		FileOutputStream fos;
+		System.out.println("4");
 		InputStream is;
 
+		System.out.println("5");
 		is = imgPart.getInputStream();
+		System.out.println("6");
 		fos = new FileOutputStream(file);
-		//file.createNewFile();
+		System.out.println("7");
+		file.createNewFile();
+		System.out.println("8");
 		byte[] buffer = new byte[1024*10];
+		System.out.println("9");
 		int len;
+		System.out.println("10");
 		while ((len = is.read(buffer)) != -1) {
 			fos.write(buffer, 0, len);
+			System.out.println("11");
 		}
+		System.out.println("12");
 		is.close();
+		System.out.println("13");
 		fos.close();
 
+		System.out.println("14");
 		return fileName;
 	}
 	

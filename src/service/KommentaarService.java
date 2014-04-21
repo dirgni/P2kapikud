@@ -75,6 +75,29 @@ public class KommentaarService {
 		
 	}
 	
+
+	public void postitaKommentaar(String nimi, String tekst, int ajakId, int uudisId) {
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("INSERT INTO kommentaar (nimi, tekst, uudisid, ajakid) "
+					+ "VALUES (?, ?, ?, ?)");
+			ps.setString(1, nimi);
+			ps.setString(2, tekst);
+			ps.setInt(3, uudisId);
+			ps.setInt(4, uudisId);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Kommentaari postitamine ebaõnnestus!");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+	}
+	
 	private Date extractDate(String aeg) {
 		Date date = new Date();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");

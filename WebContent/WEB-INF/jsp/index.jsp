@@ -27,13 +27,13 @@
 <body>
 	<%@include file="jupid/navi-bar.jsp" %>
 	<%@include file="jupid/RSS.jsp" %>
-	<c:if test="${klient.roll != 'ajakirjanik'}">
+	<c:if test="${klient.roll != 'ajakirjanik' && klient.roll != 'admin'}">
 		<%@include file="jupid/meldi.jsp" %>
 	</c:if>
 	
 	<div id="Rakendus">
 		<c:choose>
-			<c:when test="${klient.roll == 'ajakirjanik'}">
+			<c:when test="${klient.roll == 'ajakirjanik' || klient.roll == 'admin'}">
 				<jsp:include page="jupid/päis-melditud.jsp"/>
 			</c:when>
 			<c:otherwise>

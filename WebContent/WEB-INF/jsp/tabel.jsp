@@ -27,13 +27,13 @@
 <body>
 	<%@include file="jupid/navi-bar.jsp" %>
 	<%@include file="jupid/RSS.jsp" %>
-	<c:if test="${klient.roll != 'ajakirjanik'}">
+	<c:if test="${klient.roll != 'ajakirjanik' || klient.roll != 'admin'}">
 		<%@include file="jupid/meldi.jsp" %>
 	</c:if>
 	
 	<div id="Rakendus">
 		<c:choose>
-			<c:when test="${klient.roll == 'ajakirjanik'}">
+			<c:when test="${klient.roll == 'ajakirjanik' || klient.roll == 'admin'}">
 				<jsp:include page="jupid/päis-melditud.jsp"/>
 			</c:when>
 			<c:otherwise>
@@ -52,6 +52,9 @@
 				 			<th>Pealkiri</th>
 <!-- 				 			<th>Loetud</th> -->
 				 			<th>Kommentaare</th>
+				 			<c:if test="${klient.roll == 'admin'}">
+								<th class="tabel-min">Eemalda</th>
+							</c:if>
 				 		</tr>
 			 		</thead>
 					<c:if test="${!empty (uudised)}">
@@ -63,6 +66,9 @@
 									<td><a class="temp_link" href="uudis?uudisId=${uudis.id}">${uudis.pealkiri}</a></td>
 <!-- 								<td>100</td> -->
 									<td>${uudis.kommentaare}</td>
+									<c:if test="${klient.roll == 'admin'}">
+										<td><button type="submit" class="tegevus-nupp" id="tabel-menu-del"></button></td>
+									</c:if>
 								</tr>
 							</c:forEach>
 						</tbody>

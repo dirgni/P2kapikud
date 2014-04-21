@@ -70,15 +70,26 @@ input, textarea{
 	margin-bottom: 30px;
 	border-bottom: thin;
 	border-bottom-style: outset;
+	position: relative;
 }
 
 .kommentaar-autor {
 	font-style: italic;
 /* 	font-weight: bold; */
+	min-height: 19px;
+	display: block;
 }
 
 .kommentaar-aeg {
 	float: right;
+}
+
+#kommenteerija {
+	font-style: italic;
+	font-size: large;
+	padding-left: 1%;
+	display: block;
+	padding-top: 2%;
 }
 
 #uudise-kommentaar {
@@ -89,6 +100,26 @@ input, textarea{
 	width: 100%;
 	overflow: auto;
 	resize: none;
+}
+
+/* Kommentaari menüü */
+#kommentaar-menu-del{
+	cursor: pointer;
+	background: url("../Images/close_x14.png") no-repeat;
+	width: 14px;
+	height: 14px;
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding-bottom: 3px;
+	border: 0;
+	outline: 0; /* Et sinist äärt peale vajutamist ei oleks */
+/* 	opacity: 0; */
+}
+
+#kommentaar-menu-del:hover {
+	background: url("../Images/close2_x14.png") no-repeat;
 }
 
 .clear{

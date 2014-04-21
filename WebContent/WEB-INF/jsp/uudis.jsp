@@ -23,13 +23,13 @@
 <body>
 	<%@include file="jupid/navi-bar.jsp" %>
 	<%@include file="jupid/RSS.jsp" %>
-	<c:if test="${klient.roll != 'ajakirjanik'}">
+	<c:if test="${klient.roll != 'ajakirjanik' && klient.roll != 'admin'}">
 		<%@include file="jupid/meldi.jsp" %>
 	</c:if>
 	
 	<div id="Rakendus">
 		<c:choose>
-			<c:when test="${klient.roll == 'ajakirjanik'}">
+			<c:when test="${klient.roll == 'ajakirjanik' || klient.roll == 'admin'}">
 				<jsp:include page="jupid/päis-melditud.jsp"/>
 			</c:when>
 			<c:otherwise>
@@ -56,7 +56,7 @@
 				</div> <!-- uudis-tekst -->
 				<div id="uudis-tag">
 					<c:forEach items="${uudis.tagid}" var="tag">
-						#<c:out value="${tag}" /><br />
+						#<c:out value="${tag}" />, 
 					</c:forEach>
 				</div>
 			</div> <!-- uudis-wrapper -->
@@ -68,7 +68,16 @@
 			 	<h3 id="uudise-kommentaar-title">Kommentaarid</h3>
 			 	<div id="uudise-kommentaar-vorm">
 			 		<form id="kommentaar-vorm" onsubmit="return true" action="postita-kommentaar" method="post">
-	 					<input class="input-field" name="Nimi" placeholder="Nimi" type="text">
+			 			<c:choose>
+							<c:when test="${klient.roll == 'ajakirjanik' || klient.roll == 'admin'}">
+								<span id="kommenteerija">
+									${klient.eesnimi}
+								</span>
+							</c:when>
+							<c:otherwise>
+								<input class="input-field" name="Nimi" placeholder="Nimi" type="text">
+							</c:otherwise>
+						</c:choose>
 	 					<textarea class="input-field" name="content" placeholder="Sisestage oma kommentaar siia." rows="5"></textarea>
 		 				<input type="hidden" name="uudisId" value="${uudis.id}">
 		 				<input class="submit-button" type="submit" value="Kommenteeri">
@@ -84,6 +93,9 @@
 								<div class="kommentaar" id="kommentaar-${kommentaar.id}">
 									<span class="kommentaar-aeg"> ${kommentaar.kell} ${kommentaar.kuupäev} </span>
 									<span class="kommentaar-autor"> ${kommentaar.nimi} </span>
+									<c:if test="${klient.roll == 'admin'}">
+										<button type="submit" class="tegevus-nupp" id="kommentaar-menu-del"></button>
+									</c:if>
 									<blockquote class="kommentaar-sisu">${kommentaar.tekst}</blockquote>
 								</div> <!-- kommentaar-${kommentaar.id} -->
 							</blockquote>
