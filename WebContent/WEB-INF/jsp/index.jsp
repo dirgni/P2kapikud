@@ -90,6 +90,7 @@
 				 
 				</div>
 				<a href="#" class="karusell_button_left"></a>
+				<div id="liner"></div>
 				<a href="#" class="karusell_button_right"></a>
 			</div>
 			</div> <!-- esi-uudis-wrapper -->

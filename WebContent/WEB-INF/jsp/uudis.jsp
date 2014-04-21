@@ -94,7 +94,11 @@
 									<span class="kommentaar-aeg"> ${kommentaar.kell} ${kommentaar.kuupäev} </span>
 									<span class="kommentaar-autor"> ${kommentaar.nimi} </span>
 									<c:if test="${klient.roll == 'admin'}">
-										<button type="submit" class="tegevus-nupp" id="kommentaar-menu-del"></button>
+										<form onsubmit="return true" action="kustuta-kommentaar" method="post">
+											<input type="hidden" name="kId" value="${kommentaar.id}">
+											<input type="hidden" name="uudisId" value="${uudis.id}">
+											<button type="submit" class="tegevus-nupp" id="kommentaar-menu-del"></button>
+										</form>
 									</c:if>
 									<blockquote class="kommentaar-sisu">${kommentaar.tekst}</blockquote>
 								</div> <!-- kommentaar-${kommentaar.id} -->

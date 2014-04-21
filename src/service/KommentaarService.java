@@ -98,6 +98,23 @@ public class KommentaarService {
 		
 	}
 	
+	public void kustutaKommentaar(int kId) {
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("DELETE FROM kommentaar WHERE id = " + kId);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Kommentaari kustutamine ebaõnnestus!");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+	}
+	
 	private Date extractDate(String aeg) {
 		Date date = new Date();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");

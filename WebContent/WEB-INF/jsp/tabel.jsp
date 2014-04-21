@@ -67,7 +67,12 @@
 <!-- 								<td>100</td> -->
 									<td>${uudis.kommentaare}</td>
 									<c:if test="${klient.roll == 'admin'}">
-										<td><button type="submit" class="tegevus-nupp" id="tabel-menu-del"></button></td>
+										<td>
+											<form onsubmit="return true" action="kustuta-uudis" method="post">
+												<input type="hidden" name="uId" value="${uudis.id}">
+												<button type="submit" class="tegevus-nupp" id="tabel-menu-del"></button>
+											</form>
+										</td>
 									</c:if>
 								</tr>
 							</c:forEach>

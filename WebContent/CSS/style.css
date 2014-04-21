@@ -409,6 +409,17 @@ ul{
 	opacity:0.8;
 }
 
+#liner{
+	position: absolute;
+	height: 2px;
+	background: #453823;
+	margin-top: 13px;
+	left: 0;
+	right: 0;
+	margin-left: 52px;
+	margin-right: 35px;
+}
+
 #meldi_integr {
 	float: left;
 	width: 50%;

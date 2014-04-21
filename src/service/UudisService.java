@@ -114,6 +114,23 @@ public class UudisService {
 		return null;
 	}
 	
+	public void kustutaUudis(int uId) {
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("DELETE FROM uudis WHERE id = " + uId);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Uudise kustutamine ebaõnnestus!");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+	}
+	
 	public int publishUudis(int ajakirjanikId, 
 			String pealkiri, String tekst, Part pilt, String path) {
 		System.out.println("Publishing uudis...");
