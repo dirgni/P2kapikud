@@ -86,7 +86,6 @@
 				<a href="#" class="karusell_button_right"></a>
 			</div>
 			</div> <!-- esi-uudis-wrapper -->
-	</div>
 			 
 	</div> <!-- keskmine -->
 
