@@ -56,7 +56,6 @@
 			
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
 			<div id="karusell_container">
-				<a href="#" class="karusell_button_left"></a>
 				<div id="karusell">
 					<c:if test="${!empty (uudised)}">
 						<ul>
@@ -90,7 +89,7 @@
 					</c:if>
 				 
 				</div>
-		
+				<a href="#" class="karusell_button_left"></a>
 				<a href="#" class="karusell_button_right"></a>
 			</div>
 			</div> <!-- esi-uudis-wrapper -->

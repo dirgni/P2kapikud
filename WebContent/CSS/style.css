@@ -255,7 +255,7 @@ input, textarea {
 }
 
 #meld{
-	display: table-caption;
+	height: inherit;
 }
 
 .hidden-vorm {
@@ -385,8 +385,9 @@ ul{
 	width: 18px;
 	height: 18px;
 	position: absolute;
+	left: 0;
 	margin: 5px;
-	margin-left: 23px;
+	margin-left: 35px;
 	z-index: 1;
 }
 
@@ -406,4 +407,18 @@ ul{
 
 .karusell_button_right:hover{
 	opacity:0.8;
+}
+
+#meldi_integr {
+	float: left;
+	width: 50%;
+}
+
+#meldi-vorm{
+	display: table-caption;
+}
+
+#meldi_väline{
+	float: right;
+	width: 50%;
 }
