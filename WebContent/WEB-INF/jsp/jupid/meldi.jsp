@@ -15,9 +15,9 @@
 						class="input-field" name="pwd" placeholder="******" type="password">
 					<span id="meldi-vorm-nupud" class="hidden-nupud">
 						<button onclick="makeHidden('Meldi');">Meldi</button>
-						<button onclick="makeHidden('Meldi');">Katkesta</button>
 					</span>
 				</form>
+				<button onclick="makeHidden('Meldi');">Katkesta</button>
 			</div>
 			<div id="meldi_väline">
 				<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="false"></div>
@@ -36,9 +36,9 @@
 					name="pwd2" placeholder="******" type="password"> <span
 					id="meldi-vorm-nupud" class="hidden-nupud">
 					<button onclick="makeHidden('Meldi');">Registreeru</button>
-					<button onclick="makeHidden('Meldi');">Katkesta</button>
 				</span>
 			</form>
+			<button onclick="makeHidden('Meldi');">Katkesta</button>
 		</div>
 	</div>
 
