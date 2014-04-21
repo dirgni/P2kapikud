@@ -387,6 +387,7 @@ ul{
 	position: absolute;
 	margin: 5px;
 	margin-left: 23px;
+	z-index: 1;
 }
 
 .karusell_button_left:hover{
