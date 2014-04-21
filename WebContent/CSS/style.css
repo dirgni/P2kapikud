@@ -345,6 +345,8 @@ input, textarea {
 
 #uudis-tekst{
 	width: initial;
+	margin-bottom: -1px;
+	margin-left: -40px;
 }
 @media only screen and (max-width: 400px) and (max-height: 700px), 
 	handheld and (orientation: landscape){
@@ -361,11 +363,46 @@ input, textarea {
 		}
 }
 
-<!--Lisatud esilehe karuselli jaoks-->
+/* Lisatud esilehe karuselli jaoks */
 li.active{
 	display:block;
 }
 
 li.inactive{
 	display:none;
+}
+
+ul{
+	list-style-type: none;
+}
+
+#karusell_container{
+	margin-top: -17px;
+}
+
+.karusell_button_left{
+	background: url(../Images/arrowl.png) no-repeat;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	margin: 5px;
+	margin-left: 23px;
+}
+
+.karusell_button_left:hover{
+	opacity:0.8;
+}
+
+.karusell_button_right{
+	background: url(../Images/arrowr.png) no-repeat;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	right: 0;
+	margin: 5px;
+	margin-right: 18px;
+}
+
+.karusell_button_right:hover{
+	opacity:0.8;
 }

@@ -20,11 +20,14 @@
 	
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
 	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/facebook.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
 
 <body>
+	<div id="fb-root"></div>
+				
 	<%@include file="jupid/navi-bar.jsp" %>
 	<%@include file="jupid/RSS.jsp" %>
 	<c:if test="${klient.roll != 'ajakirjanik' && klient.roll != 'admin'}">
@@ -87,8 +90,8 @@
 				 
 				</div>
 		
-				<a href="#" class="karusell_button_left">&lsaquo;</a>
-				<a href="#" class="karusell_button_right">&rsaquo;</a>
+				<a href="#" class="karusell_button_left"></a>
+				<a href="#" class="karusell_button_right"></a>
 			</div>
 			</div> <!-- esi-uudis-wrapper -->
 	</div>
