@@ -10,10 +10,9 @@
 			<h3>Meldi</h3>
 			<div id="meldi_integr">
 				<form id="meldi-vorm" method="post" action="login">
-					Kasutajanimi: <input class="input-field" name="k-nimi"
-						placeholder="Kasutajanimi" type="text"> Parool: <input
-						class="input-field" name="pwd" placeholder="******" type="password">
-					<span id="meldi-vorm-nupud" class="hidden-nupud">
+					Kasutajanimi: <input class="input-field" name="k-nimi" placeholder="Kasutajanimi" type="text">
+					Parool: <input class="input-field" name="pwd" placeholder="******" type="password">
+					<span class="hidden-nupud">
 						<button onclick="makeHidden('Meldi');">Meldi</button>
 					</span>
 				</form>
@@ -26,15 +25,12 @@
 		<div id="register">
 			<h3>Registreeru</h3>
 			<form id="registreeru-vorm" method="post" action="register">
-				Eesnimi: <input class="input-field" name="e-nimi"
-					placeholder="Eesnimi" type="text"> Perenimi: <input
-					class="input-field" name="p-nimi" placeholder="Perenimi"
-					type="text"> Kasutajanimi: <input class="input-field"
-					name="k-nimi" placeholder="Kasutajanimi" type="text">
-				Parool: <input class="input-field" name="pwd" placeholder="******"
-					type="password"> Parool uuesti: <input class="input-field"
-					name="pwd2" placeholder="******" type="password"> <span
-					id="meldi-vorm-nupud" class="hidden-nupud">
+				Eesnimi: <input class="input-field" name="e-nimi" placeholder="Eesnimi" type="text">
+				Perenimi: <input class="input-field" name="p-nimi" placeholder="Perenimi" type="text">
+				Kasutajanimi: <input class="input-field" name="k-nimi" placeholder="Kasutajanimi" type="text">
+				Parool: <input class="input-field" name="pwd" placeholder="******" type="password">
+				Parool uuesti: <input class="input-field" name="pwd2" placeholder="******" type="password">
+				<span class="hidden-nupud">
 					<button onclick="makeHidden('Meldi');">Registreeru</button>
 				</span>
 			</form>

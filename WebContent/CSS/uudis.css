@@ -10,7 +10,7 @@
 	margin: 10px;
 }
 
-.uudis-tekst {
+.uudise-tekst {
 	float: left;
 	width: 100%;
 }
@@ -40,7 +40,7 @@ input, textarea{
 	border-top-style: inset;
 }
 
-#uudis-tekst {
+.uudise-tekst {
 	direction: rtl;
 	text-align: left;
 	padding: 15px 30px 15px 15px;
@@ -128,7 +128,7 @@ input, textarea{
 
 @media only screen and (max-width: 925px), 
 	handheld and (orientation: landscape){		
-		#uudis-tekst{
+		.uudise-tekst{
 			width: initial;
 		}
 }

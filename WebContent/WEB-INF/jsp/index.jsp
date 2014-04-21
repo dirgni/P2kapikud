@@ -45,14 +45,6 @@
 		</c:choose>
 
 		<div id="keskmine">
-			<!-- 
-			
-				
-  					<h1>
-  						
-  					</h1>
-					<p><c:out value="${uudis.tekst[0]}" /></p>
-				 <!-- uudis-tekst -->
 			
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
 			<div id="karusell_container">
@@ -61,7 +53,7 @@
 						<ul>
 							<c:forEach items="${uudised}" begin="0" end="0" var="uudis">
 									<li class="active">
-										<div id="uudis-tekst">
+										<div class="uudise-tekst">
 											<h1>
 												<a class="temp_link" href="uudis?uudisId=${uudis.id}">
 	  												${uudis.pealkiri }

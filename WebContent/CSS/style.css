@@ -343,7 +343,7 @@ input, textarea {
 	color: black;
 }
 
-#uudis-tekst{
+.uudise-tekst{
 	width: initial;
 	margin-bottom: -1px;
 	margin-left: -40px;
@@ -358,7 +358,7 @@ input, textarea {
 			background-image: url(../Images/logo-small.png);
 		}
 		
-		#uudis-tekst{
+		.uudise-tekst{
 			width: initial;
 		}
 }
