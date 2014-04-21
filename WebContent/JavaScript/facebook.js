@@ -1,6 +1,6 @@
 window.fbAsyncInit = function() {
 	FB.init({
-		appId : '{241385782733686}',
+		appId : '241385782733686',
 		status : true,
 		cookie : true,
 		xfbml : true
@@ -14,6 +14,6 @@ window.fbAsyncInit = function() {
 	}
 	js = d.createElement(s);
 	js.id = id;
-	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=241385782733686";
+	js.src = "//connect.facebook.net/en_US/all.js";
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
