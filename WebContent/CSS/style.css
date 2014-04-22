@@ -235,6 +235,7 @@ input, textarea {
 }
 
 #abinupp{
+	cursor: pointer;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -247,7 +248,7 @@ input, textarea {
 }
 
 #abinupp:hover{
-	opacity:0.5;
+	opacity:0.8;
 }
 
 #register{
@@ -432,4 +433,38 @@ ul{
 #meldi_väline{
 	float: right;
 	width: 50%;
+}
+
+#navi-buttons{
+	width: 100%;
+	height: 40px;
+	background: #453823;
+	padding: 3px;
+}
+
+#navi-buttons-registreeri{
+	margin-right: 2px;
+	float: right;
+}
+
+#navi-buttons-meldi{
+	margin-left: 2px;
+	float: left;
+}
+
+.navi-buttons-placement{
+	height: 30px;
+	width: 49%;
+	border: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	background: #B0AB78;
+	color: #453823;
+}
+
+.navi-buttons-placement:hover{
+	opacity:0.8;
 }

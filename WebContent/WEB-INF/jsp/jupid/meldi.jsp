@@ -3,8 +3,8 @@
 <div id="Meldi" class="invisible">
 	<div id="meldi_container">
 		<div id="navi-buttons">
-			<button onclick="showMeldi();">Meldi</button>
-			<button onclick="showRegistreeru();">Registreeru</button>
+			<button id="navi-buttons-meldi" class="navi-buttons-placement" onclick="showMeldi();">Meldi</button>
+			<button id="navi-buttons-registreeri" class="navi-buttons-placement" onclick="showRegistreeru();">Registreeru</button>
 		</div>
 		<div id="meld">
 			<h3>Meldi</h3>

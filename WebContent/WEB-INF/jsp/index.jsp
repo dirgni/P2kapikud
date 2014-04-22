@@ -66,7 +66,7 @@
 							</c:forEach>
 							<c:forEach items="${uudised}" begin="1" var="uudis">
 									<li class="inactive">
-										<div id="uudis-tekst">
+										<div class="uudise-tekst">
 											<h1>
 												<a class="temp_link" href="uudis?uudisId=${uudis.id}">
 	  												${uudis.pealkiri }
