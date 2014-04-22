@@ -2,6 +2,7 @@ package object;
 
 public class Kommentaar {
 	private int id;
+	private int uudisId;
 	private String nimi;
 	private String tekst;
 	private String kell;
@@ -14,12 +15,19 @@ public class Kommentaar {
 	public Kommentaar(int id, String nimi, String tekst, String kell, String kuupäev) {
 		super();
 		this.id = id;
+		this.uudisId = uudisId;
 		this.nimi = nimi;
 		this.tekst = tekst;
 		this.kell = kell;
 		this.kuupäev = kuupäev;
 	}
 
+	public int getUudisId() {
+		return uudisId;
+	}
+	public void setUudisId(int uudisId) {
+		this.uudisId = uudisId;
+	}
 	public int getId() {
 		return id;
 	}

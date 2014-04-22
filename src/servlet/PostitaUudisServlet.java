@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.eclipse.jdt.internal.compiler.ast.ThisReference;
+
 import object.Ajakirjanik;
 import service.UudisService;
+import sse.TabelFeed;
 
 @WebServlet("/postita-uudis")
 @MultipartConfig	
@@ -42,6 +45,8 @@ public class PostitaUudisServlet extends HttpServlet {
 		Part imgPart = request.getPart("pilt");
 		String path = request.getContextPath();
 		
+		System.out.println("PWD: " + this.getServletContext().getRealPath("PWD"));
+		System.out.println("getContextPath(): " + this.getServletContext().getContextPath());
 		System.out.println("request path: " + path);
 		System.out.println("pealkiri: " + pealkiri);
 		System.out.println("tekst: " + tekst);
@@ -49,6 +54,9 @@ public class PostitaUudisServlet extends HttpServlet {
 		
 		UudisService us = new UudisService();
 		int uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, imgPart, path);
+		
+		
+		TabelFeed.pushUudis(us.getUudisById(uudisId));
 		
 		//Suuna kasutaja uudise lehele
 		response.sendRedirect("uudis?uudisId=" + uudisId);

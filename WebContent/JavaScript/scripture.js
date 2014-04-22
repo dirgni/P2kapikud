@@ -7,12 +7,16 @@ $(document).ready(function(){
 		    	5: { sorter: false }
 		    },
 		    sortMultiSortKey: 'ctrlKey' 
-	     })
+	     });
 //		     .tablesorter().tablesorterPager({container: $("#pager")});
 });
 
 function muudaSisu(target, source) {
     document.getElementById(target).innerHTML = document.getElementById(source).innerHTML;
+ }
+
+function lisaSisu(target, sisu) {
+    document.getElementById(target).innerHTML += sisu;
  }
 
 function showMeldi(){

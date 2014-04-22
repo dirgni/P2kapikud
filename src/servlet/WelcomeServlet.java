@@ -24,11 +24,6 @@ public class WelcomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("WelcomeServlet accessed");
 		
-		System.out.println("System.getenv(PWD): " + System.getenv("PWD"));
-		System.out.println("System.getenv(HOME): " + System.getenv("HOME"));
-		System.out.println("ServletContext: " + this.getServletContext().getRealPath("classes"));
-		System.out.println("getContextPath(): " + this.getServletContext().getContextPath());
-		
 		request.setCharacterEncoding("UTF-8");
 		
 		//Võta random uudis

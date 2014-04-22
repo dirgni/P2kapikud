@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -82,37 +83,93 @@ public class UudisService {
 	
 	public Uudis getUudisById(int id) {
 		System.out.println("getUudisById");
+		Uudis uudis = null;
+		Date date;
+		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
+		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
-		Uudis uudis;
 		try {
 			Connection con = dcf.getConnection();
-			
 			PreparedStatement ps = con.prepareStatement(
-					"SELECT id, pealkiri, tekst, pilt, ajakirjanikId FROM uudis "
-					+ "WHERE id = ?");
+					"SELECT pealkiri, tekst, pilt, aeg FROM uudis WHERE id = ?");
 			ps.setInt(1, id);
 			ResultSet rsUudis = ps.executeQuery();
 			
-			uudis = new Uudis();
+			ps = con.prepareStatement("SELECT COUNT(*) FROM kommentaar WHERE uudisId = ? GROUP BY uudisId");
 			
-			rsUudis.next();
-			uudis.setId(rsUudis.getInt("id"));
-			uudis.setPealkiri(rsUudis.getString("pealkiri"));
-			uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
-			uudis.setPilt(rsUudis.getString("pilt"));
-			uudis.setAjakirjanikId(rsUudis.getInt("ajakirjanikId"));
-			uudis.setTagid(getUudisTagid(id));
-			
-			return uudis;
+			ResultSet rsKommentaare;
+			if (rsUudis != null && rsUudis.next()) {
+				uudis = new Uudis();
+
+				uudis.setId(id);
+				uudis.setPealkiri(rsUudis.getString("pealkiri"));
+				uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
+				uudis.setPilt(rsUudis.getString("pilt"));
+				
+				date = extractDate(rsUudis.getString("aeg"));
+				uudis.setKell(kell.format(date));
+				uudis.setKuupäev(kuupäev.format(date));
+				uudis.setKommentaare(0);
+				
+				ps.setInt(1, id);
+				rsKommentaare = ps.executeQuery();
+				if (rsKommentaare.isBeforeFirst()) {
+					rsKommentaare.next();
+					uudis.setKommentaare(rsKommentaare.getInt("count"));
+				}
+				
+			}
 		} catch (SQLException e) {
-			System.out.println("getUudisById SQLExcpetion:");
+			System.out.println("getAllUudised  SQLException:");
 			e.printStackTrace();
 		} finally {
 			dcf.closeConnection();
 		}
 		
-		return null;
+		return uudis;
 	}
+	
+//	public Uudis getUudisById(int id) {
+//		System.out.println("getUudisById");
+//		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+//		Uudis uudis;
+//		Date date;
+//		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
+//		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
+//		try {
+//			Connection con = dcf.getConnection();
+//			
+//			PreparedStatement ps = con.prepareStatement(
+//					"SELECT id, pealkiri, tekst, pilt, ajakirjanikId, aeg FROM uudis "
+//					+ "WHERE id = ?");
+//			ps.setInt(1, id);
+//			ResultSet rsUudis = ps.executeQuery();
+//			
+//			uudis = new Uudis();
+//			
+//			rsUudis.next();
+//			uudis.setId(rsUudis.getInt("id"));
+//			uudis.setPealkiri(rsUudis.getString("pealkiri"));
+//			uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
+//			uudis.setPilt(rsUudis.getString("pilt"));
+//			uudis.setAjakirjanikId(rsUudis.getInt("ajakirjanikId"));
+//			uudis.setTagid(getUudisTagid(id));
+//			
+//			date = extractDate(rsUudis.getString("aeg"));
+//			uudis.setKell(kell.format(date));
+//			uudis.setKuupäev(kuupäev.format(date));
+//			uudis.setKommentaare(0);
+//			
+//			return uudis;
+//		} catch (SQLException e) {
+//			System.out.println("getUudisById SQLExcpetion:");
+//			e.printStackTrace();
+//		} finally {
+//			dcf.closeConnection();
+//		}
+//		
+//		return null;
+//	}
 	
 	public int publishUudis(int ajakirjanikId, 
 			String pealkiri, String tekst, Part pilt, String path) {
@@ -122,25 +179,27 @@ public class UudisService {
 		Connection con;
 		String imgPath = "";
 		try {
-			if (pilt != null) {
-				imgPath = uploadPicture(pilt, path);
-				
-			}
+//			if (pilt != null) {
+//				imgPath = uploadPicture(pilt, path);
+//				
+//			}
 			con = dcf.getConnection();
 			PreparedStatement ps = con.prepareStatement("INSERT INTO uudis (ajakirjanikId, pealkiri, tekst, pilt) "
-					+ "VALUES (?, ?, ?, ?)");
+					+ "VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			ps.setInt(1, ajakirjanikId);
 			ps.setString(2, pealkiri);
 			ps.setString(3, tekst);
 //			ps.setString(4, "Images/legkov.png");
 			ps.setString(4, imgPath);
 			
-			uudisId = ps.executeUpdate();
+			ps.executeUpdate();
+			
+			ResultSet rs = ps.getGeneratedKeys();
+			if (rs != null && rs.next()) {
+			    uudisId = rs.getInt(1);
+			}
 		} catch (SQLException e) {
 			System.out.println("Uudise postitamine ebaõnnestus! SQLException:");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("Uudise postitamine ebaõnnestus! Pilti ei saanud üles laadida!");
 			e.printStackTrace();
 		} finally {
 			dcf.closeConnection();

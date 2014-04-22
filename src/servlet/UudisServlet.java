@@ -42,7 +42,6 @@ public class UudisServlet extends HttpServlet {
 		Ajakirjanik ajakirjanik = uss.getAjakirjanikById(uudis.getAjakirjanikId());
 		request.setAttribute("autor", ajakirjanik);
 		
-		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 		rd.forward(request, response);
 	}

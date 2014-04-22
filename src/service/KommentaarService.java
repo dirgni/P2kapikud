@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -34,6 +35,7 @@ public class KommentaarService {
 			while (rsKommentaarid.next()) {
 				k = new Kommentaar();
 				k.setId(Integer.parseInt(rsKommentaarid.getString("id")));
+				k.setUudisId(uudisId);
 				k.setNimi(rsKommentaarid.getString("nimi"));
 				k.setTekst(rsKommentaarid.getString("tekst"));
 				
@@ -53,19 +55,62 @@ public class KommentaarService {
 		
 		return kommentaarid;
 	}
-
-	public void postitaKommentaar(String nimi, String tekst, int uudisId) {
+	
+	public Kommentaar getKommentaarById(int id) {
+		System.out.println("getKommentaarById");
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		Connection con;
+		Kommentaar k = null;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT id, nimi, tekst, aeg, uudisId "
+					+ "FROM kommentaar WHERE id = ?");
+			ps.setInt(1, id);
+			ResultSet rsKommentaarid = ps.executeQuery();
+
+			Date date;
+			DateFormat kell = new SimpleDateFormat("HH:mm:ss");
+			DateFormat kuupäev = new SimpleDateFormat("dd-MM-yyyy");
+			if (rsKommentaarid.isBeforeFirst()) {
+				rsKommentaarid.next();
+				k = new Kommentaar();
+				k.setId(Integer.parseInt(rsKommentaarid.getString("id")));
+				k.setUudisId(rsKommentaarid.getInt("uudisId"));
+				k.setNimi(rsKommentaarid.getString("nimi"));
+				k.setTekst(rsKommentaarid.getString("tekst"));
+				
+				date = extractDate(rsKommentaarid.getString("aeg"));
+				k.setKell(kell.format(date));
+				k.setKuupäev(kuupäev.format(date));
+			}
+		} catch (SQLException e) {
+			System.out.println("getKommentaaridById SQL error");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+		return k;
+	}
+
+	public int postitaKommentaar(String nimi, String tekst, int uudisId) {
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		int kommentaarId = -1;
 		try {
 			con = dcf.getConnection();
 			PreparedStatement ps = con.prepareStatement("INSERT INTO kommentaar (nimi, tekst, uudisid) "
-					+ "VALUES (?, ?, ?)");
+					+ "VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, nimi);
 			ps.setString(2, tekst);
 			ps.setInt(3, uudisId);
 			
 			ps.executeUpdate();
+			
+			ResultSet rs = ps.getGeneratedKeys();
+			while (rs != null && rs.next()) {
+				kommentaarId = rs.getInt(1);
+			}
 		} catch (SQLException e) {
 			System.out.println("Kommentaari postitamine ebaõnnestus!");
 			e.printStackTrace();
@@ -73,6 +118,7 @@ public class KommentaarService {
 			dcf.closeConnection();
 		}
 		
+		return kommentaarId;
 	}
 	
 	private Date extractDate(String aeg) {

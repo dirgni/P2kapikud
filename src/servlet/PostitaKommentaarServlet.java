@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.KommentaarService;
+import sse.KommentaarFeed;
 
 @WebServlet("/postita-kommentaar")
 public class PostitaKommentaarServlet extends HttpServlet {
@@ -27,7 +28,10 @@ public class PostitaKommentaarServlet extends HttpServlet {
 		int uudisId = Integer.parseInt(request.getParameter("uudisId"));
 
 		KommentaarService ks = new KommentaarService();
-		ks.postitaKommentaar(nimi, tekst, uudisId);
+		int id = ks.postitaKommentaar(nimi, tekst, uudisId);
+		
+		System.out.println("Starting komm push...");
+		KommentaarFeed.pushKommentaar(ks.getKommentaarById(id));
 		
 		response.sendRedirect("uudis?uudisId=" + uudisId);
 	}
