@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import object.Ajakirjanik;
+
 import service.KommentaarService;
 import sse.KommentaarFeed;
 
@@ -23,15 +25,26 @@ public class PostitaKommentaarServlet extends HttpServlet {
 		System.out.println("PostitaKommentaarServlet doPost");
 		
 		request.setCharacterEncoding("UTF-8");
-		String nimi = request.getParameter("Nimi");
 		String tekst = request.getParameter("content");
 		int uudisId = Integer.parseInt(request.getParameter("uudisId"));
 
 		KommentaarService ks = new KommentaarService();
-		int id = ks.postitaKommentaar(nimi, tekst, uudisId);
+		int kommentaarId = -1;
+		
+		if((Ajakirjanik) request.getSession().getAttribute("klient") != null){
+			Ajakirjanik a = (Ajakirjanik) request.getSession().getAttribute("klient");
+			int ajakirjanikId = a.getId();
+			String nimi = a.getEesnimi();
+			
+			kommentaarId = ks.postitaKommentaar(nimi, tekst, ajakirjanikId, uudisId);
+		}else{
+			String nimi = request.getParameter("Nimi");
+			
+			kommentaarId = ks.postitaKommentaar(nimi, tekst, uudisId);
+		}
 		
 		System.out.println("Starting komm push...");
-		KommentaarFeed.pushKommentaar(ks.getKommentaarById(id));
+		KommentaarFeed.pushKommentaar(ks.getKommentaarById(kommentaarId));
 		
 		response.sendRedirect("uudis?uudisId=" + uudisId);
 	}

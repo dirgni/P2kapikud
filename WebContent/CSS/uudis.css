@@ -10,7 +10,7 @@
 	margin: 10px;
 }
 
-.uudis-tekst {
+.uudise-tekst {
 	float: left;
 	width: 100%;
 }
@@ -40,7 +40,7 @@ input, textarea{
 	border-top-style: inset;
 }
 
-#uudis-tekst {
+.uudise-tekst {
 	direction: rtl;
 	text-align: left;
 	padding: 15px 30px 15px 15px;
@@ -70,15 +70,26 @@ input, textarea{
 	margin-bottom: 30px;
 	border-bottom: thin;
 	border-bottom-style: outset;
+	position: relative;
 }
 
 .kommentaar-autor {
 	font-style: italic;
 /* 	font-weight: bold; */
+	min-height: 19px;
+	display: block;
 }
 
 .kommentaar-aeg {
 	float: right;
+}
+
+#kommenteerija {
+	font-style: italic;
+	font-size: large;
+	padding-left: 1%;
+	display: block;
+	padding-top: 2%;
 }
 
 #uudise-kommentaar {
@@ -91,13 +102,33 @@ input, textarea{
 	resize: none;
 }
 
+/* Kommentaari menüü */
+#kommentaar-menu-del{
+	cursor: pointer;
+	background: url("../Images/close_x14.png") no-repeat;
+	width: 14px;
+	height: 14px;
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding-bottom: 3px;
+	border: 0;
+	outline: 0; /* Et sinist äärt peale vajutamist ei oleks */
+/* 	opacity: 0; */
+}
+
+#kommentaar-menu-del:hover {
+	background: url("../Images/close2_x14.png") no-repeat;
+}
+
 .clear{
 	clear:both;
 }
 
 @media only screen and (max-width: 925px), 
 	handheld and (orientation: landscape){		
-		#uudis-tekst{
+		.uudise-tekst{
 			width: initial;
 		}
 }

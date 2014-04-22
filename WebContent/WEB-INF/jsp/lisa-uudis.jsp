@@ -35,9 +35,9 @@
 			 <div class="uudise-lisamine-wrapper">
 			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post" action="postita-uudis">
 			 	
-	 				<div id="uudise-autor-select">
- 						Sisseloginud kirjutaja nimi
-	 				</div> <!-- uudise-autor-select -->
+<!-- 	 				<div id="uudise-autor-select"> -->
+<!--  						Sisseloginud kirjutaja nimi -->
+<!-- 	 				</div> uudise-autor-select -->
 
 					<div id="uudise-andmed">
 						<input type="text" name="pealkiri" placeholder="Pealkiri">

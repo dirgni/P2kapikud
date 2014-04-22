@@ -81,95 +81,112 @@ public class UudisService {
 		return uudised;
 	}
 	
-	public Uudis getUudisById(int id) {
-		System.out.println("getUudisById");
-		Uudis uudis = null;
-		Date date;
-		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
-		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
-		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
-		try {
-			Connection con = dcf.getConnection();
-			PreparedStatement ps = con.prepareStatement(
-					"SELECT pealkiri, tekst, pilt, aeg FROM uudis WHERE id = ?");
-			ps.setInt(1, id);
-			ResultSet rsUudis = ps.executeQuery();
-			
-			ps = con.prepareStatement("SELECT COUNT(*) FROM kommentaar WHERE uudisId = ? GROUP BY uudisId");
-			
-			ResultSet rsKommentaare;
-			if (rsUudis != null && rsUudis.next()) {
-				uudis = new Uudis();
-
-				uudis.setId(id);
-				uudis.setPealkiri(rsUudis.getString("pealkiri"));
-				uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
-				uudis.setPilt(rsUudis.getString("pilt"));
-				
-				date = extractDate(rsUudis.getString("aeg"));
-				uudis.setKell(kell.format(date));
-				uudis.setKuupäev(kuupäev.format(date));
-				uudis.setKommentaare(0);
-				
-				ps.setInt(1, id);
-				rsKommentaare = ps.executeQuery();
-				if (rsKommentaare.isBeforeFirst()) {
-					rsKommentaare.next();
-					uudis.setKommentaare(rsKommentaare.getInt("count"));
-				}
-				
-			}
-		} catch (SQLException e) {
-			System.out.println("getAllUudised  SQLException:");
-			e.printStackTrace();
-		} finally {
-			dcf.closeConnection();
-		}
-		
-		return uudis;
-	}
-	
 //	public Uudis getUudisById(int id) {
 //		System.out.println("getUudisById");
-//		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
-//		Uudis uudis;
+//		Uudis uudis = null;
 //		Date date;
 //		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
 //		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
+//		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 //		try {
 //			Connection con = dcf.getConnection();
-//			
 //			PreparedStatement ps = con.prepareStatement(
-//					"SELECT id, pealkiri, tekst, pilt, ajakirjanikId, aeg FROM uudis "
-//					+ "WHERE id = ?");
+//					"SELECT pealkiri, tekst, pilt, aeg FROM uudis WHERE id = ?");
 //			ps.setInt(1, id);
 //			ResultSet rsUudis = ps.executeQuery();
 //			
-//			uudis = new Uudis();
+//			ps = con.prepareStatement("SELECT COUNT(*) FROM kommentaar WHERE uudisId = ? GROUP BY uudisId");
 //			
-//			rsUudis.next();
-//			uudis.setId(rsUudis.getInt("id"));
-//			uudis.setPealkiri(rsUudis.getString("pealkiri"));
-//			uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
-//			uudis.setPilt(rsUudis.getString("pilt"));
-//			uudis.setAjakirjanikId(rsUudis.getInt("ajakirjanikId"));
-//			uudis.setTagid(getUudisTagid(id));
-//			
-//			date = extractDate(rsUudis.getString("aeg"));
-//			uudis.setKell(kell.format(date));
-//			uudis.setKuupäev(kuupäev.format(date));
-//			uudis.setKommentaare(0);
-//			
-//			return uudis;
+//			ResultSet rsKommentaare;
+//			if (rsUudis != null && rsUudis.next()) {
+//				uudis = new Uudis();
+//
+//				uudis.setId(id);
+//				uudis.setPealkiri(rsUudis.getString("pealkiri"));
+//				uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
+//				uudis.setPilt(rsUudis.getString("pilt"));
+//				
+//				date = extractDate(rsUudis.getString("aeg"));
+//				uudis.setKell(kell.format(date));
+//				uudis.setKuupäev(kuupäev.format(date));
+//				uudis.setKommentaare(0);
+//				
+//				ps.setInt(1, id);
+//				rsKommentaare = ps.executeQuery();
+//				if (rsKommentaare.isBeforeFirst()) {
+//					rsKommentaare.next();
+//					uudis.setKommentaare(rsKommentaare.getInt("count"));
+//				}
+//				
+//			}
 //		} catch (SQLException e) {
-//			System.out.println("getUudisById SQLExcpetion:");
+//			System.out.println("getAllUudised  SQLException:");
 //			e.printStackTrace();
 //		} finally {
 //			dcf.closeConnection();
 //		}
 //		
-//		return null;
+//		return uudis;
 //	}
+	
+	public Uudis getUudisById(int id) {
+		System.out.println("getUudisById");
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Uudis uudis;
+		Date date;
+		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
+		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			Connection con = dcf.getConnection();
+			
+			PreparedStatement ps = con.prepareStatement(
+					"SELECT id, pealkiri, tekst, pilt, ajakirjanikId, aeg FROM uudis "
+					+ "WHERE id = ?");
+			ps.setInt(1, id);
+			ResultSet rsUudis = ps.executeQuery();
+			
+			uudis = new Uudis();
+			
+			rsUudis.next();
+			uudis.setId(rsUudis.getInt("id"));
+			uudis.setPealkiri(rsUudis.getString("pealkiri"));
+			uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
+			uudis.setPilt(rsUudis.getString("pilt"));
+			uudis.setAjakirjanikId(rsUudis.getInt("ajakirjanikId"));
+			uudis.setTagid(getUudisTagid(id));
+			
+			date = extractDate(rsUudis.getString("aeg"));
+			uudis.setKell(kell.format(date));
+			uudis.setKuupäev(kuupäev.format(date));
+			uudis.setKommentaare(0);
+			
+			return uudis;
+		} catch (SQLException e) {
+			System.out.println("getUudisById SQLExcpetion:");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+		return null;
+	}
+
+	public void kustutaUudis(int uId) {
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("DELETE FROM uudis WHERE id = " + uId);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Uudise kustutamine ebaõnnestus!");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+	}
 	
 	public int publishUudis(int ajakirjanikId, 
 			String pealkiri, String tekst, Part pilt, String path) {
@@ -211,27 +228,40 @@ public class UudisService {
 	public String uploadPicture(Part imgPart, String path) throws IOException {
 		System.out.println("Laen pilti üles...");
 		String fileName = "Images/uudiste_pildid/" + getPiltFileName(imgPart);
+		System.out.println("1");
 		File file = new File("git/" + path + "/WebContent/" + fileName);
-		
+		System.out.println("2");
 		if (file.exists()) {
 			System.out.println("Selle nimega fail oli juba olemas. Kasutan vana faili.");
 			return fileName;
 		}
 		
+		System.out.println("3");
 		FileOutputStream fos;
+		System.out.println("4");
 		InputStream is;
 
+		System.out.println("5");
 		is = imgPart.getInputStream();
+		System.out.println("6");
 		fos = new FileOutputStream(file);
+		System.out.println("7");
 		file.createNewFile();
+		System.out.println("8");
 		byte[] buffer = new byte[1024*10];
+		System.out.println("9");
 		int len;
+		System.out.println("10");
 		while ((len = is.read(buffer)) != -1) {
 			fos.write(buffer, 0, len);
+			System.out.println("11");
 		}
+		System.out.println("12");
 		is.close();
+		System.out.println("13");
 		fos.close();
 
+		System.out.println("14");
 		return fileName;
 	}
 	

@@ -205,4 +205,75 @@ public class UserService {
 		
 		return encodedSalt;
 	}
+
+	public boolean FBCheck(String uid) {
+		System.out.println("Begin FB check...");
+		
+		boolean statement = false;
+		Ajakirjanik a = new Ajakirjanik();
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT FBuid "
+					+ "FROM ajakirjanik WHERE FBuid = ?");
+			
+			
+			ps.setLong(1, Long.parseLong(uid));
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.isBeforeFirst()) {
+				rs.next();
+				String mb = String.valueOf(rs.getLong("FBuid"));
+				
+				System.out.println(mb+" "+uid);
+				if(uid.equals(mb)){
+					statement = true;
+				}
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Check UID Exception");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		return statement;
+	}
+
+	public Ajakirjanik getAjakirjanikByUID(String uid) {
+		System.out.println("Getting Ajakirjanik by UID");
+		
+		Ajakirjanik a = new Ajakirjanik();
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT id, eesnimi, perenimi, roll "
+					+ "FROM ajakirjanik WHERE FBuid = ?");
+			
+			
+			ps.setLong(1, Long.parseLong(uid));
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.isBeforeFirst()) {
+				rs.next();
+				
+				a = new Ajakirjanik();
+				a.setId(rs.getInt("id"));
+				a.setEesnimi(rs.getString("eesnimi"));
+				a.setPerenimi(rs.getString("perenimi"));
+				a.setRoll(rs.getString("roll"));
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("getAjakirjanikByUID SQL exception");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+		return a;
+		
+	}
 }

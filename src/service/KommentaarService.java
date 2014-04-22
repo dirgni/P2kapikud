@@ -121,6 +121,52 @@ public class KommentaarService {
 		return kommentaarId;
 	}
 	
+
+	public int postitaKommentaar(String nimi, String tekst, int ajakId, int uudisId) {
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		int kommentaarId = -1;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("INSERT INTO kommentaar (nimi, tekst, uudisid, ajakid) "
+					+ "VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+			ps.setString(1, nimi);
+			ps.setString(2, tekst);
+			ps.setInt(3, uudisId);
+			ps.setInt(4, uudisId);
+			
+			ps.executeUpdate();
+			ResultSet rs = ps.getGeneratedKeys();
+			while (rs != null && rs.next()) {
+				kommentaarId = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("Kommentaari postitamine ebaõnnestus!");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+		return kommentaarId;
+	}
+	
+	public void kustutaKommentaar(int kId) {
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("DELETE FROM kommentaar WHERE id = " + kId);
+			
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Kommentaari kustutamine ebaõnnestus!");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+	}
+	
 	private Date extractDate(String aeg) {
 		Date date = new Date();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSSSS");

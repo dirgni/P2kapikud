@@ -24,3 +24,24 @@
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
+
+.tabel-min{
+	width: 5px;
+}
+
+/* Kommentaari menüü */
+#tabel-menu-del{
+	cursor: pointer;
+	background: url("../Images/close.png") no-repeat;
+	width: 18px;
+	height: 18px;
+	display: block;
+	margin: auto;
+	border: 0;
+	outline: 0; /* Et sinist äärt peale vajutamist ei oleks */
+/* 	opacity: 0; */
+}
+
+#tabel-menu-del:hover {
+	background: url("../Images/close2.png") no-repeat;
+}
