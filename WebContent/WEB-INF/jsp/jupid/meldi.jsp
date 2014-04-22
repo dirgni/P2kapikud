@@ -19,7 +19,7 @@
 				<button onclick="makeHidden('Meldi');">Katkesta</button>
 			</div>
 			<div id="meldi_väline">
-				<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="false"></div>
+				<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
 			</div>
 		</div>
 		<div id="register">
