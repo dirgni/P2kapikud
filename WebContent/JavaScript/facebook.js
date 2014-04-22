@@ -15,7 +15,7 @@ window.fbAsyncInit = function() {
 	  
 	  if (response.status === 'connected') {  
 		var uid = response.authResponse.userID;
-		post_to_url('/P2kapikud/Facebooklogin', {FBuid:uid});
+		post_to_url('/Facebooklogin', {FBuid:uid});
 	  }else{
 		  
 	  }

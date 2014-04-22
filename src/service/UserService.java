@@ -219,12 +219,12 @@ public class UserService {
 					+ "FROM ajakirjanik WHERE FBuid = ?");
 			
 			
-			ps.setInt(1, Integer.parseInt(uid));
+			ps.setLong(1, Long.parseLong(uid));
 			ResultSet rs = ps.executeQuery();
 			
 			if (rs.isBeforeFirst()) {
 				rs.next();
-				String mb = String.valueOf(rs.getInt("FBuid"));
+				String mb = String.valueOf(rs.getLong("FBuid"));
 				
 				System.out.println(mb+" "+uid);
 				if(uid.equals(mb)){
@@ -253,7 +253,7 @@ public class UserService {
 					+ "FROM ajakirjanik WHERE FBuid = ?");
 			
 			
-			ps.setInt(1, Integer.parseInt(uid));
+			ps.setLong(1, Long.parseLong(uid));
 			ResultSet rs = ps.executeQuery();
 			
 			if (rs.isBeforeFirst()) {
