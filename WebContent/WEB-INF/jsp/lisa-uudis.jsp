@@ -40,12 +40,14 @@
 <!-- 	 				</div> uudise-autor-select -->
 
 					<div id="uudise-andmed">
+						<h1>Postita uudis</h1>
 						<input type="text" name="pealkiri" placeholder="Pealkiri">
-						<div id="input-image-wrap">
-							<label for="def-hide">
-								<input id="def-hide" type="file" name="pilt" accept="image/jpg,image/png">
-							</label>
-						</div> <!-- input-image-wrap -->
+						<input type="url" name="pilt" placeholder="http://pildi.url.com" accept="image/jpg,image/png">
+<!-- 						<div id="input-image-wrap"> -->
+<!-- 							<label for="def-hide"> -->
+<!-- 								<input id="def-hide" type="file" name="pilt" accept="image/jpg,image/png"> -->
+<!-- 							</label> -->
+<!-- 						</div> input-image-wrap -->
 						<textarea rows="7" name="tekst" placeholder="Sisu"></textarea>
 					</div> <!-- uudise-andmed -->
 
