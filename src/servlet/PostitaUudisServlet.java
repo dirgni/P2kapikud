@@ -41,16 +41,18 @@ public class PostitaUudisServlet extends HttpServlet {
 		String pealkiri = request.getParameter("pealkiri");
 		String piltURL = request.getParameter("pilt");
 		String tekst = request.getParameter("tekst");
+		String tagid = request.getParameter("uudise-tagid");
 		Ajakirjanik a = (Ajakirjanik) request.getSession().getAttribute("klient");
 		int ajakirjanikId = a.getId();
 		
 		System.out.println("pealkiri: " + pealkiri);
 		System.out.println("pildi url: " + piltURL);
 		System.out.println("tekst: " + tekst);
+		System.out.println("tagid: " + tagid);
 		System.out.println("ajakirjanikId: " + ajakirjanikId);
 		
 		UudisService us = new UudisService();
-		int uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, piltURL);
+		int uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, piltURL, tagid);
 		
 		TabelFeed.pushUudis(us.getUudisById(uudisId));
 		

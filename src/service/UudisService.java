@@ -2,10 +2,6 @@
 // Täidab objektid andmetega ja tagastab.
 package service;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,8 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import javax.servlet.http.Part;
-
+import object.Kommentaar;
 import object.Uudis;
 import connection.DatabaseConnectionFactory;
 
@@ -178,12 +173,22 @@ public class UudisService {
 	}
 
 	public void kustutaUudis(int uId) {
+		KommentaarService ks = new KommentaarService();
+		ArrayList<Kommentaar> kommentaarid = ks.getKommentaaridByUudisId(uId);
+		if (kommentaarid.size() > 0) {
+			ArrayList<Integer> kId = new ArrayList<Integer>();
+			for (int i=0; i<kommentaarid.size(); i++) {
+				kId.add(kommentaarid.get(i).getId());
+			}
+			ks.kustutaKommentaarid(kId);
+		}
+		
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		Connection con;
 		try {
 			con = dcf.getConnection();
-			PreparedStatement ps = con.prepareStatement("DELETE FROM uudis WHERE id = " + uId);
-			
+			PreparedStatement ps = con.prepareStatement("DELETE FROM uudis WHERE id = ?");
+			ps.setInt(1, uId);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Uudise kustutamine ebaõnnestus!");
@@ -195,7 +200,7 @@ public class UudisService {
 	}
 	
 	public int publishUudis(int ajakirjanikId, 
-			String pealkiri, String tekst, String piltURL) {
+			String pealkiri, String tekst, String piltURL, String tagid) {
 		System.out.println("PublishUudis");
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		int uudisId = -1;
@@ -215,6 +220,8 @@ public class UudisService {
 			if (rs != null && rs.next()) {
 			    uudisId = rs.getInt(1);
 			}
+			
+			lisaTagid(tagid.split(" "), uudisId);
 		} catch (SQLException e) {
 			System.out.println("Uudise postitamine ebaõnnestus! SQLException:");
 			e.printStackTrace();
@@ -223,6 +230,64 @@ public class UudisService {
 		}
 		
 		return uudisId;
+	}
+	
+	private void lisaTagid(String[] tagid, int uudisId) {
+		System.out.println("lisaTagid");
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			
+			PreparedStatement ps = con.prepareStatement("INSERT INTO uudis_tag (uudisid, tagid)"
+					+ "VALUES (?, ?)");
+			ps.setInt(1, uudisId);
+			for (int i=0; i<tagid.length; i++) {
+				int tagId = getTag(tagid[i]);
+				ps.setInt(2, tagId);
+				ps.executeUpdate();
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+	}
+	
+	private int getTag(String tag) {
+		System.out.println("getTag, tag=" + tag);
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT id FROM tag "
+					+ "WHERE nimi = ?");
+			ps.setString(1, tag);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.isBeforeFirst()) {
+				rs.next();
+				return rs.getInt(1);
+			} else {
+				ps = con.prepareStatement("INSERT INTO tag (nimi) "
+						+ "VALUES (?)", Statement.RETURN_GENERATED_KEYS);
+				ps.setString(1, tag);
+				
+				ps.executeUpdate();
+				ResultSet rsNewId = ps.getGeneratedKeys();
+				rsNewId.next();
+				return rsNewId.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+		return -1;
 	}
 	
 	public Uudis[] search(String pattern) {

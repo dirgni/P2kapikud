@@ -50,7 +50,7 @@
 					</div> <!-- uudise-andmed -->
 
 					<div class="tagide-valik">
- 						<input class="uudise-tagid" type="text" autocomplete="on" placeholder="tags">
+ 						<input class="uudise-tagid" name="uudise-tagid" type="text" autocomplete="on" placeholder="tags">
  					</div> <!-- tagide-valik -->
  					
 			 		<div class="tegevus-nupud">

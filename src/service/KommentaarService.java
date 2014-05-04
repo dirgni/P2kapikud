@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import object.Kommentaar;
 import connection.DatabaseConnectionFactory;
@@ -133,7 +134,7 @@ public class KommentaarService {
 			ps.setString(1, nimi);
 			ps.setString(2, tekst);
 			ps.setInt(3, uudisId);
-			ps.setInt(4, uudisId);
+			ps.setInt(4, ajakId);
 			
 			ps.executeUpdate();
 			ResultSet rs = ps.getGeneratedKeys();
@@ -164,7 +165,26 @@ public class KommentaarService {
 		} finally {
 			dcf.closeConnection();
 		}
-		
+	}
+	
+	public void kustutaKommentaarid(List<Integer> id) {
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("DELETE FROM kommentaar WHERE id = ?");
+			
+			for (int i = 0; i < id.size(); i++) {
+				ps.setInt(1, id.get(i));
+				ps.executeUpdate();
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("Kommentaari kustutamine ebaõnnestus!");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
 	}
 	
 	private Date extractDate(String aeg) {
