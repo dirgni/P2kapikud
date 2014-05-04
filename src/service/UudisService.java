@@ -32,12 +32,12 @@ public class UudisService {
 	
 	public ArrayList<Uudis> getKõikUudised() {
 		System.out.println("getKõikUudised");
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		ArrayList<Uudis> uudised = new ArrayList<Uudis>();
 		Uudis uudis;
 		Date date;
 		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
 		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
-		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		try {
 			Connection con = dcf.getConnection();
 			PreparedStatement ps = con.prepareStatement(
@@ -72,7 +72,7 @@ public class UudisService {
 				uudised.add(uudis);
 			}
 		} catch (SQLException e) {
-			System.out.println("getAllUudised  SQLException:");
+			System.out.println("getKõikUudised SQLException: ");
 			e.printStackTrace();
 		} finally {
 			dcf.closeConnection();
@@ -81,53 +81,59 @@ public class UudisService {
 		return uudised;
 	}
 	
-//	public Uudis getUudisById(int id) {
-//		System.out.println("getUudisById");
-//		Uudis uudis = null;
-//		Date date;
-//		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
-//		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
-//		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
-//		try {
-//			Connection con = dcf.getConnection();
-//			PreparedStatement ps = con.prepareStatement(
-//					"SELECT pealkiri, tekst, pilt, aeg FROM uudis WHERE id = ?");
-//			ps.setInt(1, id);
-//			ResultSet rsUudis = ps.executeQuery();
-//			
-//			ps = con.prepareStatement("SELECT COUNT(*) FROM kommentaar WHERE uudisId = ? GROUP BY uudisId");
-//			
-//			ResultSet rsKommentaare;
-//			if (rsUudis != null && rsUudis.next()) {
-//				uudis = new Uudis();
-//
-//				uudis.setId(id);
-//				uudis.setPealkiri(rsUudis.getString("pealkiri"));
-//				uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
-//				uudis.setPilt(rsUudis.getString("pilt"));
-//				
-//				date = extractDate(rsUudis.getString("aeg"));
-//				uudis.setKell(kell.format(date));
-//				uudis.setKuupäev(kuupäev.format(date));
-//				uudis.setKommentaare(0);
-//				
-//				ps.setInt(1, id);
-//				rsKommentaare = ps.executeQuery();
-//				if (rsKommentaare.isBeforeFirst()) {
-//					rsKommentaare.next();
-//					uudis.setKommentaare(rsKommentaare.getInt("count"));
-//				}
-//				
-//			}
-//		} catch (SQLException e) {
-//			System.out.println("getAllUudised  SQLException:");
-//			e.printStackTrace();
-//		} finally {
-//			dcf.closeConnection();
-//		}
-//		
-//		return uudis;
-//	}
+	public ArrayList<Uudis> getUudised(int uudisteArv) {
+		System.out.println("getUudised");
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		ArrayList<Uudis> uudised = new ArrayList<Uudis>();
+		Uudis uudis;
+		Date date;
+		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
+		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
+		try {
+			Connection con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement(
+					"SELECT id, pealkiri, tekst, pilt, aeg FROM uudis ORDER BY aeg DESC LIMIT ?");
+			ps.setInt(1, uudisteArv);
+			ResultSet rsUudis = ps.executeQuery();
+			
+			int id;
+			ResultSet rsKommentaare;
+			ps = con.prepareStatement("SELECT COUNT(*) FROM kommentaar WHERE uudisId = ? GROUP BY uudisId");
+			while (rsUudis.next()) {
+				uudis = new Uudis();
+
+				id = rsUudis.getInt("id");
+				uudis.setId(id);
+				uudis.setPealkiri(rsUudis.getString("pealkiri"));
+				uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
+				uudis.setPilt(rsUudis.getString("pilt"));
+				
+				date = extractDate(rsUudis.getString("aeg"));
+				uudis.setKell(kell.format(date));
+				uudis.setKuupäev(kuupäev.format(date));
+				uudis.setKommentaare(0);
+				
+				// TODO: Eraldi meetodisse
+				ps.setInt(1, id);
+				rsKommentaare = ps.executeQuery();
+				if (rsKommentaare.isBeforeFirst()) {
+					rsKommentaare.next();
+					uudis.setKommentaare(rsKommentaare.getInt("count"));
+				}
+				
+				uudised.add(uudis);
+			}
+		} catch (SQLException e) {
+			System.out.println("getKõikUudised SQLException: ");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+		return uudised;
+	}
+	
+	
 	
 	public Uudis getUudisById(int id) {
 		System.out.println("getUudisById");
@@ -189,28 +195,22 @@ public class UudisService {
 	}
 	
 	public int publishUudis(int ajakirjanikId, 
-			String pealkiri, String tekst, Part pilt, String path) {
-		System.out.println("Publishing uudis...");
-		int uudisId = -1;
+			String pealkiri, String tekst, String piltURL) {
+		System.out.println("PublishUudis");
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		int uudisId = -1;
 		Connection con;
-		String imgPath = "";
 		try {
-//			if (pilt != null) {
-//				imgPath = uploadPicture(pilt, path);
-//				
-//			}
 			con = dcf.getConnection();
 			PreparedStatement ps = con.prepareStatement("INSERT INTO uudis (ajakirjanikId, pealkiri, tekst, pilt) "
 					+ "VALUES (?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 			ps.setInt(1, ajakirjanikId);
 			ps.setString(2, pealkiri);
 			ps.setString(3, tekst);
-//			ps.setString(4, "Images/legkov.png");
-			ps.setString(4, imgPath);
-			
+			ps.setString(4, piltURL);
 			ps.executeUpdate();
 			
+			// Vaatame, mis id uudis sai
 			ResultSet rs = ps.getGeneratedKeys();
 			if (rs != null && rs.next()) {
 			    uudisId = rs.getInt(1);
@@ -223,46 +223,6 @@ public class UudisService {
 		}
 		
 		return uudisId;
-	}
-	
-	public String uploadPicture(Part imgPart, String path) throws IOException {
-		System.out.println("Laen pilti üles...");
-		String fileName = "Images/uudiste_pildid/" + getPiltFileName(imgPart);
-		System.out.println("1");
-		File file = new File("git/" + path + "/WebContent/" + fileName);
-		System.out.println("2");
-		if (file.exists()) {
-			System.out.println("Selle nimega fail oli juba olemas. Kasutan vana faili.");
-			return fileName;
-		}
-		
-		System.out.println("3");
-		FileOutputStream fos;
-		System.out.println("4");
-		InputStream is;
-
-		System.out.println("5");
-		is = imgPart.getInputStream();
-		System.out.println("6");
-		fos = new FileOutputStream(file);
-		System.out.println("7");
-		file.createNewFile();
-		System.out.println("8");
-		byte[] buffer = new byte[1024*10];
-		System.out.println("9");
-		int len;
-		System.out.println("10");
-		while ((len = is.read(buffer)) != -1) {
-			fos.write(buffer, 0, len);
-			System.out.println("11");
-		}
-		System.out.println("12");
-		is.close();
-		System.out.println("13");
-		fos.close();
-
-		System.out.println("14");
-		return fileName;
 	}
 	
 	public Uudis[] search(String pattern) {
@@ -293,19 +253,6 @@ public class UudisService {
 		} catch (ParseException e) {
 			System.out.println("Kuupäeva parsimise error!");
 			e.printStackTrace();
-		}
-		
-		return null;
-	}
-	
-	private String getPiltFileName(Part part) {
-		for (String cd : part.getHeader("content-disposition").split(";")) {
-			if (cd.trim().startsWith("filename")) {
-	            String filename = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-	            filename = filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
-//	            filename.replaceAll("õ|ü|ö|ä", "gg");
-	            return filename;
-	        }
 		}
 		
 		return null;

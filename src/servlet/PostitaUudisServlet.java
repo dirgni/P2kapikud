@@ -39,22 +39,18 @@ public class PostitaUudisServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		String pealkiri = request.getParameter("pealkiri");
+		String piltURL = request.getParameter("pilt");
 		String tekst = request.getParameter("tekst");
 		Ajakirjanik a = (Ajakirjanik) request.getSession().getAttribute("klient");
 		int ajakirjanikId = a.getId();
-		Part imgPart = request.getPart("pilt");
-		String path = request.getContextPath();
 		
-		System.out.println("PWD: " + this.getServletContext().getRealPath("PWD"));
-		System.out.println("getContextPath(): " + this.getServletContext().getContextPath());
-		System.out.println("request path: " + path);
 		System.out.println("pealkiri: " + pealkiri);
+		System.out.println("pildi url: " + piltURL);
 		System.out.println("tekst: " + tekst);
 		System.out.println("ajakirjanikId: " + ajakirjanikId);
 		
 		UudisService us = new UudisService();
-		int uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, imgPart, path);
-		
+		int uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, piltURL);
 		
 		TabelFeed.pushUudis(us.getUudisById(uudisId));
 		

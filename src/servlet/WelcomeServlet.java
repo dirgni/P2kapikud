@@ -25,25 +25,17 @@ public class WelcomeServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("WelcomeServlet accessed");
+		System.out.println("WelcomeServlet");
 		
 		request.setCharacterEncoding("UTF-8");
-		/*
-		//Võta random uudis
-		UudisService us = new UudisService();
-//		Uudis uudis = us.getRandomUudis(); <- pole veel implementeeritud
-		Uudis uudis = us.getUudisById(1);
-
-		// Teeme uudise beani kättesaadavaks
-		request.setAttribute("uudis", uudis);
-		*/
 		UudisService us = new UudisService();
 		
+		// Võta viimased n uudist
 		ArrayList<Uudis> uudised = new ArrayList<Uudis>();
-		uudised = us.getKõikUudised();
+		uudised = us.getUudised(3);
 		
+		// Teeme uudise beani kättesaadavaks
 		request.setAttribute("uudised", uudised);
-		
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp");
 		rd.forward(request, response);
