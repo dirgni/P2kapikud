@@ -36,9 +36,9 @@ h1 {
 	width: 50%;
 }
 
-#uudise-vorm input[type="file"]{
-	width: 100%;
-}
+/* #uudise-vorm input[type="file"]{ */
+/* 	width: 100%; */
+/* } */
 
 #uudise-vorm textarea {
 	width: 100%;
@@ -47,71 +47,30 @@ h1 {
 	overflow: auto;
 }
 
-#def-hide{
-	cursor: pointer;
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
+/* #def-hide{ */
+/* 	cursor: pointer; */
+/* 	opacity: 0; */
+/* 	position: absolute; */
+/* 	top: 0; */
+/* 	bottom: 0; */
+/* 	left: 0; */
+/* 	right: 0; */
+/* } */
 
-#input-image-wrap {
-	border: #B0AB78 dashed;
-	width: 50%;
-	position: relative;
-	display: inline-block;
-	background: url("../Images/add-img3.png") #DDD9B4 no-repeat center;
-}
+/* #input-image-wrap { */
+/* 	border: #B0AB78 dashed; */
+/* 	width: 50%; */
+/* 	position: relative; */
+/* 	display: inline-block; */
+/* 	background: url("../Images/add-img3.png") #DDD9B4 no-repeat center; */
+/* } */
 
-#input-image-wrap-cover {
-	text-align: center;
-	position: absolute;
-	display: table;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	color: #453823;
-	font-weight: bold;
-}
-
-#input-image-wrap:before {
-	content: "";
-	display: block;
-	padding-top: 70%;
-}
+/* #input-image-wrap:before { */
+/* 	content: ""; */
+/* 	display: block; */
+/* 	padding-top: 70%; */
+/* } */
 
 #uudise-vorm * {
 	margin-bottom: 1%;
 }
-
-/* Asendatud top-nav'iga..
-
-#navi {
-	list-style-type: none;
-	margin: 50px;
-	display: block;
-}
-
-#navi ul li a {
-    background: transparent;
-    width: 150px;
-}
-
-#navi li { 
-	float: left; 
-}
-
-#navi li a {
-    color: blue;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 12px;
-}
-
-#navi li a:hover { 
-	background-color: black; 
-} */
-

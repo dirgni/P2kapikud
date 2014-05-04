@@ -41,6 +41,10 @@ var carousel_settings ={
 
 	$(function() {
 		var carousel = $(carousel_settings.id_name)[0].getElementsByTagName("li");
+		
+		var el3 = ($(".active").children().eq(1).html()+"").replace('"',"");
+		$("#esi-uudis-wrapper").css({'background-image' : 'url("'+el3+'")'});
+		
 		carousel_settings.size=carousel.length;
 		
 		function targetIncrease(){
@@ -73,6 +77,9 @@ var carousel_settings ={
 				
 				el2.removeClass('inactive');
 				el2.addClass('active');
+				
+				var el3 = ($(".active").children().eq(1).html()+"").replace('"',"");
+				$("#esi-uudis-wrapper").css({'background-image' : 'url("'+el3+'")'});  				
 			}
 		);
 		
@@ -89,6 +96,9 @@ var carousel_settings ={
 				
 				el2.removeClass('inactive');
 				el2.addClass('active');
+				
+				var el3 = ($(".active").children().eq(1).html()+"").replace('"',"");
+				$("#esi-uudis-wrapper").css({'background-image' : 'url("'+el3+'")'});  
 			}
 		);
 				

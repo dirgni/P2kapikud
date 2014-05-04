@@ -24,7 +24,8 @@ input, textarea{
 }
 
 #esi-uudis-wrapper {
-	background: url("../Images/legkov.png") no-repeat center center;
+	background: url("../Images/legkov.png");
+	background-repeat: no-repeat;
 	background-size: cover;
 	width: 100%;
 	max-height: 600px;
