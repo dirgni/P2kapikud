@@ -5,8 +5,6 @@ from selenium.common.exceptions import NoSuchElementException
 
 import time
 
-roll = "Külaline"
-
 #browser = webdriver.Firefox()
 
 ############################KÜLALINE#################################
