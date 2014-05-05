@@ -31,7 +31,7 @@ public class PostitaUudisServlet extends HttpServlet {
 		String destination = "/WEB-INF/jsp/lisa-uudis.jsp";
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
-		rd.forward(request,  response);
+		rd.forward(request, response);
 	}
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

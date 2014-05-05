@@ -16,7 +16,7 @@ import service.UudisService;
 @WebServlet("/otsing")
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String url = "/WEB-INF/jsp/tabel-otsing.jsp";
+	private static final String url = "/WEB-INF/jsp/tabel.jsp";
 
     public SearchServlet() {
         super();
@@ -24,18 +24,17 @@ public class SearchServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		System.out.println("SearchServlet doGet");
+		request.setCharacterEncoding("UTF-8");
+		String otsing = request.getParameter("otsing");
 		
+		System.out.println("otsing: " + otsing);
 		UudisService us = new UudisService();
-		
-		ArrayList<Uudis> otsinguTulemused = new ArrayList<Uudis>();
-		otsinguTulemused = us.getKõikUudised();
+		ArrayList<Uudis> otsinguTulemused = us.search(otsing);
 		
 		request.setAttribute("uudised", otsinguTulemused);
 		
 		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
 		rd.forward(request, response);
-		
-		response.sendRedirect("tabel");
 	}
 
 }

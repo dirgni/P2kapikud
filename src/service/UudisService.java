@@ -290,10 +290,57 @@ public class UudisService {
 		return -1;
 	}
 	
-	public Uudis[] search(String pattern) {
-		//TODO
-		
-		return null;
+	public ArrayList<Uudis> search(String pattern) {
+		System.out.println("search, pattern=" + pattern);
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		Connection con;
+		ArrayList<Uudis> uudised = new ArrayList<Uudis>();
+		Uudis uudis;
+		Date date;
+		DateFormat kell = new SimpleDateFormat("HH:mm:ss");
+		DateFormat kuupäev = new SimpleDateFormat("dd/MM/yyyy");
+		int id;
+		pattern = '%' + pattern + '%';
+		try {
+			con = dcf.getConnection();
+			PreparedStatement ps = con.prepareStatement("SELECT id, pealkiri, tekst, pilt, aeg FROM uudis "
+					+ "WHERE pealkiri ILIKE ? OR tekst ILIKE ?");
+			ps.setString(1, pattern);
+			ps.setString(2, pattern);
+			
+			ResultSet rsUudis = ps.executeQuery();
+			ResultSet rsKommentaare;
+			ps = con.prepareStatement("SELECT COUNT(*) FROM kommentaar WHERE uudisId = ? GROUP BY uudisId");
+			while (rsUudis.next()) {
+				uudis = new Uudis();
+
+				id = rsUudis.getInt("id");
+				uudis.setId(id);
+				uudis.setPealkiri(rsUudis.getString("pealkiri"));
+				uudis.setTekst(extractParagraphs(rsUudis.getString("tekst")));
+				uudis.setPilt(rsUudis.getString("pilt"));
+				
+				date = extractDate(rsUudis.getString("aeg"));
+				uudis.setKell(kell.format(date));
+				uudis.setKuupäev(kuupäev.format(date));
+				uudis.setKommentaare(0);
+				
+				// TODO: Eraldi meetodisse
+				ps.setInt(1, id);
+				rsKommentaare = ps.executeQuery();
+				if (rsKommentaare.isBeforeFirst()) {
+					rsKommentaare.next();
+					uudis.setKommentaare(rsKommentaare.getInt("count"));
+				}
+				
+				uudised.add(uudis);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		return uudised;
 	}
 	
 	private ArrayList<String> extractParagraphs(String tekst) {
