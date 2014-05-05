@@ -63,8 +63,8 @@ input, textarea{
 	float: left;
 	font-style: italic;
 	color: #B1A9A9;
-	/* width: 100%; */
-	/* border-top: 1px dotted #B1A9A9; */
+	width: 100%;
+	border-top: 1px dotted #B1A9A9;
 }
 
 .kommentaar {

@@ -173,15 +173,15 @@ public class UudisService {
 	}
 
 	public void kustutaUudis(int uId) {
-		KommentaarService ks = new KommentaarService();
-		ArrayList<Kommentaar> kommentaarid = ks.getKommentaaridByUudisId(uId);
-		if (kommentaarid.size() > 0) {
-			ArrayList<Integer> kId = new ArrayList<Integer>();
-			for (int i=0; i<kommentaarid.size(); i++) {
-				kId.add(kommentaarid.get(i).getId());
-			}
-			ks.kustutaKommentaarid(kId);
-		}
+//		KommentaarService ks = new KommentaarService();
+//		ArrayList<Kommentaar> kommentaarid = ks.getKommentaaridByUudisId(uId);
+//		if (kommentaarid.size() > 0) {
+//			ArrayList<Integer> kId = new ArrayList<Integer>();
+//			for (int i=0; i<kommentaarid.size(); i++) {
+//				kId.add(kommentaarid.get(i).getId());
+//			}
+//			ks.kustutaKommentaarid(kId);
+//		}
 		
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		Connection con;
