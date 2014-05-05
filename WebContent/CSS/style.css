@@ -410,6 +410,10 @@ ul{
 	opacity:0.8;
 }
 
+.pic_path{
+	display: none;
+}
+
 #liner{
 	position: absolute;
 	height: 2px;

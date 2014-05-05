@@ -53,6 +53,7 @@
 						<ul>
 							<c:forEach items="${uudised}" begin="0" end="0" var="uudis">
 									<li class="active">
+									
 										<div class="uudise-tekst">
 											<h1>
 												<a class="temp_link" href="uudis?uudisId=${uudis.id}">
@@ -62,6 +63,7 @@
 											
 											<p><c:out value="${uudis.tekst[0]}" /></p>
 										</div>
+										<div class="pic_path">${uudis.pilt}</div>
 									</li>
 							</c:forEach>
 							<c:forEach items="${uudised}" begin="1" var="uudis">
@@ -75,6 +77,7 @@
 											
 											<p><c:out value="${uudis.tekst[0]}" /></p>
 										</div>
+										<div class="pic_path">${uudis.pilt}</div>
 									</li>
 							</c:forEach>
 						</ul>
