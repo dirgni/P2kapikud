@@ -42,8 +42,8 @@
 		 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
 		</div>
 		<div id="otsing">
-			<form action="tabel.html">
-		 		<input type="text" placeholder="Sisesta otsisõna">
+			<form action="otsing">
+		 		<input type="text" name="otsing" placeholder="Sisesta otsisõna">
 		 	</form>
 		</div> <!-- otsing -->
 	</div> <!-- pealmine_parempoolne -->

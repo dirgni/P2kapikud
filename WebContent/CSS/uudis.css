@@ -1,22 +1,20 @@
+input, textarea{
+	font-family: Cambria, Georgia, serif;
+}
+
 .uudis-pilt {
 	float: right;
-	position:relative;
-	right:0;
+	position: relative;
+	right: 0;
 	width: 30%;
 	display: flex;
 }
-
 .main-pilt{
 	margin: 10px;
 }
-
 .uudise-tekst {
 	float: left;
 	width: 100%;
-}
-
-input, textarea{
-	font-family: Cambria, Georgia, serif;
 }
 
 #kommentaar-vorm * {
@@ -30,7 +28,6 @@ input, textarea{
 	width: 100%;
 	max-height: 600px;
 }
-
 .uudis-wrapper-less{
 	height: 100%;
 	width: 100%;
@@ -40,7 +37,6 @@ input, textarea{
 	border-top: thin;
 	border-top-style: inset;
 }
-
 .uudise-tekst {
 	direction: rtl;
 	text-align: left;
@@ -52,13 +48,11 @@ input, textarea{
 	overflow-y: scroll;
 	max-height: 550px;
 }
-
 .uudis-autor{
 	font-style: italic;
 	margin-bottom: 2%;
 	margin-top: -2%;
 }
-
 #uudis-tag{
 	float: left;
 	font-style: italic;
@@ -73,18 +67,15 @@ input, textarea{
 	border-bottom-style: outset;
 	position: relative;
 }
-
 .kommentaar-autor {
 	font-style: italic;
 /* 	font-weight: bold; */
 	min-height: 19px;
 	display: block;
 }
-
 .kommentaar-aeg {
 	float: right;
 }
-
 #kommenteerija {
 	font-style: italic;
 	font-size: large;
@@ -118,7 +109,6 @@ input, textarea{
 	outline: 0; /* Et sinist ‰‰rt peale vajutamist ei oleks */
 /* 	opacity: 0; */
 }
-
 #kommentaar-menu-del:hover {
 	background: url("../Images/close2_x14.png") no-repeat;
 }

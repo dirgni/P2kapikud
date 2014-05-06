@@ -1,4 +1,3 @@
-
 #user_window {
 	width: 40%;
 	height: 100%;
@@ -10,43 +9,38 @@
 	border-radius: 15px;
 	box-shadow: 7px 7px 12px #453823;
 }
-
-#user_Upper{
-	top:0;
-	position:relative;
-	height:85%;
+#user_Upper {
+	top: 0;
+	position: relative;
+	height: 85%;
+}
+#user_Bottom {
+	bottom: 0;
+	height: 15%;
+	padding-top: 0.5em;
 }
 
-#user_Bottom{
-	bottom:0;
-	height:15%;
-	padding-top:0.5em;
-}
-
+/* Hetkel pole user_PhotoBox kasutusel */
 #user_PhotoBox {
-	width:30%;
-	height:100%;
-	position:absolute;
-	top:0;
-	left:0;
+	width: 30%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
 	background-image: url(../Images/ajakirjanik.jpg);
-	background-size:100% 100%;
+	background-size: 100% 100%;
 }
 
-#user_Prof{
-	padding-left:1em;
-
+#user_Prof {
+	padding-left: 1em;
+}
+#user_FullName {
+	padding-left: 1em;
+}
+#user_ArtCounter {
+	padding-left: 1em;
 }
 
-#user_FullName{
-	padding-left:1em;
-}
-
-
-#user_ArtCounter{
-	padding-left:1em;
-}
-
-/*
+/* Notes..
 border:1px solid black;
 */

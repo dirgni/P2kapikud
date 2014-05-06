@@ -3,8 +3,10 @@
 <div id="Meldi" class="invisible">
 	<div id="meldi_container">
 		<div id="navi-buttons">
-			<button id="navi-buttons-meldi" class="navi-buttons-placement" onclick="showMeldi();">Meldi</button>
-			<button id="navi-buttons-registreeri" class="navi-buttons-placement" onclick="showRegistreeru();">Registreeru</button>
+			<button id="navi-buttons-meldi" class="navi-buttons-meldiA 
+									navi-buttons-placement" onclick="showMeldi();">Meldi</button>
+			<button id="navi-buttons-registreeri" class="navi-buttons-registreeriA 
+									navi-buttons-placement" onclick="showRegistreeru();">Registreeru</button>
 		</div>
 		<div id="meld">
 			<h3>Meldi</h3>
@@ -22,7 +24,7 @@
 				<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
 			</div>
 		</div>
-		<div id="register">
+		<div id="register" class="registerA">
 			<h3>Registreeru</h3>
 			<form id="registreeru-vorm" method="post" action="register">
 				Eesnimi: <input class="input-field" name="e-nimi" placeholder="Eesnimi" type="text">

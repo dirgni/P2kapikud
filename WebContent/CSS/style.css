@@ -1,21 +1,20 @@
 /*
-	Kasutamiseks et kontrollida div-i
+	Kasutamiseks, et kontrollida div-i
 	border:1px solid black;
 */
 
 html {
 	min-width: 600px;
 	min-height: 750px;
-	padding:0;
-	margin:0;
+	padding: 0;
+	margin: 0;
 }
 
 body {
-	/* 	cursor: url("../Images/cursor22.png"), auto; */
-	width:100%;
-	height:89%;
-	padding:0;
-	margin:0;
+	width: 100%;
+	height: 89%;
+	padding: 0;
+	margin: 0;
 	background-color: #FFFFFF;
 	font-family: Cambria, Georgia, serif;
 	overflow-y: scroll;
@@ -30,119 +29,105 @@ input, textarea {
 	font-family: Cambria, Georgia, serif;
 }
 
-/* #RSS { */
-/* 	display:none; */
-/* } */
-
-/* #Meldi { */
-/* 	display:none; */
-/* } */
-
-
 #Rakendus {
-	width:100%;
-	/* height:100%; */
-	display:block;	
+	width: 100%;
+	/* height: 100%; */
+	display: block;	
 }
 
+/* Päis - start */
+#pealmine {
+	padding: 55px 2% 2% 2%;
+	width: 70%;
+/* 	height: 20%; */
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+/* Päis_vasak - start */
 #pealmine_vasakpoolne {
-	width:70%;
-	height:100%;
-	position:absolute;
-	left:0;
+	width: 70%;
+	height: 100%;
+	position: absolute;
+	left: 0;
 }
 
+/* Logo - start*/
 .logo-tava{
-	width:100%;
-	height:80%;
+	width: 100%;
+	height: 80%;
 	background-image: url(../Images/logo-large.png);
 }
-
 .logo-meld {
 	width: 50%;
 	height: 100%;
 	background-position: center;
 	background-image: url(../Images/logo-small.png);
 }
-
-
 #logo {
 	background-size: contain;
-	background-position:center;
+	background-position: center;
 	background-repeat: no-repeat;
-	display:block;
-	top:0;
-	left:0;
-	position:absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	position: absolute;
 }
+/* Logo - end */
+/* Päis_vasak - end */
 
-
-/*
-#logo:hover{
-	width:100%;
-	height:70%;
-	background-image: url(../Images/logo-small.png);
-	background-size:20% 100%;
-} 
-*/
-/* 
-#navigatsioon {
-	width:100%;
-	height:30%;
-	bottom:0;
-	left:0;
-	position:absolute;
-} */
-
+/* Päis_parem - start */
 #pealmine_parempoolne {
-	width:30%;
-	height:100%;
-	position:absolute;
-	right:0;
+	width: 30%;
+	height: 100%;
+	position: absolute;
+	right: 0;
 }
 
+/* Nupud - start */
 #buttons {
-	position:relative;
-	width:100%;
-	height:50%;
+	position: relative;
+	width: 100%;
+	height: 50%;
 }
 
+/* RSS nupp - start */
 #RSS-button{
 	cursor: pointer;
 	margin-right: 4%;
-	width:43px;
-	height:43px;
-	position:absolute;
-	right:0;
+	width: 43px;
+	height: 43px;
+	position: absolute;
+	right: 0;
 	background-image: url(../Images/RSS.png);
 	background-size: contain;
 	background-position: center;
 	background-repeat: no-repeat;
 }
-
 #RSS-button:hover{
-	opacity:0.8;
+	opacity: 0.8;
 }
+/* RSS nupp - end */
 
+/* Login nupp - start */
 #LOGIN-button{
-	width:55%;
-	height:50%;
-	position:absolute;
-	left:0;
+	width: 55%;
+	height: 50%;
+	position: absolute;
+	left: 0;
 }
-
 #LOGIN-button:hover {
-	opacity:0.9;
+	opacity: 0.9;
 }
-
 #LOGIN-button form{
 	width: 100%;
 	height: 100%;
 }
-
 #LOGIN-button button{
-	height:100%;
-	width:100%;
+	height: 100%;
+	width: 100%;
 	cursor: pointer;
 	font-weight: bolder;
 	letter-spacing: 2px;
@@ -153,48 +138,43 @@ input, textarea {
 	border-radius: 1em 3em 1em 3em;
 	box-shadow: 5px 5px 10px #453823;
 }
+.login-peida{
+	display: none;
+}
+/* Login nupp - end */
+/* Nupud - end */
 
+/* Otsingukast - start */
 #otsing{
-	width:100%;
-	height:50%;
+	width: 100%;
+	height: 50%;
 }
-
 #otsing form{
-	height:70%;
+	height: 70%;
 }
-
 #otsing input{
 	background-image: url(../Images/search.png);
-	background-size:15% 100%;
+	background-size: 15% 100%;
 	background-repeat: no-repeat;
-	width:95%;
+	width: 95%;
 	height: 50%;
 	border: 2px solid #453823;
 	border-radius: 1em 3em 1em 3em;
 	-moz-border-radius: 1em 3em 1em 3em;
-	text-align:center;
+	text-align: center;
 }
+/* Otsingukast - end */
+/* Päis_parem - end */
+/* Päis - end */
 
-/*Pï¿½ise osa*/
-#pealmine {
-	padding: 55px 2% 2% 2%;
-	width:70%;
-/* 	height:20%; */
-	height: 100px;
-	margin-left:auto;
-	margin-right:auto;
-	position:relative;
-	
-}
-
-/*Rakenduse osa mida ei muudeta*/
+/* Rakenduse osa mida ei muudeta */
 #keskmine {
-	width:70%;
-	margin-left:auto;
-	margin-right:auto;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 3%;
-	display:block;
-	position:relative;
+	display: block;
+	position: relative;
 	height: inherit;
 	background: white;
 	padding: 1%;
@@ -203,119 +183,35 @@ input, textarea {
 	box-shadow: 7px 7px 12px #453823;
 }
 
-
-/*Jaluse osa*/
+/* Jalus - start */
 #alumine {
 	margin-top: 3%;
-	width:70%;
-	margin-left:auto;
-	margin-right:auto;
-	display:block;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
 #valideeringud{
-	width:30%;
-	height:100%;
+	width: 30%;
+	height: 100%;
 }
-
 #html-valid {
-	height:31px;
+	height: 31px;
 	box-shadow: 1px 1px 1px #453823;
 }
-
 #css-valid {
 	height: 31px;
 	width: 88px;
 }
-
 #kontakt{
-	width:60%;
-	height:100%;
-	top:0;
-}
-
-#abinupp{
-	cursor: pointer;
-	position: fixed;
-	top: 0;
-	right: 0;
-	margin: 5px;
-	width: 31px;
-	height: 31px;
-	background-image: url(../Images/help.png);
-	background-size:100% 100%;
-	z-index: 2;
-}
-
-#abinupp:hover{
-	opacity:0.8;
-}
-
-#register{
-	display: none;
-}
-
-#meld{
-	height: inherit;
-}
-
-.hidden-vorm {
-	display:table-caption;
-	margin-bottom: 2%;
-}
-
-.hidden-nupud {
-	display: flex;
-}
-
-#RSS {
-	width:100%;
-	height:100%;
-	background: #D3D3D3;
-	background-color: rgba(0, 0, 0, 0.6);
-	position:fixed;
-	z-index:2;
-}
-
-#rss_container, #meldi_container{
-	padding-top:3%;
-	margin-top:55px;
-	padding-left:3%;
-	padding-right:3%;
-	margin-left:auto;
-	margin-right:auto;
-	height:70%;
-	width:70%;
-	background-color:white;
-	opacity:1;
-	display:block;
-	overflow-y: scroll;
-}
-
-#Meldi {
-	width:100%;
-	height:100%;
-	background: #D3D3D3;
-	background-color: rgba(0, 0, 0, 0.6);
-	position:fixed;
-	z-index:2;
-}
-
-.invisible {
-	display: none;
-}
-
-.visible{
-	display: block;
-}
-
-
-.main-pilt{
-	width: 100%;
+	width: 60%;
 	height: 100%;
+	top: 0;
 }
+/* Jalus - end */
 
-/* Navigation bar'i style */
+/* Navigation bar - start */
 #top-navi {
 	position: fixed;
 	width: 100%;
@@ -328,115 +224,106 @@ input, textarea {
 	font-weight: bold;
 	z-index: 2;
 }
-
 #top-navi a {
 	 color: #B0A378;
 	 text-decoration: none;
 }
-
 #top-navi a:hover { 
 	color: white; 
 }
-/* Navigation bar'i style - end */
 
-.temp_link {
-	text-decoration: none;
-	color: black;
-}
-
-.uudise-tekst{
-	width: initial;
-	margin-bottom: -1px;
-	margin-left: -40px;
-}
-@media only screen and (max-width: 400px) and (max-height: 700px), 
-	handheld and (orientation: landscape){
-		body {
-			background: beige;
-		}
-		
-		#logo {
-			background-image: url(../Images/logo-small.png);
-		}
-		
-		.uudise-tekst{
-			width: initial;
-		}
-}
-
-/* Lisatud esilehe karuselli jaoks */
-li.active{
-	display:block;
-}
-
-li.inactive{
-	display:none;
-}
-
-ul{
-	list-style-type: none;
-}
-
-#karusell_container{
-	margin-top: -17px;
-}
-
-.karusell_button_left{
-	background: url(../Images/arrowl.png) no-repeat;
-	width: 18px;
-	height: 18px;
-	position: absolute;
-	left: 0;
-	margin: 5px;
-	margin-left: 35px;
-	z-index: 1;
-}
-
-.karusell_button_left:hover{
-	opacity:0.8;
-}
-
-.karusell_button_right{
-	background: url(../Images/arrowr.png) no-repeat;
-	width: 18px;
-	height: 18px;
-	position: absolute;
+/* Abinupp - start */
+#abinupp{
+	cursor: pointer;
+	position: fixed;
+	top: 0;
 	right: 0;
 	margin: 5px;
-	margin-right: 18px;
+	width: 31px;
+	height: 31px;
+	background-image: url(../Images/help.png);
+	background-size: 100% 100%;
+	z-index: 2;
+}
+#abinupp:hover{
+	opacity: 0.8;
+}
+/* Abinupp - end */
+/* Navigation bar - end */
+
+/* Ilmuvad aknad - start */
+#rss_container, #meldi_container{
+	padding-top: 3%;
+	margin-top: 55px;
+	padding-left: 3%;
+	padding-right: 3%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 70%;
+	width: 70%;
+	background-color: white;
+	opacity: 1;
+	display: block;
+	overflow-y: scroll;
 }
 
-.karusell_button_right:hover{
-	opacity:0.8;
+/* Meldi&Registreeri/RSS aken - start */
+#RSS {
+	width: 100%;
+	height: 100%;
+	background: #D3D3D3;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	z-index: 2;
 }
-
-.pic_path{
-	display: none;
+#Meldi {
+	width: 100%;
+	height: 100%;
+	background: #D3D3D3;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	z-index: 2;
 }
-
-#liner{
-	position: absolute;
-	height: 2px;
-	background: #453823;
-	margin-top: 13px;
-	left: 0;
-	right: 0;
-	margin-left: 52px;
-	margin-right: 35px;
+table#meldi_container h3 {
+	display: initial;
 }
-
+#meld{
+	height: inherit;
+}
 #meldi_integr {
 	float: left;
 	width: 50%;
 }
-
 #meldi-vorm{
 	display: table-caption;
 }
-
 #meldi_väline{
 	float: right;
 	width: 50%;
+}
+.registerA {
+	display: none;
+}
+.registerB {
+	display: table-caption;
+}
+
+/* !Kontrollida, kas seda on olemas/vaja */
+.hidden-vorm {
+	display: table-caption;
+	margin-bottom: 2%;
+}
+.hidden-nupud {
+	display: flex;
+}
+
+.meldi_container-JS{
+	width: 100%;
+	display: table;
+}
+.meldi-JS{
+	top: 0;
+	left: 0;
 }
 
 #navi-buttons{
@@ -445,17 +332,20 @@ ul{
 	background: #453823;
 	padding: 3px;
 }
-
-#navi-buttons-registreeri{
+#navi-buttons-registreeri, #navi-buttons-meldi{
+	outline: none;
+}
+.navi-buttons-registreeriA{
 	margin-right: 2px;
 	float: right;
 }
-
-#navi-buttons-meldi{
+.navi-buttons-specific{
+	width: 90%;
+}
+.navi-buttons-meldiA{
 	margin-left: 2px;
 	float: left;
 }
-
 .navi-buttons-placement{
 	height: 30px;
 	width: 49%;
@@ -468,7 +358,112 @@ ul{
 	background: #B0AB78;
 	color: #453823;
 }
-
 .navi-buttons-placement:hover{
-	opacity:0.8;
+	opacity: 0.8;
 }
+.navi-buttons-placementA{
+	height: 30px;
+	border: none;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	background: #453823;
+	color: #B0AB78;
+}
+/* Meldi&Registreeri/RSS aken - end */
+/* Ilmuvad aknad - end */
+
+/* Nähtavusklassid - start */
+.invisible {
+	display: none;
+}
+.visible{
+	display: block;
+}
+/* Nähtavusklassid - end */
+
+.main-pilt{
+	width: 100%;
+	height: 100%;
+}
+
+.uudise-tekst{
+	width: initial;
+	margin-bottom: -1px;
+	margin-left: -40px;
+}
+.temp_link {
+	text-decoration: none;
+	color: black;
+}
+
+/* Ekraani eripära */
+@media only screen and (max-width: 400px) and (max-height: 700px), 
+	handheld and (orientation: landscape){
+		body {
+			background: beige;
+		}
+		#logo {
+			background-image: url(../Images/logo-small.png);
+		}
+		.uudise-tekst{
+			width: initial;
+		}
+}
+
+/* Esilehe karusell - start */
+ul{
+	list-style-type: none;
+}
+li.active{
+	display: block;
+}
+li.inactive{
+	display: none;
+}
+#karusell_container{
+	margin-top: -17px;
+}
+.pic_path{
+	display: none;
+}
+.karusell_button_left{
+	background: url(../Images/arrowl.png) no-repeat;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	left: 0;
+	margin: 5px;
+	margin-left: 35px;
+	z-index: 1;
+	display: none;
+}
+.karusell_button_left:hover{
+	opacity: 0.8;
+}
+.karusell_button_right{
+	background: url(../Images/arrowr.png) no-repeat;
+	width: 18px;
+	height: 18px;
+	position: absolute;
+	right: 0;
+	margin: 5px;
+	margin-right: 18px;
+	display: none;
+}
+.karusell_button_right:hover{
+	opacity: 0.8;
+}
+#liner{
+	position: absolute;
+	height: 2px;
+	background: #453823;
+	margin-top: 13px;
+	left: 0;
+	right: 0;
+	margin-left: 52px;
+	margin-right: 35px;
+	display: none;
+}
+/* Esilehe karusell - end */

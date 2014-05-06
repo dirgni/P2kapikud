@@ -20,6 +20,7 @@
 	
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
 	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/karusell.js"></script>
 	<script type="text/javascript" src="JavaScript/facebook.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
@@ -47,50 +48,51 @@
 		<div id="keskmine">
 			
 			<div id="esi-uudis-wrapper" class="uudis-wrapper-less">
-			<div id="karusell_container">
-				<div id="karusell">
-					<c:if test="${!empty (uudised)}">
-						<ul>
-							<c:forEach items="${uudised}" begin="0" end="0" var="uudis">
-									<li class="active">
-									
-										<div class="uudise-tekst">
-											<h1>
-												<a class="temp_link" href="uudis?uudisId=${uudis.id}">
-	  												${uudis.pealkiri }
-	  											</a>
-											</h1>
-											
-											<p><c:out value="${uudis.tekst[0]}" /></p>
-										</div>
-										<div class="pic_path">${uudis.pilt}</div>
-									</li>
-							</c:forEach>
-							<c:forEach items="${uudised}" begin="1" var="uudis">
-									<li class="inactive">
-										<div class="uudise-tekst">
-											<h1>
-												<a class="temp_link" href="uudis?uudisId=${uudis.id}">
-	  												${uudis.pealkiri }
-	  											</a>
-											</h1>
-											
-											<p><c:out value="${uudis.tekst[0]}" /></p>
-										</div>
-										<div class="pic_path">${uudis.pilt}</div>
-									</li>
-							</c:forEach>
-						</ul>
-					</c:if>
-				 
-				</div>
-				<a href="#" class="karusell_button_left"></a>
-				<div id="liner"></div>
-				<a href="#" class="karusell_button_right"></a>
-			</div>
+				<div id="karusell_container">
+					<div id="karusell">
+						<c:if test="${!empty (uudised)}">
+							<ul>
+								<c:forEach items="${uudised}" begin="0" end="0" var="uudis">
+										<li class="active">
+										
+											<div class="uudise-tekst">
+												<h1>
+													<a class="temp_link" href="uudis?uudisId=${uudis.id}">
+		  												${uudis.pealkiri }
+		  											</a>
+												</h1>
+												
+												<p><c:out value="${uudis.tekst[0]}" /></p>
+											</div>
+											<div class="pic_path">${uudis.pilt}</div>
+										</li>
+								</c:forEach>
+								<c:forEach items="${uudised}" begin="1" var="uudis">
+										<li class="inactive">
+											<div class="uudise-tekst">
+												<h1>
+													<a class="temp_link" href="uudis?uudisId=${uudis.id}">
+		  												${uudis.pealkiri }
+		  											</a>
+												</h1>
+												
+												<p><c:out value="${uudis.tekst[0]}" /></p>
+											</div>
+											<div class="pic_path">${uudis.pilt}</div>
+										</li>
+								</c:forEach>
+							</ul>
+						</c:if>
+					 
+					</div> <!-- karusell -->
+					
+					<a href="#" class="karusell_button_left"></a>
+					<div id="liner"></div>
+					<a href="#" class="karusell_button_right"></a>
+				</div> <!-- karusell_container -->
 			</div> <!-- esi-uudis-wrapper -->
 			 
-	</div> <!-- keskmine -->
+		</div> <!-- keskmine -->
 
 		<%@include file="jupid/jalus.jsp" %>
 		
