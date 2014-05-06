@@ -63,10 +63,10 @@
 									Kasutajanimi: <input class="input-field" name="k-nimi" placeholder="Kasutajanimi" type="text">
 									Parool: <input class="input-field" name="pwd" placeholder="******" type="password">
 									<span class="hidden-nupud">
-										<button>Meldi</button>
+										<button id="button0">Meldi</button>
 									</span>
 								</form>
-								<a href="/"><button>Katkesta</button></a>
+								<label id="button1"><a href="/">Katkesta</a></label>
 							</div>
 						</td>
 						<td id="register" class="registerB">
@@ -77,10 +77,10 @@
 								Parool: <input class="input-field" name="pwd" placeholder="******" type="password">
 								Parool uuesti: <input class="input-field" name="pwd2" placeholder="******" type="password">
 								<span class="hidden-nupud">
-									<button>Registreeru</button>
+									<button id="button2">Registreeru</button>
 								</span>
 							</form>
-							<a href="/"><button>Katkesta</button></a>
+							<label id="button3"><a href="/">Katkesta</a></label>
 						</td>
 					</tr>
 				</tbody>

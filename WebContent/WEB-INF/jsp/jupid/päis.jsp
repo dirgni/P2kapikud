@@ -12,7 +12,7 @@
 		<div id="buttons">
 			<div id="LOGIN-button">
 		 		<button id="login" class="login-peida" onclick="makeVisible('Meldi')">Meldi</button>
-		 		<noscript><a href="login_JS"><button id="login">.Meldi.</button></a></noscript>
+		 		<noscript><label id="loginA"><a href="login_JS">.Meldi.</a></label></noscript>
 		 	</div>
 		 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
 		</div>

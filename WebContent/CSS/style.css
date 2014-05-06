@@ -138,6 +138,27 @@ input, textarea {
 	border-radius: 1em 3em 1em 3em;
 	box-shadow: 5px 5px 10px #453823;
 }
+#loginA{
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	background-color: #B0AB78;
+	color: #453823;
+	border: 2px solid #453823;
+	-moz-border-radius: 1em 3em 1em 3em;
+	border-radius: 1em 3em 1em 3em;
+	box-shadow: 5px 5px 10px #453823;
+	display: block;
+	text-align: center;
+}
+#loginA a {
+	color: #453823;
+	text-decoration: none;
+	padding-top: 12px;
+	display: block;
+}
 .login-peida{
 	display: none;
 }
@@ -252,7 +273,7 @@ input, textarea {
 /* Navigation bar - end */
 
 /* Ilmuvad aknad - start */
-#rss_container, #meldi_container{
+#rss_container, #meldi_container {
 	padding-top: 3%;
 	margin-top: 55px;
 	padding-left: 3%;
@@ -265,6 +286,10 @@ input, textarea {
 	opacity: 1;
 	display: block;
 	overflow-y: scroll;
+}
+#rss_container, #meldi_container a {
+	color: #000000;
+	text-decoration: none;
 }
 
 /* Meldi&Registreeri/RSS aken - start */
@@ -370,6 +395,16 @@ table#meldi_container h3 {
 	letter-spacing: 2px;
 	background: #453823;
 	color: #B0AB78;
+}
+#button1, #button3 {
+	font: -webkit-small-control;
+	text-align: center;
+	cursor: default;
+	padding: 2px 6px 3px;
+	border: 2px outset buttonface;
+	background-color: buttonface;
+	-webkit-appearance: button;
+	margin-left: 2px;
 }
 /* Meldi&Registreeri/RSS aken - end */
 /* Ilmuvad aknad - end */
