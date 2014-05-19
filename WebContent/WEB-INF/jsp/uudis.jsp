@@ -10,6 +10,9 @@
 	<meta charset="UTF-8">
 	<title>P2kapikud | ${uudis.pealkiri }</title>
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
+	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="CSS/uudis.css">
 	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
 	

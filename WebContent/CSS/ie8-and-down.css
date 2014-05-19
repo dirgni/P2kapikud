@@ -1,0 +1,20 @@
+body {
+	background: none;
+	background-color: #F5F0C6;
+}
+
+/* -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)"; */
+
+/* Logo - start*/
+
+
+.logo-meld {
+	width: 50%;
+	height: 100%;
+	background-position: center;
+	background-image: url(../Images/logo-small.png);
+}
+
+#html-valid, #css-valid{
+	border: none;
+}
