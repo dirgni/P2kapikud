@@ -14,15 +14,8 @@
 	<link rel="stylesheet" type="text/css" href="CSS/tablesorter.css">
 	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
 	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	
-	<script type="text/javascript" src="JavaScript/sortimineTabel.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/datapushTabel.js"></script>
-	
-	<script type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
-	<script type="text/javascript" src="JavaScript/jquery.tablesorter.pager.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
@@ -63,7 +56,7 @@
 					<c:if test="${!empty (uudised)}">
 						<tbody>
 							<c:forEach items="${uudised}" var="uudis">
-								<tr>
+								<tr id="uudisId-${uudis.id}" onclick="preview(${uudis.id})">
 									<td>${uudis.kuupäev}</td>
 									<td>${uudis.kell}</td>
 									<td><a class="temp_link" href="uudis?uudisId=${uudis.id}">${uudis.pealkiri}</a></td>
@@ -105,6 +98,12 @@
 		<%@include file="jupid/jalus.jsp" %>
 		
 	</div> <!-- Rakendus -->
+	
+	<script type="text/javascript" src="JavaScript/sortimineTabel.js"></script>
+	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/datapushTabel.js"></script>
+	<script type="text/javascript" src="JavaScript/tabel-uudis-eelvaade.js"></script>
+	<script type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
 </body>
 
 </html>
