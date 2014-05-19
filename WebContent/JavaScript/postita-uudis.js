@@ -7,7 +7,6 @@ function postitaUudis() {
 	var tagid = uudis.elements[3].value;
 	
 	var params = "pealkiri="+pealkiri+"&pilt="+piltUrl+"&tekst="+tekst+"&uudise-tagid="+tagid;
-	//var params = "pealkiri="+pealkiri+"&pilt="+pilt;
 	
 	var httprequest;
 	if (window.XMLHttpRequest) {
@@ -34,7 +33,7 @@ function postitaUudis() {
 	
 	// Nüüd võiks mingi loading värgi teha lehele
 	document.getElementById("info").innerHTML = "Laen üles...";
-	var t = window.setTimeout(timeOut, 5000);
+	var t = window.setTimeout(timeOut, 10000);
 };
 
 function timeOut() {

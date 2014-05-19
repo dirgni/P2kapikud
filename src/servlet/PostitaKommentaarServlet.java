@@ -36,17 +36,22 @@ public class PostitaKommentaarServlet extends HttpServlet {
 			int ajakirjanikId = a.getId();
 			String nimi = a.getEesnimi();
 			
+			System.out.println("Nimi: " + nimi);
+			System.out.println("Tekst: " + tekst);
+			
 			kommentaarId = ks.postitaKommentaar(nimi, tekst, ajakirjanikId, uudisId);
 		}else{
 			String nimi = request.getParameter("Nimi");
 			
+			System.out.println("Nimi: " + nimi);
+			System.out.println("Tekst: " + tekst);
+			
 			kommentaarId = ks.postitaKommentaar(nimi, tekst, uudisId);
 		}
 		
+		
 		System.out.println("Starting komm push...");
 		KommentaarFeed.pushKommentaar(ks.getKommentaarById(kommentaarId));
-		
-		response.sendRedirect("uudis?uudisId=" + uudisId);
 	}
 
 }

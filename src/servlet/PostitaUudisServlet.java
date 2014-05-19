@@ -58,9 +58,6 @@ public class PostitaUudisServlet extends HttpServlet {
 		
 		TabelFeed.pushUudis(us.getUudisById(uudisId));
 		
-		//Suuna kasutaja uudise lehele
-		//response.sendRedirect("uudis?uudisId=" + uudisId);
-		
 		// Kirjutame postitatud uudise id vastusesse
 		response.getWriter().write(String.valueOf(uudisId));
 	}
