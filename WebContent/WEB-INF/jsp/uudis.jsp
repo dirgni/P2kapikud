@@ -71,7 +71,7 @@
 				
 			 	<h3 id="uudise-kommentaar-title">Kommentaarid</h3>
 			 	<div id="uudise-kommentaar-vorm">
-			 		<form id="kommentaar-vorm" onsubmit="return true" method="post" target="kommentaar-iframe">
+			 		<form id="kommentaar-vorm" onsubmit="return true" method="post">
 			 			<c:choose>
 							<c:when test="${klient.roll == 'ajakirjanik' || klient.roll == 'admin'}">
 								<span id="kommenteerija">
@@ -89,7 +89,6 @@
 		 				<input class="submit-button" type="reset" value="Tühjenda väljad">
 		 				<div id="postitamine-info"></div>
 			 		</form> <!-- kommentaar-vorm -->
-					<iframe id="kommentaar-iframe" name="kommentaar-iframe" style="display: none;"></iframe>
 		 		</div> <!-- uudise-kommentaar-vorm -->
 
 				<c:if test="${!empty(kommentaarid)}">
@@ -100,10 +99,9 @@
 									<span class="kommentaar-aeg"> ${kommentaar.kell} ${kommentaar.kuupäev} </span>
 									<span class="kommentaar-autor"> ${kommentaar.nimi} </span>
 									<c:if test="${klient.roll == 'admin'}">
-										<form method="post" target="kustuta-kommentaar-iframe">
+										<form method="post" >
 											<button type="button" class="tegevus-nupp" id="kommentaar-menu-del" onclick="kustutaKommentaar(${kommentaar.id}, ${uudis.id})"></button>
 										</form>
-										<iframe id="kustuta-kommentaar-iframe" name="kustuta-kommentaar-iframe" style="display: none;"></iframe>
 									</c:if>
 									<blockquote class="kommentaar-sisu">${kommentaar.tekst}</blockquote>
 								</div> <!-- kommentaar-${kommentaar.id} -->
