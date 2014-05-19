@@ -15,7 +15,6 @@ function showRegistreeru(){
 	$('#meld').css({"display":"none"});
 }
 
-
 function makeVisible(Id){
 	document.getElementById(Id).style.display="block";
 	$("body").css("overflow", "hidden");
