@@ -210,7 +210,6 @@ public class UserService {
 		System.out.println("Begin FB check...");
 		
 		boolean statement = false;
-		Ajakirjanik a = new Ajakirjanik();
 		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
 		Connection con;
 		try {

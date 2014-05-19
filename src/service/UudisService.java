@@ -13,7 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import object.Kommentaar;
 import object.Uudis;
 import connection.DatabaseConnectionFactory;
 
