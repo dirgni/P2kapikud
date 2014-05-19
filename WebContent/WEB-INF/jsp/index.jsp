@@ -11,7 +11,9 @@
 	<title>
 		Uudisteportaal | ${uudis.pealkiri }
 	</title>
+	
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<link rel="stylesheet" type="text/css" href="CSS/avaleht.css">
 	<link rel="stylesheet" type="text/css" href="CSS/uudis.css">
 	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
 	

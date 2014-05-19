@@ -7,5 +7,5 @@
 		| <a href="postita-uudis">Lisa uudis</a>
 	</c:if>
 	
-	<div id="abinupp"></div>
+<!-- 	<div id="abinupp"></div> -->
 </div>

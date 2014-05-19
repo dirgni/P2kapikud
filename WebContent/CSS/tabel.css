@@ -11,13 +11,13 @@
 #uudiste_tabel th{
 	text-align: left;
 	border-bottom: 2px solid #453823;
-	padding-top: 0.7rem;
-	padding-bottom: 0.7rem;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 #uudiste_tabel td {
 	border-bottom: #453823 thin outset;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .tabel-min{
 	width: 5px;

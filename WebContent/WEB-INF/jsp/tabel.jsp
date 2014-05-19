@@ -9,6 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Uudisteportaal | Tabel</title>
+	
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<link rel="stylesheet" type="text/css" href="CSS/tabel.css">
 	<link rel="stylesheet" type="text/css" href="CSS/tablesorter.css">
@@ -67,7 +68,6 @@
 									<td>${uudis.kuupäev}</td>
 									<td>${uudis.kell}</td>
 									<td><a class="temp_link" href="uudis?uudisId=${uudis.id}">${uudis.pealkiri}</a></td>
-<!-- 								<td>100</td> -->
 									<td>${uudis.kommentaare}</td>
 									<c:if test="${klient.roll == 'admin'}">
 										<td>

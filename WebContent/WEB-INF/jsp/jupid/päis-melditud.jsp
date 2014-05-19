@@ -39,7 +39,7 @@
 				    <button id="logout" type="submit" value="Välju">Välju</button>
 				</form>
 		 	</div>
-		 	<div id="RSS-button" onclick="makeVisible('RSS')"></div>
+<!-- 		 	<div id="RSS-button" onclick="makeVisible('RSS')"></div> -->
 		</div>
 		<div id="otsing">
 			<form action="otsing">

@@ -18,11 +18,20 @@ body {
 	background-color: #FFFFFF;
 	font-family: Cambria, Georgia, serif;
 	overflow-y: scroll;
-	background: url("../Images/bjoon.png") no-repeat top center;
-	-webkit-background-size: 100% auto;
-	-moz-background-size: 100% auto;
-	-o-background-size: 100% auto;
-	 background-size: 100% auto;
+/* 	background: url("../Images/bjoon.png") no-repeat top center; */
+/* 	-webkit-background-size: 100% auto; */
+/* 	-moz-background-size: 100% auto; */
+/* 	-o-background-size: 100% auto; */
+/* 	 background-size: 100% auto; */
+}
+
+#body_bg{
+    position:absolute;
+    z-index:-1;
+    top:0;
+    left:0;
+    right:0;
+    left:0;
 }
 
 input, textarea {
@@ -48,7 +57,7 @@ input, textarea {
 
 /* Päis_vasak - start */
 #pealmine_vasakpoolne {
-	width: 70%;
+	width: 65%;
 	height: 100%;
 	position: absolute;
 	left: 0;
@@ -94,29 +103,33 @@ input, textarea {
 }
 
 /* RSS nupp - start */
-#RSS-button{
-	cursor: pointer;
-	margin-right: 4%;
-	width: 43px;
-	height: 43px;
-	position: absolute;
-	right: 0;
-	background-image: url(../Images/RSS.png);
-	background-size: contain;
-	background-position: center;
-	background-repeat: no-repeat;
-}
-#RSS-button:hover{
-	opacity: 0.8;
-}
+/* #RSS-button{ */
+/* 	cursor: pointer; */
+/* 	margin-right: 4%; */
+/* 	width: 43px; */
+/* 	height: 43px; */
+/* 	position: absolute; */
+/* 	right: 0; */
+/* 	background-image: url(../Images/RSS.png); */
+/* 	background-size: contain; */
+/* 	background-position: center; */
+/* 	background-repeat: no-repeat; */
+/* } */
+/* #RSS-button:hover{ */
+/* 	opacity: 0.8; */
+/* } */
 /* RSS nupp - end */
 
 /* Login nupp - start */
 #LOGIN-button{
-	width: 55%;
-	height: 50%;
+/* 	width: 55%; */
+/* 	height: 50%; */
+/* 	position: absolute; */
+/* 	left: 0; */
+	width: 100%;
+	height: 40px;
 	position: absolute;
-	left: 0;
+	margin-top: 15px;
 }
 #LOGIN-button:hover {
 	opacity: 0.9;
@@ -177,7 +190,7 @@ input, textarea {
 	background-image: url(../Images/search.png);
 	background-size: 15% 100%;
 	background-repeat: no-repeat;
-	width: 95%;
+	width: 100%;
 	height: 50%;
 	border: 2px solid #453823;
 	border-radius: 1em 3em 1em 3em;
@@ -217,6 +230,7 @@ input, textarea {
 	width: 30%;
 	height: 100%;
 }
+
 #html-valid {
 	height: 31px;
 	box-shadow: 1px 1px 1px #453823;
@@ -254,21 +268,21 @@ input, textarea {
 }
 
 /* Abinupp - start */
-#abinupp{
-	cursor: pointer;
-	position: fixed;
-	top: 0;
-	right: 0;
-	margin: 5px;
-	width: 31px;
-	height: 31px;
-	background-image: url(../Images/help.png);
-	background-size: 100% 100%;
-	z-index: 2;
-}
-#abinupp:hover{
-	opacity: 0.8;
-}
+/* #abinupp{ */
+/* 	cursor: pointer; */
+/* 	position: fixed; */
+/* 	top: 0; */
+/* 	right: 0; */
+/* 	margin: 5px; */
+/* 	width: 31px; */
+/* 	height: 31px; */
+/* 	background-image: url(../Images/help.png); */
+/* 	background-size: 100% 100%; */
+/* 	z-index: 2; */
+/* } */
+/* #abinupp:hover{ */
+/* 	opacity: 0.8; */
+/* } */
 /* Abinupp - end */
 /* Navigation bar - end */
 
@@ -293,14 +307,14 @@ input, textarea {
 }
 
 /* Meldi&Registreeri/RSS aken - start */
-#RSS {
-	width: 100%;
-	height: 100%;
-	background: #D3D3D3;
-	background-color: rgba(0, 0, 0, 0.6);
-	position: fixed;
-	z-index: 2;
-}
+/* #RSS { */
+/* 	width: 100%; */
+/* 	height: 100%; */
+/* 	background: #D3D3D3; */
+/* 	background-color: rgba(0, 0, 0, 0.6); */
+/* 	position: fixed; */
+/* 	z-index: 2; */
+/* } */
 #Meldi {
 	width: 100%;
 	height: 100%;
@@ -340,6 +354,8 @@ table#meldi_container h3 {
 }
 .hidden-nupud {
 	display: flex;
+	display: -ms-inline-grid;
+	margin-top: 5px;
 }
 
 .meldi_container-JS{
@@ -406,6 +422,9 @@ table#meldi_container h3 {
 	-webkit-appearance: button;
 	margin-left: 2px;
 }
+#html-valid, #css-valid{
+	border: none;
+}
 /* Meldi&Registreeri/RSS aken - end */
 /* Ilmuvad aknad - end */
 
@@ -446,59 +465,3 @@ table#meldi_container h3 {
 			width: initial;
 		}
 }
-
-/* Esilehe karusell - start */
-ul{
-	list-style-type: none;
-}
-li.active{
-	display: block;
-}
-li.inactive{
-	display: none;
-}
-#karusell_container{
-	margin-top: -17px;
-}
-.pic_path{
-	display: none;
-}
-.karusell_button_left{
-	background: url(../Images/arrowl.png) no-repeat;
-	width: 18px;
-	height: 18px;
-	position: absolute;
-	left: 0;
-	margin: 5px;
-	margin-left: 35px;
-	z-index: 1;
-	display: none;
-}
-.karusell_button_left:hover{
-	opacity: 0.8;
-}
-.karusell_button_right{
-	background: url(../Images/arrowr.png) no-repeat;
-	width: 18px;
-	height: 18px;
-	position: absolute;
-	right: 0;
-	margin: 5px;
-	margin-right: 18px;
-	display: none;
-}
-.karusell_button_right:hover{
-	opacity: 0.8;
-}
-#liner{
-	position: absolute;
-	height: 2px;
-	background: #453823;
-	margin-top: 13px;
-	left: 0;
-	right: 0;
-	margin-left: 52px;
-	margin-right: 35px;
-	display: none;
-}
-/* Esilehe karusell - end */
