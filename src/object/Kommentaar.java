@@ -15,7 +15,6 @@ public class Kommentaar {
 	public Kommentaar(int id, String nimi, String tekst, String kell, String kuupäev) {
 		super();
 		this.id = id;
-		this.uudisId = uudisId;
 		this.nimi = nimi;
 		this.tekst = tekst;
 		this.kell = kell;

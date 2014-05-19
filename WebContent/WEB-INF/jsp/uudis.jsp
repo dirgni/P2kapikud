@@ -13,10 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="CSS/uudis.css">
 	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
 	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/datapushKommentaar.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
@@ -45,6 +43,9 @@
 					<div class="uudis-autor">
 						${autor.eesnimi} ${autor.perenimi}
 					</div>
+					<c:if test="${!empty(kommentaarid)}">
+					<a href="#uudise-kommentaar">Kommentaarid</a>
+					</c:if>
 				</div> <!-- uudis-pealkiri -->
 
 				<div class="uudis-tekst">
@@ -68,23 +69,24 @@
 				
 			 	<h3 id="uudise-kommentaar-title">Kommentaarid</h3>
 			 	<div id="uudise-kommentaar-vorm">
-			 		<form id="kommentaar-vorm" onsubmit="return true" action="postita-kommentaar" method="post">
+			 		<form id="kommentaar-vorm" onsubmit="return true" method="post">
 			 			<c:choose>
 							<c:when test="${klient.roll == 'ajakirjanik' || klient.roll == 'admin'}">
 								<span id="kommenteerija">
 									${klient.eesnimi}
+									<input id="kommentaar-nimi" name="Nimi" type="hidden" value="${klient.eesnimi}">
 								</span>
 							</c:when>
 							<c:otherwise>
-								<input class="input-field" name="Nimi" placeholder="Nimi" type="text">
+								<input id="kommentaar-nimi" class="input-field" name="Nimi" placeholder="Nimi" type="text">
 							</c:otherwise>
 						</c:choose>
-	 					<textarea class="input-field" name="content" placeholder="Sisestage oma kommentaar siia." rows="5"></textarea>
-		 				<input type="hidden" name="uudisId" value="${uudis.id}">
-		 				<input class="submit-button" type="submit" value="Kommenteeri">
+	 					<textarea id="kommentaar-sisu" class="input-field" name="content" placeholder="Sisestage oma kommentaar siia." rows="5"></textarea>
+		 				<input id="uudis-id" type="hidden" name="uudisId" value="${uudis.id}">
+		 				<input class="submit-button" type="button" value="Kommenteeri" onclick="postitaKommentaar()">
 		 				<input class="submit-button" type="reset" value="Tühjenda väljad">
+		 				<div id="postitamine-info"></div>
 			 		</form> <!-- kommentaar-vorm -->
-
 		 		</div> <!-- uudise-kommentaar-vorm -->
 
 				<c:if test="${!empty(kommentaarid)}">
@@ -95,10 +97,8 @@
 									<span class="kommentaar-aeg"> ${kommentaar.kell} ${kommentaar.kuupäev} </span>
 									<span class="kommentaar-autor"> ${kommentaar.nimi} </span>
 									<c:if test="${klient.roll == 'admin'}">
-										<form onsubmit="return true" action="kustuta-kommentaar" method="post">
-											<input type="hidden" name="kId" value="${kommentaar.id}">
-											<input type="hidden" name="uudisId" value="${uudis.id}">
-											<button type="submit" class="tegevus-nupp" id="kommentaar-menu-del"></button>
+										<form method="post" >
+											<button type="button" class="tegevus-nupp" id="kommentaar-menu-del" onclick="kustutaKommentaar(${kommentaar.id}, ${uudis.id})"></button>
 										</form>
 									</c:if>
 									<blockquote class="kommentaar-sisu">${kommentaar.tekst}</blockquote>
@@ -115,7 +115,12 @@
 		<%@include file="jupid/jalus.jsp" %>
 
 	</div><!-- Rakendus -->
-		
+	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/postita-kommentaar.js"></script>
+	<script type="text/javascript" src="JavaScript/datapushKommentaar.js"></script>
+	<c:if test="${klient.roll == 'admin'}">
+	<script type="text/javascript" src="JavaScript/kustuta-kommentaar.js"></script>
+	</c:if>	
 </body>
 
 </html>

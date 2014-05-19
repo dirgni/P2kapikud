@@ -88,9 +88,9 @@
 					 
 					</div> <!-- karusell -->
 					
-					<a href="#" class="karusell_button_left"></a>
+					<a class="karusell_button_left"></a>
 					<div id="liner"></div>
-					<a href="#" class="karusell_button_right"></a>
+					<a class="karusell_button_right"></a>
 				</div> <!-- karusell_container -->
 			</div> <!-- esi-uudis-wrapper -->
 			 

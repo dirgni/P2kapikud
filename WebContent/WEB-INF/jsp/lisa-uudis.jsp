@@ -13,6 +13,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
 	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/postita-uudis.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
@@ -33,7 +34,7 @@
 				- Kommentaaride osa
 			 -->
 			 <div class="uudise-lisamine-wrapper">
-			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post" action="postita-uudis">
+			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post" target="lamp">
 			 	
 <!-- 	 				<div id="uudise-autor-select"> -->
 <!--  						Sisseloginud kirjutaja nimi -->
@@ -56,13 +57,14 @@
  					</div> <!-- tagide-valik -->
  					
 			 		<div class="tegevus-nupud">
-			 			<button type="submit" class="tegevus-nupp">Postita uudis</button>
+			 			<button type="button" class="tegevus-nupp" onclick="postitaUudis()">Postita uudis</button>
 			 			<button type="reset" class="tegevus-nupp">Loobu</button>
 			 		</div> <!-- tegevus-nupud -->
+			 		<div id="info"></div>
 			 		
 			 	</form> <!-- uudise-vorm -->
 			 </div> <!-- uudise-lisamine-wrapper -->
-			
+			<iframe id="lamp" name="lamp" style="display: none;"></iframe>
 		</div> <!-- keskmine -->
 		
 		<%@include file="jupid/jalus.jsp" %>

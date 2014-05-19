@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,8 +18,10 @@ public class LoginServlet extends HttpServlet {
     public LoginServlet() {
         super();
     }
-
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("LoginServlet doPost");
+		
 		request.setCharacterEncoding("UTF-8");
 		String userName = request.getParameter("k-nimi");
 		String password = request.getParameter("pwd");
@@ -29,13 +30,11 @@ public class LoginServlet extends HttpServlet {
 		boolean login = ls.authenticate(userName, password);
 		
 		if (login) {
-			System.out.println("login success!");
+			System.out.println("Login success!");
 			Ajakirjanik klient = ls.getAjakirjanikByUsername(userName);
 			request.getSession().setAttribute("klient", klient);
-			
 		} else {
-			// Sisselogimine ebaõnnestus
-			System.out.println("login failure!");
+			System.out.println("Login failure!");
 		}
 		
 		response.sendRedirect(request.getHeader("Referer"));

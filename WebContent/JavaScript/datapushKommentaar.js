@@ -1,5 +1,6 @@
 if (window.EventSource) {
-	var eventSource = new EventSource('KommentaarFeed?uudisId=58'/*+document.getElementById('uuduu123').value*/);
+	var uudisId = getURLParameter("uudisId");
+	var eventSource = new EventSource('KommentaarFeed?uudisId=' + uudisId);
 	eventSource.onmessage = function(e) {
 		var k = JSON.parse(e.data);
 		var blockQuote = document.createElement("blockquote");
@@ -25,4 +26,8 @@ if (window.EventSource) {
 	};
 } else {
 	//poll
+}
+
+function getURLParameter(name) {
+	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 }

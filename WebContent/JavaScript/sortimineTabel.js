@@ -9,4 +9,9 @@ $(document).ready(function(){
 	sortMultiSortKey: 'ctrlKey' 
 	});
 //		     .tablesorter().tablesorterPager({container: $("#pager")});
+    
+    var hash = window.location.hash.substring(1);
+	if (hash) {
+		preview(hash);
+	}
 });

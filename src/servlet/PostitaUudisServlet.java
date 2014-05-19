@@ -9,9 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-
-import org.eclipse.jdt.internal.compiler.ast.ThisReference;
 
 import object.Ajakirjanik;
 import service.UudisService;
@@ -52,11 +49,16 @@ public class PostitaUudisServlet extends HttpServlet {
 		System.out.println("ajakirjanikId: " + ajakirjanikId);
 		
 		UudisService us = new UudisService();
-		int uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, piltURL, tagid);
+		int uudisId = -1;
+		uudisId = us.publishUudis(ajakirjanikId, pealkiri, tekst, piltURL, tagid);
+		
+		if (uudisId == -1) {
+			response.sendError(HttpServletResponse.SC_CONFLICT);
+		}
 		
 		TabelFeed.pushUudis(us.getUudisById(uudisId));
 		
-		//Suuna kasutaja uudise lehele
-		response.sendRedirect("uudis?uudisId=" + uudisId);
+		// Kirjutame postitatud uudise id vastusesse
+		response.getWriter().write(String.valueOf(uudisId));
 	}
 }

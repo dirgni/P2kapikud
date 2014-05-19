@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,19 +20,19 @@ public class FacebookLoginServlet extends HttpServlet{
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Now In FacebookLoginServlet");
-		request.setCharacterEncoding("UTF-8");
+		System.out.println("FacebookLoginServlet doPost");
 		
-		String uid = ""+request.getParameter("FBuid");
+		request.setCharacterEncoding("UTF-8");
+		String uid = "" + request.getParameter("FBuid");
 		
 		UserService ls = new UserService();
 		boolean login = ls.FBCheck(uid);
 		
-		if(login){
+		if (login) {
 			System.out.println("User Exists, Getting Data");
 			Ajakirjanik klient = ls.getAjakirjanikByUID(uid);
 			request.getSession().setAttribute("klient", klient);
-		}else{
+		} else {
 			System.out.println("login failure!");
 		}
 		/*

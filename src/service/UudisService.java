@@ -13,7 +13,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import object.Kommentaar;
 import object.Uudis;
 import connection.DatabaseConnectionFactory;
 
@@ -162,6 +161,30 @@ public class UudisService {
 			uudis.setKommentaare(0);
 			
 			return uudis;
+		} catch (SQLException e) {
+			System.out.println("getUudisById SQLExcpetion:");
+			e.printStackTrace();
+		} finally {
+			dcf.closeConnection();
+		}
+		
+		return null;
+	}
+	
+	public String getUudisTekstById(int id) {
+		System.out.println("getUudisTekstById");
+		DatabaseConnectionFactory dcf = new DatabaseConnectionFactory();
+		try {
+			Connection con = dcf.getConnection();
+			
+			PreparedStatement ps = con.prepareStatement(
+					"SELECT tekst FROM uudis "
+					+ "WHERE id = ?");
+			ps.setInt(1, id);
+			ResultSet rsUudis = ps.executeQuery();
+			
+			rsUudis.next();
+			return rsUudis.getString("tekst");
 		} catch (SQLException e) {
 			System.out.println("getUudisById SQLExcpetion:");
 			e.printStackTrace();

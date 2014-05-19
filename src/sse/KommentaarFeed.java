@@ -32,7 +32,6 @@ public class KommentaarFeed extends HttpServlet {
 		asyncContext.setTimeout(10 * 60 * 1000);
 		contexts.add(asyncContext);
 		
-		System.out.println("reqInt on init = " + request.getParameter("uudisId"));
 	}
 	
 	public static void pushKommentaar(Kommentaar k) {

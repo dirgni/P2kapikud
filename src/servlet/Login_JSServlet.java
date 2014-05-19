@@ -1,6 +1,6 @@
 package servlet;
+
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,20 +15,21 @@ import service.UserService;
 @WebServlet("/login_JS")
 public class Login_JSServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String url = "/WEB-INF/jsp/meldi-js.jsp";
-
+    
     public Login_JSServlet() {
         super();
     }
-
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Login_JSServlet doGet");
 		
-		RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/WEB-INF/jsp/meldi-js.jsp");
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Login_JSServlet doPost");
+		
 		request.setCharacterEncoding("UTF-8");
 		String userName = request.getParameter("k-nimi");
 		String password = request.getParameter("pwd");
@@ -37,13 +38,11 @@ public class Login_JSServlet extends HttpServlet {
 		boolean login = ls.authenticate(userName, password);
 		
 		if (login) {
-			System.out.println("login success!");
+			System.out.println("Login success!");
 			Ajakirjanik klient = ls.getAjakirjanikByUsername(userName);
 			request.getSession().setAttribute("klient", klient);
-			
 		} else {
-			// Sisselogimine ebaõnnestus
-			System.out.println("login failure!");
+			System.out.println("Login failure!");
 		}
 		
 		response.sendRedirect("");
