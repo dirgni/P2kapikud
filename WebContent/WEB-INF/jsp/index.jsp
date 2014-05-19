@@ -13,6 +13,9 @@
 	</title>
 	
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	<!--[if lte IE 8]>
+		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
+	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="CSS/avaleht.css">
 	<link rel="stylesheet" type="text/css" href="CSS/uudis.css">
 	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
@@ -30,7 +33,6 @@
 
 <body>
 	<div id="fb-root"></div>
-				
 	<%@include file="jupid/navi-bar.jsp" %>
 	<%@include file="jupid/RSS.jsp" %>
 	<c:if test="${klient.roll != 'ajakirjanik' && klient.roll != 'admin'}">

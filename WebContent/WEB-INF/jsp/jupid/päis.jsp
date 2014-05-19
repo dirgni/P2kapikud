@@ -1,6 +1,7 @@
 <div id="pealmine">
 	<div id="pealmine_vasakpoolne">
-		<div id="logo" class="logo-tava"></div>
+		<div id="logo" class="logo-tava">
+		</div>
 		<!-- Asendatud top-navi'ga
 		<div id="navigatsioon">
 			TODO Navigatsioon

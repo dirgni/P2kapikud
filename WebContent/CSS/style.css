@@ -18,20 +18,11 @@ body {
 	background-color: #FFFFFF;
 	font-family: Cambria, Georgia, serif;
 	overflow-y: scroll;
-/* 	background: url("../Images/bjoon.png") no-repeat top center; */
-/* 	-webkit-background-size: 100% auto; */
-/* 	-moz-background-size: 100% auto; */
-/* 	-o-background-size: 100% auto; */
-/* 	 background-size: 100% auto; */
-}
-
-#body_bg{
-    position:absolute;
-    z-index:-1;
-    top:0;
-    left:0;
-    right:0;
-    left:0;
+	background: url("../Images/bjoon.png") no-repeat top center;
+	-webkit-background-size: 100% auto;
+	-moz-background-size: 100% auto;
+	-o-background-size: 100% auto;
+	 background-size: 100% auto;
 }
 
 input, textarea {
