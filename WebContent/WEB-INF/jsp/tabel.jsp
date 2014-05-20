@@ -19,22 +19,13 @@
 	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	
-	<script type="text/javascript" src="JavaScript/sortimineTabel.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/datapushTabel.js"></script>
-	<script type="text/javascript" src="JavaScript/tabel-uudis-eelvaade.js"></script>
-	
-	<script type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
-	<script type="text/javascript" src="JavaScript/jquery.tablesorter.pager.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
 
 <body>
 	<%@include file="jupid/navi-bar.jsp" %>
-	<%@include file="jupid/RSS.jsp" %>
 	<c:if test="${klient.roll != 'ajakirjanik' || klient.roll != 'admin'}">
 		<%@include file="jupid/meldi.jsp" %>
 	</c:if>
@@ -58,7 +49,6 @@
 				 			<th>Kuupäev</th>
 				 			<th>Kellaaeg</th>
 				 			<th>Pealkiri</th>
-<!-- 				 			<th>Loetud</th> -->
 				 			<th>Kommentaare</th>
 				 			<c:if test="${klient.roll == 'admin'}">
 								<th class="tabel-min">Eemalda</th>
@@ -86,22 +76,6 @@
 						</tbody>
 					</c:if>
 				</table> <!-- uudised-tabelis -->
-<!-- 			 	<div id="pager" class="pager"> -->
-<!-- 					<form> -->
-<!-- 						<img src="Images/tablesorter/first.png" class="first"> -->
-<!-- 						<img src="Images/tablesorter/prev.png" class="prev"> -->
-<!-- 						<input type="text" class="pagedisplay"> -->
-<!-- 						<img src="Images/tablesorter/next.png" class="next"> -->
-<!-- 						<img src="Images/tablesorter/last.png" class="last"> -->
-<!-- 						<select class="pagesize"> -->
-<!-- 							<option selected="selected" value="1">1</option> -->
-<!-- 							<option value="10">10</option> -->
-<!-- 							<option value="20">20</option> -->
-<!-- 							<option value="30">30</option> -->
-<!-- 							<option value="50">50</option> -->
-<!-- 						</select> -->
-<!-- 					</form> -->
-<!-- 				</div> pager -->
 			 </div> <!-- uudiste-tabel -->
 			 
 		</div> <!-- keskmine -->
@@ -109,6 +83,12 @@
 		<%@include file="jupid/jalus.jsp" %>
 		
 	</div> <!-- Rakendus -->
+	<script type="text/javascript" src="JavaScript/sortimineTabel.js"></script>
+	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/datapushTabel.js"></script>
+	<script type="text/javascript" src="JavaScript/tabel-uudis-eelvaade.js"></script>
+	<script type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="JavaScript/jquery.tablesorter.pager.js"></script>
 </body>
 
 </html>

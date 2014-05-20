@@ -1,5 +1,3 @@
-
-
 <div id="Meldi" class="invisible">
 	<div id="meldi_container">
 		<div id="navi-buttons">
@@ -39,5 +37,4 @@
 			<button onclick="makeHidden('Meldi');">Katkesta</button>
 		</div>
 	</div>
-
 </div>
