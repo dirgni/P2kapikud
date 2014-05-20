@@ -17,7 +17,7 @@
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	
-	<script async src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script async src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 	<script async type="text/javascript" src="JavaScript/scripture.js"></script>
 	<script async type="text/javascript" src="JavaScript/validation.js"></script>
