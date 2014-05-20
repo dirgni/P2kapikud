@@ -1,0 +1,29 @@
+#pealmine_vasakpoolne {
+	float: left;
+}
+
+#pealmine_parempoolne {
+	float: left;
+}
+
+@media only screen and (max-width: 520px), 
+	handheld and (orientation: landscape){
+		body {
+			background: beige;
+		}
+		#logo {
+			background-image: none;
+		}
+		#pealmine_vasakpoolne {
+			width: 60%;
+		}
+		#user_window {
+			width: 80%;
+		}
+		#pealmine_parempoolne {
+			width: 40%;
+		}
+		.uudise-tekst{
+			width: 100%;
+		}
+}
