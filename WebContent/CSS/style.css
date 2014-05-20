@@ -92,25 +92,6 @@ input, textarea {
 	width: 100%;
 	height: 50%;
 }
-
-/* RSS nupp - start */
-/* #RSS-button{ */
-/* 	cursor: pointer; */
-/* 	margin-right: 4%; */
-/* 	width: 43px; */
-/* 	height: 43px; */
-/* 	position: absolute; */
-/* 	right: 0; */
-/* 	background-image: url(../Images/RSS.png); */
-/* 	background-size: contain; */
-/* 	background-position: center; */
-/* 	background-repeat: no-repeat; */
-/* } */
-/* #RSS-button:hover{ */
-/* 	opacity: 0.8; */
-/* } */
-/* RSS nupp - end */
-
 /* Login nupp - start */
 #LOGIN-button{
 /* 	width: 55%; */
@@ -278,8 +259,8 @@ input, textarea {
 /* Abinupp - end */
 /* Navigation bar - end */
 
-/* Ilmuvad aknad - start */
-#rss_container, #meldi_container {
+/* Ilmuv aken - start */
+#meldi_container {
 	padding-top: 3%;
 	margin-top: 55px;
 	padding-left: 3%;
@@ -293,20 +274,12 @@ input, textarea {
 	display: block;
 	overflow-y: scroll;
 }
-#rss_container, #meldi_container a {
+#meldi_container a {
 	color: #000000;
 	text-decoration: none;
 }
 
-/* Meldi&Registreeri/RSS aken - start */
-/* #RSS { */
-/* 	width: 100%; */
-/* 	height: 100%; */
-/* 	background: #D3D3D3; */
-/* 	background-color: rgba(0, 0, 0, 0.6); */
-/* 	position: fixed; */
-/* 	z-index: 2; */
-/* } */
+/* Meldi&Registreeri aken - start */
 #Meldi {
 	width: 100%;
 	height: 100%;
@@ -417,8 +390,8 @@ table#meldi_container h3 {
 #html-valid, #css-valid{
 	border: none;
 }
-/* Meldi&Registreeri/RSS aken - end */
-/* Ilmuvad aknad - end */
+/* Meldi&Registreeri aken - end */
+/* Ilmuv aken - end */
 
 /* N�htavusklassid - start */
 .invisible {
