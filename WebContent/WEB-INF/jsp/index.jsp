@@ -12,13 +12,13 @@
 		Uudisteportaal | ${uudis.pealkiri }
 	</title>
 	
-	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
 	<![endif]-->
 	<link rel="stylesheet" type="text/css" href="CSS/avaleht.css">
 	<link rel="stylesheet" type="text/css" href="CSS/uudis.css">
 	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
