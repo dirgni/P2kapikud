@@ -15,15 +15,12 @@
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/postita-uudis.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
 
 <body>
 	<%@include file="jupid/navi-bar.jsp" %>
-	<%@include file="jupid/RSS.jsp" %>
 	
 	<div id="Rakendus">
 		<jsp:include page="jupid/päis-melditud.jsp"/>
@@ -38,20 +35,10 @@
 			 -->
 			 <div class="uudise-lisamine-wrapper">
 			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post" target="lamp">
-			 	
-<!-- 	 				<div id="uudise-autor-select"> -->
-<!--  						Sisseloginud kirjutaja nimi -->
-<!-- 	 				</div> uudise-autor-select -->
-
 					<div id="uudise-andmed">
 						<h1>Postita uudis</h1>
 						<input type="text" name="pealkiri" placeholder="Pealkiri">
 						<input type="url" name="pilt" placeholder="http://pildi.url.com" accept="image/jpg,image/png">
-<!-- 						<div id="input-image-wrap"> -->
-<!-- 							<label for="def-hide"> -->
-<!-- 								<input id="def-hide" type="file" name="pilt" accept="image/jpg,image/png"> -->
-<!-- 							</label> -->
-<!-- 						</div> input-image-wrap -->
 						<textarea rows="7" name="tekst" placeholder="Sisu"></textarea>
 					</div> <!-- uudise-andmed -->
 
@@ -73,6 +60,8 @@
 		<%@include file="jupid/jalus.jsp" %>
 		
 	</div> <!-- Rakendus -->
+	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/postita-uudis.js"></script>
 </body>
 
 </html>
