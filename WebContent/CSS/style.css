@@ -106,8 +106,6 @@ input, textarea{
 	box-shadow:5px 5px 10px #453823;
 }
 #loginA{
-	height:100%;
-	width:100%;
 	cursor:pointer;
 	font-weight:bolder;
 	letter-spacing:2px;
@@ -669,8 +667,7 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
 	background:url("../Images/close2.png") no-repeat;
 }
 
-
-label{
+#tabel-menu label{
 	width:100%;
 	height:100%;
 	display:block;
@@ -683,6 +680,7 @@ label{
 	right:0;
 	font-weight:bold;
 }
+
 h1{
 	color:#453823;
 	padding-bottom:3%;

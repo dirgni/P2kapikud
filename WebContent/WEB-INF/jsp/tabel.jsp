@@ -10,19 +10,18 @@
 	<meta charset="UTF-8">
 	<title>Uudisteportaal | Tabel</title>
 	
-	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
 	<![endif]-->
+	<script async src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script async type="text/javascript" src="JavaScript/scripture.js"></script>
+	<script async type="text/javascript" src="JavaScript/sortimineTabel.js"></script>
+	<script async type="text/javascript" src="JavaScript/validation.js"></script>
+	<script async type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
+	<script async type="text/javascript" src="JavaScript/jquery.tablesorter.pager.js"></script>
 	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="JavaScript/scripture.js"></script>
-	
-	<script type="text/javascript" src="JavaScript/sortimineTabel.js"></script>
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
-	<script type="text/javascript" src="JavaScript/jquery.tablesorter.pager.js"></script>
-	
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
 
@@ -85,6 +84,7 @@
 		<%@include file="jupid/jalus.jsp" %>
 		
 	</div> <!-- Rakendus -->
+	
 	
 </body>
 

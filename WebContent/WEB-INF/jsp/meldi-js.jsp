@@ -11,15 +11,17 @@
 	<title>
 		Uudisteportaal | ${uudis.pealkiri }
 	</title>
-	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
 	<![endif]-->
+	<script async src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script async src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+	<script async type="text/javascript" src="JavaScript/scripture.js"></script>
+	<script async type="text/javascript" src="JavaScript/validation.js"></script>
+	<script async type="text/javascript" src="JavaScript/facebook.js"></script>
 	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
-	<script type="text/javascript" src="JavaScript/scripture.js"></script>
-	
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
 
@@ -74,7 +76,6 @@
 										<button id="button2">Registreeru</button>
 									</span>
 								</form>
-								<label id="button3"><a href="/">Katkesta</a></label>
 							</td>
 						</tr>
 					</tbody>
@@ -83,8 +84,8 @@
 		</div> <!-- keskmine -->
 	<%@include file="jupid/jalus.jsp" %>
 	</div><!-- Rakendus -->
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/facebook.js"></script>
+	
 </body>
 
 </html>
+

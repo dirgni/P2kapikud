@@ -6,15 +6,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Uudisteportaal</title>
-	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
 	<![endif]-->
 	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script type="text/javascript" src="JavaScript/scripture.js"></script>
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/postita-uudis.js"></script>
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	
+	<script async src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script async type="text/javascript" src="JavaScript/scripture.js"></script>
+	<script async type="text/javascript" src="JavaScript/validation.js"></script>
+	<script async type="text/javascript" src="JavaScript/postita-uudis.js"></script>
+	
 	
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">

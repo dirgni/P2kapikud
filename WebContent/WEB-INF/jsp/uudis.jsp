@@ -9,20 +9,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>P2kapikud | ${uudis.pealkiri }</title>
-	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+	
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
 	<![endif]-->
+	<script async src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script async src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
+	<script async type="text/javascript" src="JavaScript/scripture.js"></script>
+	<script async type="text/javascript" src="JavaScript/validation.js"></script>
+	<script async type="text/javascript" src="JavaScript/postita-kommentaar.js"></script>
 	
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
-	<script type="text/javascript" src="JavaScript/scripture.js"></script>
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/postita-kommentaar.js"></script>
-	<c:if test="${klient.roll == 'admin'}">
-		<script type="text/javascript" src="JavaScript/kustuta-kommentaar.js"></script>
-	</c:if>	
 	
+	
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
 
@@ -123,7 +122,9 @@
 		<%@include file="jupid/jalus.jsp" %>
 
 	</div><!-- Rakendus -->
-	
+	<c:if test="${klient.roll == 'admin'}">
+		<script type="text/javascript" src="JavaScript/kustuta-kommentaar.js"></script>
+	</c:if>
 </body>
 
 </html>
