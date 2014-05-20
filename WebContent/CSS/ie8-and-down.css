@@ -1,20 +1,17 @@
-body {
-	background: none;
-	background-color: #F5F0C6; 
-	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( enabled='true'
+body{
+	background:none;
+	background-color:#F5F0C6; 
+	-ms-filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader( enabled='true'
 	src='../Images/bjoon.png', sizingMethod='scale')";
 }
-
-.uudise-tekst {
-	background: #F5F0C6;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+.uudise-tekst{
+	background:#F5F0C6;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
 }
-
-#esi-uudis-wrapper {
-	-ms-background-position-x: 100%;
-	background-color: #F5F0C6;
+#esi-uudis-wrapper{
+	-ms-background-position-x:100%;
+	background-color:#F5F0C6;
 }
-
 #html-valid, #css-valid{
-	border: none;
+	border:none;
 }

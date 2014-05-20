@@ -1,117 +1,107 @@
 input, textarea{
-	font-family: Cambria, Georgia, serif;
+	font-family:Cambria, Georgia, serif;
 }
-
-.uudis-pilt {
-	float: right;
-	position: relative;
-	right: 0;
-	width: 30%;
-	display: flex;
+.uudis-pilt{
+	float:right;
+	position:relative;
+	right:0;
+	width:30%;
+	display:flex;
 }
 .main-pilt{
-	margin: 10px;
+	margin:10px;
 }
-
-#kommentaar-vorm * {
-	margin-bottom: 2%;
+#kommentaar-vorm *{
+	margin-bottom:2%;
 }
-
-#esi-uudis-wrapper {
-	background: url("../Images/legkov.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	width: 100%;
-	max-height: 600px;
+#esi-uudis-wrapper{
+	background:url("../Images/legkov.png");
+	background-repeat:no-repeat;
+	background-size:cover;
+	width:100%;
+	max-height:600px;
 }
 .uudis-wrapper-less{
-	height: 100%;
-	width: 100%;
-	display: inline-block;
-	border-bottom: thin;
-	border-bottom-style: outset;
-	border-top: thin;
-	border-top-style: inset;
+	height:100%;
+	width:100%;
+	display:inline-block;
+	border-bottom:thin;
+	border-bottom-style:outset;
+	border-top:thin;
+	border-top-style:inset;
 }
-.uudise-tekst {
-	float: left;
-	margin-bottom: -1px;
-	margin-left: -40px;
-	direction: rtl;
-	text-align: left;
-	padding: 15px 30px 15px 15px;
-	background: rgba(255, 255, 255, 0.6);
-	float: left;
-	width: 30%;
-	min-height: 400px;
-	overflow-y: scroll;
-	max-height: 550px;
+.uudise-tekst{
+	float:left;
+	margin-bottom:-1px;
+	margin-left:-40px;
+	direction:rtl;
+	text-align:left;
+	padding:15px 30px 15px 15px;
+	background:rgba(255, 255, 255, 0.6);
+	float:left;
+	width:30%;
+	min-height:400px;
+	overflow-y:scroll;
+	max-height:550px;
 }
 .uudis-autor{
-	font-style: italic;
-	margin-bottom: 2%;
-	margin-top: -2%;
+	font-style:italic;
+	margin-bottom:2%;
+	margin-top:-2%;
 }
 #uudis-tag{
-	float: left;
-	font-style: italic;
-	color: #B1A9A9;
-	width: 100%;
-	border-top: 1px dotted #B1A9A9;
+	float:left;
+	font-style:italic;
+	color:#B1A9A9;
+	width:100%;
+	border-top:1px dotted #B1A9A9;
 }
-
-.kommentaar {
-	margin-bottom: 30px;
-	border-bottom: thin;
-	border-bottom-style: outset;
-	position: relative;
+.kommentaar{
+	margin-bottom:30px;
+	border-bottom:thin;
+	border-bottom-style:outset;
+	position:relative;
 }
-.kommentaar-autor {
-	font-style: italic;
-/* 	font-weight: bold; */
-	min-height: 19px;
-	display: block;
+.kommentaar-autor{
+	font-style:italic;
+	min-height:19px;
+	display:block;
 }
-.kommentaar-aeg {
-	float: right;
+.kommentaar-aeg{
+	float:right;
 }
-#kommenteerija {
-	font-style: italic;
-	font-size: large;
-	padding-left: 1%;
-	display: block;
-	padding-top: 2%;
+#kommenteerija{
+	font-style:italic;
+	font-size:large;
+	padding-left:1%;
+	display:block;
+	padding-top:2%;
 }
-
-#uudise-kommentaar {
-	position: relative;
+#uudise-kommentaar{
+	position:relative;
 }
-
-#uudise-kommentaar textarea {
-	width: 100%;
-	overflow: auto;
-	resize: none;
+#uudise-kommentaar textarea{
+	width:100%;
+	overflow:auto;
+	resize:none;
 }
-
-/* Kommentaari menï¿½ï¿½ */
+/* Kommentaari menüü */
 #kommentaar-menu-del{
-	cursor: pointer;
-	background: url("../Images/close_x14.png") no-repeat;
-	width: 14px;
-	height: 14px;
-	display: block;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	padding-bottom: 3px;
-	border: 0;
-	outline: 0; /* Et sinist ï¿½ï¿½rt peale vajutamist ei oleks */
-/* 	opacity: 0; */
+	cursor:pointer;
+	background:url("../Images/close_x14.png") no-repeat;
+	width:14px;
+	height:14px;
+	display:block;
+	position:absolute;
+	right:0;
+	bottom:0;
+	padding-bottom:3px;
+	border:0;
+	outline:0; /* Et sinist äärt peale vajutamist ei oleks */
 }
-#kommentaar-menu-del:hover {
-	background: url("../Images/close2_x14.png") no-repeat;
+#kommentaar-menu-del:hover{
+	background:url("../Images/close2_x14.png") no-repeat;
 }
-
 .clear{
 	clear:both;
 }

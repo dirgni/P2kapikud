@@ -1,71 +1,40 @@
-label {
-	width: 100%;
-	height: 100%;
-	display: block;
-	cursor: pointer;
-	text-align: center;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	font-weight: bold;
+label{
+	width:100%;
+	height:100%;
+	display:block;
+	cursor:pointer;
+	text-align:center;
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	font-weight:bold;
 }
-h1 {
-	color: #453823;
-	padding-bottom: 3%;
+h1{
+	color:#453823;
+	padding-bottom:3%;
 }
-
-#keskmine {
-	overflow: auto;
-	clear: both;
+#keskmine{
+	overflow:auto;
+	clear:both;
 }
-.uudise-lisamine-wrapper {
-	text-align: center;
+.uudise-lisamine-wrapper{
+	text-align:center;
 }
-#uudise-vorm {
-	display: inline-block;
-	width: 90%;
-	text-align: left;	
+#uudise-vorm{
+	display:inline-block;
+	width:90%;
+	text-align:left;	
 }
-#uudise-vorm input {
-	width: 50%;
+#uudise-vorm input{
+	width:50%;
 }
-/* #uudise-vorm input[type="file"]{ */
-/* 	width: 100%; */
-/* } */
-
-#uudise-vorm textarea {
-	width: 100%;
-	resize: none;
-	overflow: auto;
+#uudise-vorm textarea{
+	width:100%;
+	resize:none;
+	overflow:auto;
 }
-#uudise-vorm * {
-	margin-bottom: 1%;
+#uudise-vorm *{
+	margin-bottom:1%;
 }
-
-/* Image upload fancy box - start */
-/* #def-hide{ */
-/* 	cursor: pointer; */
-/* 	opacity: 0; */
-/* 	position: absolute; */
-/* 	top: 0; */
-/* 	bottom: 0; */
-/* 	left: 0; */
-/* 	right: 0; */
-/* } */
-
-/* #input-image-wrap { */
-/* 	border: #B0AB78 dashed; */
-/* 	width: 50%; */
-/* 	position: relative; */
-/* 	display: inline-block; */
-/* 	background: url("../Images/add-img3.png") #DDD9B4 no-repeat center; */
-/* } */
-
-/* #input-image-wrap:before { */
-/* 	content: ""; */
-/* 	display: block; */
-/* 	padding-top: 70%; */
-/* } */
-/* Image upload fancy box - end */
