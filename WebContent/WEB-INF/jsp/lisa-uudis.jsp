@@ -37,12 +37,16 @@
 			 	<form id="uudise-vorm" enctype="multipart/form-data" method="post" target="lamp">
 					<div id="uudise-andmed">
 						<h1>Postita uudis</h1>
+						<!--[if lte IE 9]>Uudise pealkiri: <![endif]-->
 						<input type="text" name="pealkiri" placeholder="Pealkiri">
+						<!--[if lte IE 9]>Pildilink: <![endif]-->
 						<input type="url" name="pilt" placeholder="http://pildi.url.com" accept="image/jpg,image/png">
+						<!--[if lte IE 9]>Sisu: <![endif]-->
 						<textarea rows="7" name="tekst" placeholder="Sisu"></textarea>
 					</div> <!-- uudise-andmed -->
 
 					<div class="tagide-valik">
+						<!--[if lte IE 9]>Tagid: <![endif]-->
  						<input class="uudise-tagid" name="uudise-tagid" type="text" autocomplete="on" placeholder="tags">
  					</div> <!-- tagide-valik -->
  					

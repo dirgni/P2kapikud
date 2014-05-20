@@ -81,9 +81,11 @@
 								</span>
 							</c:when>
 							<c:otherwise>
+								<!--[if lte IE 9]>Kommenteerija nimi: <![endif]-->
 								<input id="kommentaar-nimi" class="input-field" name="Nimi" placeholder="Nimi" type="text">
 							</c:otherwise>
 						</c:choose>
+						<!--[if lte IE 9]>Kirjuta kommentaar: <![endif]-->
 	 					<textarea id="kommentaar-sisu" class="input-field" name="content" placeholder="Sisestage oma kommentaar siia." rows="5"></textarea>
 		 				<input id="uudis-id" type="hidden" name="uudisId" value="${uudis.id}">
 		 				<input class="submit-button" type="button" value="Kommenteeri" onclick="postitaKommentaar()">
