@@ -33,7 +33,7 @@ function preview(uudisId) {
 			tr.parentNode.insertBefore(newTR, tr.nextSibling);
 			
 			// Muudame hashi URLil
-			window.location.hash = uudisId;
+			window.location.replace("#"+uudisId);
 		}
 	};
 	
