@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 	$('.karusell_button_left').css({"display":"block"});
 	$('#liner').css({"display":"block"});

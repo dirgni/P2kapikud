@@ -1,3 +1,4 @@
+//KUSTUTA KOMMENTAAR
 function kustutaKommentaar(kommentaarId, uudisId) {
 	var params = "kId="+kommentaarId+"&uudisId="+uudisId;
 	

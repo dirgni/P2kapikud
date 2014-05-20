@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="CSS/meltinud.css">
 
 <div id="pealmine">
 	<div id="pealmine_vasakpoolne">

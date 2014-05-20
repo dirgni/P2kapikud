@@ -13,12 +13,15 @@
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
 	<![endif]-->
-	<link rel="stylesheet" type="text/css" href="CSS/uudis.css">
-	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
+	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/postita-kommentaar.js"></script>
+	<c:if test="${klient.roll == 'admin'}">
+		<script type="text/javascript" src="JavaScript/kustuta-kommentaar.js"></script>
+	</c:if>	
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
@@ -120,12 +123,7 @@
 		<%@include file="jupid/jalus.jsp" %>
 
 	</div><!-- Rakendus -->
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/postita-kommentaar.js"></script>
-	<script type="text/javascript" src="JavaScript/datapushKommentaar.js"></script>
-	<c:if test="${klient.roll == 'admin'}">
-	<script type="text/javascript" src="JavaScript/kustuta-kommentaar.js"></script>
-	</c:if>	
+	
 </body>
 
 </html>

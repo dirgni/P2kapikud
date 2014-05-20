@@ -1,3 +1,4 @@
+//Postita kommentaar
 function postitaKommentaar() {
 	var nimi = document.getElementById("kommentaar-nimi").value;
 	var tekst = document.getElementById("kommentaar-sisu").value;

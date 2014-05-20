@@ -1,3 +1,4 @@
+//Postita uudis
 function postitaUudis() {
 	var uudis = document.getElementById("uudise-vorm");
 	

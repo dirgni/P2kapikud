@@ -15,14 +15,14 @@
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
 	<![endif]-->
-	<link rel="stylesheet" type="text/css" href="CSS/avaleht.css">
-	<link rel="stylesheet" type="text/css" href="CSS/uudis.css">
-	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="http://cdn.jquerytools.org/1.2.7/full/jquery.tools.min.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
+	
+	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/karusell.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
@@ -97,9 +97,7 @@
 		
 	</div><!-- Rakendus -->
 	
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/karusell.js"></script>
-	<script type="text/javascript" src="JavaScript/facebook.js"></script>
+	
 </body>
 
 </html>

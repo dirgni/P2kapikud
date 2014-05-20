@@ -14,12 +14,14 @@
 	<!--[if lte IE 8]>
 		<link rel="stylesheet" type="text/css" href="CSS/ie8-and-down.css">
 	<![endif]-->
-	<link rel="stylesheet" type="text/css" href="CSS/tabel.css">
-	<link rel="stylesheet" type="text/css" href="CSS/tablesorter.css">
-	<link rel="stylesheet" type="text/css" href="CSS/usermenu.css">
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
+	
+	<script type="text/javascript" src="JavaScript/sortimineTabel.js"></script>
+	<script type="text/javascript" src="JavaScript/validation.js"></script>
+	<script type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="JavaScript/jquery.tablesorter.pager.js"></script>
 	
 	<link rel="icon" type="image/png" href="Images/logo-small.png">
 </head>
@@ -83,12 +85,7 @@
 		<%@include file="jupid/jalus.jsp" %>
 		
 	</div> <!-- Rakendus -->
-	<script type="text/javascript" src="JavaScript/sortimineTabel.js"></script>
-	<script type="text/javascript" src="JavaScript/validation.js"></script>
-	<script type="text/javascript" src="JavaScript/datapushTabel.js"></script>
-	<script type="text/javascript" src="JavaScript/tabel-uudis-eelvaade.js"></script>
-	<script type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
-	<script type="text/javascript" src="JavaScript/jquery.tablesorter.pager.js"></script>
+	
 </body>
 
 </html>
