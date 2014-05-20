@@ -19,7 +19,8 @@
 		</div>
 		<div id="otsing">
 			<form action="otsing">
-		 		<input type="text" name="otsing" placeholder="Sisesta otsisõna">
+				<!--[if lte IE 9]>Sisesta otsisõna: <![endif]-->
+				<input type="text" name="otsing"  placeholder="Sisesta otsisõna">
 		 	</form>
 		</div> <!-- otsing -->
 	</div> <!-- pealmine_parempoolne -->
