@@ -15,6 +15,7 @@ li.inactive{
 	display: none;
 }
 .karusell_button_left{
+	cursor: pointer;
 	background: url(../Images/arrowl.png) no-repeat;
 	width: 18px;
 	height: 18px;
@@ -29,6 +30,7 @@ li.inactive{
 	opacity: 0.8;
 }
 .karusell_button_right{
+	cursor: pointer;
 	background: url(../Images/arrowr.png) no-repeat;
 	width: 18px;
 	height: 18px;
