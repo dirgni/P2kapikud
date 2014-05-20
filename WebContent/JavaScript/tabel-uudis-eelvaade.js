@@ -1,6 +1,6 @@
 function preview(uudisId) {
 	var params = "uudisId="+uudisId;
-	
+	console.log("preview("+uudisId+")");
 	var xmlrequest;
 	if (window.XMLHttpRequest) {
 		xmlrequest = new XMLHttpRequest();

@@ -24,6 +24,7 @@
 	<script type="text/javascript" src="JavaScript/scripture.js"></script>
 	<script type="text/javascript" src="JavaScript/validation.js"></script>
 	<script type="text/javascript" src="JavaScript/datapushTabel.js"></script>
+	<script type="text/javascript" src="JavaScript/tabel-uudis-eelvaade.js"></script>
 	
 	<script type="text/javascript" src="JavaScript/jquery.tablesorter.min.js"></script>
 	<script type="text/javascript" src="JavaScript/jquery.tablesorter.pager.js"></script>
@@ -67,7 +68,7 @@
 					<c:if test="${!empty (uudised)}">
 						<tbody>
 							<c:forEach items="${uudised}" var="uudis">
-								<tr>
+								<tr id="uudisId-${uudis.id}" onclick="preview(${uudis.id})">
 									<td>${uudis.kuupäev}</td>
 									<td>${uudis.kell}</td>
 									<td><a class="temp_link" href="uudis?uudisId=${uudis.id}">${uudis.pealkiri}</a></td>
