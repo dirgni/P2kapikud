@@ -37,7 +37,7 @@ input, textarea {
 
 /* P�is - start */
 #pealmine {
-	padding: 55px 0% 2% 0%;
+	padding: 55px 0% 55px 0%;
 	width: 95%;
 	max-width: 960px;
 	height: 100px;
@@ -85,14 +85,12 @@ input, textarea {
 	position: absolute;
 	right: 0;
 }
-
 /* Nupud - start */
 #buttons {
 	position: relative;
 	width: 100%;
-	height: 50%;
+	height: 35%;
 }
-
 /* Login nupp - start */
 #LOGIN-button{
 /* 	width: 55%; */
@@ -180,7 +178,6 @@ input, textarea {
 	max-width: 960px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 3%;
 	display: block;
 	position: relative;
 	height: inherit;
@@ -200,12 +197,10 @@ input, textarea {
 	margin-right: auto;
 	display: block;
 }
-
 #valideeringud{
 	width: 100%;
 	height: 100%;
 }
-
 #html-valid {
 	height: 31px;
 	box-shadow: 1px 1px 1px #453823;
@@ -263,7 +258,6 @@ input, textarea {
 	text-decoration: none;
 }
 
-=======
 /* Meldi&Registreeri aken - start */
 #Meldi {
 	width: 100%;

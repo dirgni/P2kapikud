@@ -41,7 +41,7 @@ input, textarea{
 	text-align: left;
 	padding: 15px 30px 15px 15px;
 	background: rgba(255, 255, 255, 0.6);
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	float: left;
 	width: 30%;
 	min-height: 400px;
 	overflow-y: scroll;

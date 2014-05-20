@@ -1,18 +1,18 @@
 body {
 	background: none;
-	background-color: #F5F0C6;
+	background-color: #F5F0C6; 
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader( enabled='true'
+	src='../Images/bjoon.png', sizingMethod='scale')";
 }
 
-/* -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)"; */
+.uudise-tekst {
+	background: #F5F0C6;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+}
 
-/* Logo - start*/
-
-
-.logo-meld {
-	width: 50%;
-	height: 100%;
-	background-position: center;
-	background-image: url(../Images/logo-small.png);
+#esi-uudis-wrapper {
+	-ms-background-position-x: 100%;
+	background-color: #F5F0C6;
 }
 
 #html-valid, #css-valid{
