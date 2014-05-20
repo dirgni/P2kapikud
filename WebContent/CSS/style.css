@@ -4,7 +4,7 @@
 */
 
 html {
-	min-width: 320px;
+	min-width: 300px;
 	min-height: 400px;
 
 	padding: 0;
@@ -18,7 +18,6 @@ body {
 	margin: 0;
 	background-color: #FFFFFF;
 	font-family: Cambria, Georgia, serif;
-	overflow-y: scroll;
 	background: url("../Images/bjoon.png") no-repeat top center;
 	-webkit-background-size: 100% auto;
 	-moz-background-size: 100% auto;
